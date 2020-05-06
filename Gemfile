@@ -21,11 +21,20 @@ gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+
+# Use jquery as the JavaScript library
+gem 'jquery-rails'
+# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
+# gem 'turbolinks', '~> 5'
+# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
+group :production do
+  gem 'unicorn', '5.4.1'
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+end
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
@@ -39,6 +48,16 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'pry-rails'
+  gem 'rspec-rails', '~> 3.5'
+  gem 'rails-controller-testing'
+  gem 'factory_bot_rails'
+  gem 'faker'
+  gem 'capistrano'
+  gem 'capistrano-rbenv'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano3-unicorn'
 end
 
 group :development do
@@ -62,13 +81,11 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # gem 'haml-rails'
-# gem 'erb2haml'
-gem 'pry-rails'
-gem 'compass-rails', '3.1.0'
-gem 'sprockets', '3.7.2'
+gem 'compass-rails'
+gem 'sprockets'
 gem 'devise'
-gem 'jquery-rails'
 gem 'kaminari'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'font-awesome-sass'
+gem 'fog-aws'
