@@ -77,7 +77,7 @@
 - has_many :comments, dependent: :destroy
 - has_many :favorites
 - has_many :item_images, dependent: :destroy
-- has_one :userreview
+- has_one :user_review
 - belongs_to :category
 - belongs_to :active_hash :size
 - belongs_to :active_hash :condition
