@@ -16,7 +16,7 @@
 ### Association
 - has_many :comments, dependent: :destroy
 - has_many :favorites, dependent: :destroy
-has_many :todo_lists
+- has_many :todo_lists
 - has_many :user_reviews
 - has_many :seller_items(foreign_key: "seller_id", class_name: "items")
 - has_many :buyer_items(foreign_key: "buyer_id", class_name: "items")
