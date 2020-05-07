@@ -1,7 +1,4 @@
-class ItemsController < ApplicationController
-
-  def index
-  end
+class UsersController < ApplicationController
 
   def new
   end
@@ -20,8 +17,5 @@ class ItemsController < ApplicationController
 
   def show
   end
-
-  def buy
-  end
-
+  
 end
