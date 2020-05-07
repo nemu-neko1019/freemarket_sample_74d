@@ -1,0 +1,32 @@
+.topHeader
+  .headerInner
+    .mainHeader
+      .icon
+        %a{:href => "/"}
+          %img{:src => "/assets/logo-d3d78326971d78b06e3d6f0ba666d025a8ad681286b4d9e00e7dbe8673bcfd23.svg"}/
+      .searchBox
+        %form{"accept-charset" => "UTF-8", :action => "#", :method => "get"}
+          %input{:name => "utf8", :type => "hidden", :value => "✓"}/
+          %input#searchInput.searchBox--input{:name => "key", :placeholder => "キーワードから探す"}/
+          %button{:type => "submit"}
+            .searchBox__icon
+              %img{:src => "/assets/icon-search-60a83ada85216fe00789cd16065281694d9a08948275fef83683fadcf131d84d.svg"}/
+          %input{:name => "authenticity_token", :type => "hidden", :value => "Ki8VkNyvNLkAz9WBdSjyWLGZEp8Qvtnd7MnjNr08nSozFuPtkF+ckcfxxys4EdL+M9b7VOIzeDngTcLVSei8ZQ=="}/
+          
+      %ul.resultLists
+    .nav
+      %ul.liostsLeft
+        %li.listsLeft__item.listsLeft__item--first
+          %a#catBtn{:href => "#"} カテゴリー
+          .tree.displayNone
+            %ul.categoryTree 全ての商品一覧
+        %li.listsLeft__item
+          %a#brandBtn{:href => "#"} ブランド
+          %ul.brandsPulldown.displayNone
+      %ul.listsRight
+        %li.listsRight__item.listsRight__item--login
+          %a{:href => "#"} ログイン
+        %li.listsRight__item.listsRight__item--new
+          %a{:href => "#"} 新規会員登録
+
+  
