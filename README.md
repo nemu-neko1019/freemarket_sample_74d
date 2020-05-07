@@ -142,6 +142,17 @@
 ### Association
 - has_many :items
 
+## credit_cardsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|card_number|integer|null: false, unique: true|
+|expiration_year|integer|null: false|
+|expiration_month|integer|null: false|
+|security_code|integer|null: false|
+|user_id|references|null: false, foreign_key: true|
+### Association
+- belongs_to :user
+
 
 # Gem(active_hashを使用)
 
