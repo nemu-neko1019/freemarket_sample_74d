@@ -1,0 +1,68 @@
+.login
+  .login__header
+    = image_tag("/material/logo/logo.png", class: "signup__header--logo")
+  .login__main
+    .login__main__contents
+      %input{class: "user_input_text", placeholder: "メールアドレス"}
+      %input{class: "user_input_text", placeholder: "パスワード"}
+      %button.login__main__contents__tarm--button ログイン
+      %span.signup_explanation_blue パスワードをお忘れの方
+  .login__footer
+    = image_tag("/material/logo/logo-white.png", class: "signup__footer--logo")
+
+
+
+.address
+  .address__header
+  .address__main
+  .address__footer
+  
+    .signup__main__contents
+    .signup__main__contents__nickname
+      %p.item_headline ニックネーム
+      %p.required_label 必須
+      %input{class: "user_input_text", placeholder: "例）メルカリ太郎"}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-# <h2>Log in</h2>
+
+-# <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+-#   <div class="field">
+-#     <%= f.label :email %><br />
+-#     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+-#   </div>
+
+-#   <div class="field">
+-#     <%= f.label :password %><br />
+-#     <%= f.password_field :password, autocomplete: "current-password" %>
+-#   </div>
+
+-#   <% if devise_mapping.rememberable? %>
+-#     <div class="field">
+-#       <%= f.check_box :remember_me %>
+-#       <%= f.label :remember_me %>
+-#     </div>
+-#   <% end %>
+
+-#   <div class="actions">
+-#     <%= f.submit "Log in" %>
+-#   </div>
+-# <% end %>
+
+-# <%= render "devise/shared/links" %>

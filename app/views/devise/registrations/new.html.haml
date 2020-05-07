@@ -1,0 +1,83 @@
+.signup
+  .signup__header
+    = image_tag("/material/logo/logo.png", class: "signup__header--logo")
+  .signup__main
+    .signup__main--top
+      会員情報入力
+    .signup__main__contents
+      .signup__main__contents__nickname
+        %p.item_headline ニックネーム
+        %p.required_label 必須
+        %input{class: "user_input_text", placeholder: "例）メルカリ太郎"}
+      .signup__main__contents__email
+        %p.item_headline メールアドレス
+        %p.required_label 必須
+        %input{class: "user_input_text", placeholder: "PC・携帯どちらでも可"}
+      .signup__main__contents__password
+        %p.item_headline パスワード
+        %p.required_label 必須
+        %input{class: "user_input_text", placeholder: "7文字以上の半角英数字"}
+      .signup__main__contents__confirmation
+        %p.item_headline パスワード(確認用)
+        %p.required_label 必須
+        %input{class: "user_input_text", placeholder: "先ほど入力したpassを入力してください"}
+        %p.signup_explanation_gray ※英字と数字の両方を含めて設定してください
+      .signup__main__contents__identification
+        %p.signup_explanation_bold 本人確認
+        %p.signup_explanation_black
+      .signup__main__contents__name
+        %p.item_headline お名前(全角)
+        %p.required_label 必須
+        %input{class: "user_input_name", placeholder: "例）山田"}
+        %input{class: "user_input_name", placeholder: "例）彩"}
+      .signup__main__contents__kana
+        %p.item_headline お名前カナ(全角)
+        %p.required_label 必須
+        %input{class: "user_input_name", placeholder: "例）山田"}
+        %input{class: "user_input_name", placeholder: "例）彩"}
+      .signup__main__contents__birth
+        %p.item_headline 生年月日
+        %p.required_label 必須
+        %input{class: "user_input_name", placeholder: "例）山田"}
+        %input{class: "user_input_name", placeholder: "例）彩"}
+      .signup__main__contents__tarm
+        %p.signup_explanation_gray ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+        %p.signup_explanation_black 「次へ進む」のボタンを押すことにより、
+        %span.signup_explanation_blue 利用規約
+        %p.signup_explanation_black に同意したものとみなします
+      %button.signup__main__contents__tarm--button 次へ
+  .signup__footer
+    = image_tag("/material/logo/logo-white.png", class: "signup__footer--logo")
+
+
+-# <%= image_tag("/material/logo/logo.png"),  %>
+
+-# ="<h2>Sign up</h2>
+
+-# <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+-#   <%= render "devise/shared/error_messages", resource: resource %>
+
+-#   <div class="field">
+-#     <%= f.label :email %><br />
+-#     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+-#   </div>
+
+-#   <div class="field">
+-#     <%= f.label :password %>
+-#     <% if @minimum_password_length %>
+-#     <em>(<%= @minimum_password_length %> characters minimum)</em>
+-#     <% end %><br />
+-#     <%= f.password_field :password, autocomplete: "new-password" %>
+-#   </div>
+
+-#   <div class="field">
+-#     <%= f.label :password_confirmation %><br />
+-#     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+-#   </div>
+
+-#   <div class="actions">
+-#     <%= f.submit "Sign up" %>
+-#   </div>
+-# <% end %>
+
+-# <%= render "devise/shared/links" %>"
