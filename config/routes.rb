@@ -6,5 +6,11 @@ Rails.application.routes.draw do
       get "buy"
     end
   end
-  resources :users, except: :index
+  resources :users, except: :index do
+    collection do
+      get "address"
+      get "complete_signup"
+      get "complete_logout"
+    end
+  end
 end
