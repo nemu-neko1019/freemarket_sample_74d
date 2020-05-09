@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :items do
     member do
       get "buy"
+      get "complete_buy"
     end
   end
   resources :users, except: :index

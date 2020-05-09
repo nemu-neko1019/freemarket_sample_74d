@@ -1,0 +1,28 @@
+.buy
+  .buy__header
+    = link_to image_tag("/material/logo/logo.png", class: "buy__header__top--logo"), root_path, class: "buy__header__top"
+  .buy__main
+    .buy__main--top
+      購入内容の確認
+    .buy__main__goods
+      = image_tag("/material/pict/pict-reason-03.jpg", class: "buy__main__goods--image")
+      .buy__main__goods__text
+        %p ビーズタンクトップ
+        %p.small_bold_text ￥300（税込）送料込み
+    .buy__main__items
+      .buy__main__items__item
+        #pay_price
+          %p.large_bold_text 支払い金額
+          %p.large_bold_text ￥300
+      .buy__main__items__item
+        %p.small_bold_text 支払い方法
+        %p クレジットカード
+        %p ************0000
+        %p 有効期限01/01
+      .buy__main__items__item
+        %p.small_bold_text 配送先
+        %p 〒999-999
+        %p 大阪府大阪市北区梅田99-99 フリマビル
+        %p フリマ太郎
+      = link_to "購入する", root_path, class: "buy__main__items--button"
+  .buy__footer
