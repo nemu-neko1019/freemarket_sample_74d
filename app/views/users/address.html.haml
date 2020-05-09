@@ -36,6 +36,10 @@
         %p.item_headline 建物名
         %p.required_label#label_gray 任意
         %input{class: "user_input_text", placeholder: "furimaビル"}
+      .usersession__main__contents__item
+        %p.item_headline 電話番号
+        %p.required_label 必須
+        %input{class: "user_input_text", placeholder: "例）09012345678"}
         %p.usersession_explanation_gray ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
       =link_to "次へ進む", complete_signup_users_path, class: "usersession__main__contents--button"
   .usersession__footer
