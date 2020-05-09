@@ -1,21 +1,10 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+ * {
+  box-sizing: border-box;
+}
+
 
 @import "reset";
-@import "font-awesome-sporockets";
+@import "font-awesome-sprockets";
 @import "font-awesome";
 @import "modules/index";
 @import "modules/user_new";
@@ -23,6 +12,8 @@
 @import "modules/item_new";
 @import "modules/item_show";
 @import "modules/item_buy";
-@import "header";
-@import "index";
-@import "footer";
+@import "modules/header";
+@import "modules/index";
+@import "modules/footer";
+@import "modules/exhibitionBtn";
+@import "modules/appBanner.scss";
