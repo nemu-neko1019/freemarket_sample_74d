@@ -5,7 +5,12 @@ Rails.application.routes.draw do
     member do
       get "buy"
     end
-  end 
-  resources :users, except: :index
-    get 'users/:buy_product', controller: 'users',action: 'edit'
+  end
+  resources :users, except: :index do
+    collection do
+      get "address"
+      get "complete_signup"
+      get "complete_logout"
+    end
+  end
 end

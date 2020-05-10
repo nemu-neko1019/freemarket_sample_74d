@@ -18,5 +18,14 @@ class UsersController < ApplicationController
 
   def show
   end
+
+  def address
+  end
+
+  def complete_signup
+  end
+
+  def complete_logout
+  end
   
 end
