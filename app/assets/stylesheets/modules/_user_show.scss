@@ -1,0 +1,133 @@
+.main-container {
+  background-color: #f8f8f8;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  padding: 40px 0;
+  overflow: scroll;
+  .side,a {
+    width: 260px;
+    margin-left:  auto;
+    margin-right: 40px;
+    display: block;
+    text-decoration: none;
+    color: black;
+    .side-box {
+      border-bottom: solid 2px #f8f8f8;
+      background-color: white;
+      font-size: 14px;
+      padding: 16px;
+    }
+    .side-info {
+      font-size: 14px;
+      padding: 16px;
+    }
+  }
+  .right {
+    width: 700px;
+    margin-right: auto;
+    .header{
+      background-image: url("/images/44631706_p0_master1200.jpg");
+      height: 200px;
+      background-size: cover;
+      padding:40px;
+      .user-box {
+        margin: 0 auto;
+        height: 120px;
+        
+        &__image {
+          background-image: url("/material/icon/member_photo_noimage_thumb.png");
+          background-size: cover;
+          width: 80px;
+          height: 80px;
+          margin: 0 auto;
+        }
+        &__name{
+          font-size: small;
+          text-align: center;
+        }
+        &__status {
+          font-size: small;
+          display: flex;
+          &--evaluation {
+            margin-left: auto;
+            font-size: small;
+          }
+          &--number-of-exhibits {
+            margin-left: 20px;
+            margin-right: auto;
+            font-size: small;
+          }
+        }
+      }
+    }
+    .mypage-tab {
+      background-color: #eee;
+      height: 100px;
+      display: flex;
+      &__title--choice {
+        border-top: solid crimson 2px;
+        width: 50%;
+        background-color: white;
+        line-height: 100px;
+        text-align: center;
+      }
+      &__title{
+        width: 50%;
+        line-height: 100px;
+        text-align: center;
+      }
+      &__text {
+        background-color: white;
+        height: 300px;
+        color: darkgrey;
+        line-height: 300px;
+        text-align: center;
+      }
+    }
+    .card-registration {
+      height: 50px;
+      text-align: center;
+      background-color: white;
+      line-height: 50px;
+      border-bottom: solid 2px #f8f8f8;
+      form {
+        height: 520px;
+        background-color: white;
+        justify-content: center;
+        padding: 30px;
+        .card-registration__title {
+          margin-top: 30px;
+        }
+        span.require {
+          background-color: #3ccace;
+          color: #ffffff;
+          border-radius: 5px;
+        }
+        input#card_number{
+          width: 350px;
+          border-radius: 5px;
+          height: 40px;
+          font-size: 16px;
+        }
+        input#security_code{
+          height: 40px;
+          width: 350px;
+          font-size: 16px;
+          border-radius: 5px;
+          display: block;
+          margin: 0 auto;
+        }
+        div.card-registration__btn{
+          margin-top: 30px;
+        }
+        input.card-registration__btn--submit {
+          width: 350px;
+          background-color: #3ccace;
+          color: #ffffff;
+          border-radius: 5px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+.right
+  .card-registration
+    クレジットカード情報入力
+    = form_with model: @credit_card do |f|
+      .card-registration__title
+        カード番号
+        %span{class: "require"}必須
+      = f.text_field :card_number, {class: "card-registration__text", placeholder: "半角数字のみ"}
+      .card-registration__title
+        有効期限
+        %span{class: "require"}必須
+        .date-box
+          - month = ["01"]
+          - for num in 1..12
+            - month << num
+          = f.select :expiration_month, month,{}, class: "card-registration__select"
+          月
+          - year =["20"]
+          - for num in 20..30
+            - year << num
+          = f.select :expiration_year, year,{}, class: "card-registration__select"
+          年
+      .card-registration__title
+        セキュリティコード
+        %span{class: "require"}必須
+        = f.text_field :security_code, {class: "card-registration__text", placeholder: "カード背面の４桁または３桁の数字"}
+      .card-registration__title
+        = f.submit "次へ", class: "card-registration__btn--submit"

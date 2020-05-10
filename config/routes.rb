@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     member do
       get "buy"
     end
-  end
+  end 
   resources :users, except: :index
+    get 'users/:buy_product', controller: 'users',action: 'edit'
 end
