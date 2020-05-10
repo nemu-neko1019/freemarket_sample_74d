@@ -6,9 +6,9 @@
     = link_to "出品した商品-出品中", {controller: "users", action:"edit", name: "_exhibiting"}, class: "side-box"
     = link_to "出品した商品-取引中", {controller: "users", action:"edit", name: "_exhibition-trading"}, class: "side-box"
     = link_to "出品した商品-売却済み", {controller: "users", action:"edit", name: "_exhibition-sold"}, class: "side-box" 
-    = link_to "購入した商品-取引中", {controller: "users", action:"edit", name: "_buy_product-trading"},class: "side-box"
     .side-box__choice
-      購入した商品-過去の取引 
+      購入した商品-取引中
+    = link_to "購入した商品-過去の取引", {controller: "users", action:"edit", name: "_buy_product"},class: "side-box" 
     = link_to "#",class: "side-box" do
       評価一覧
     .side-info
@@ -27,9 +27,9 @@
     = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "side-box"
   .right
     .mypage-tab
-      .mypage-tab__title
-        購入した商品-取引中
       .mypage-tab__title--choice
+        購入した商品-取引中
+      .mypage-tab__title
         購入した商品-過去の取引
     .mypage-tab__text
       商品一覧

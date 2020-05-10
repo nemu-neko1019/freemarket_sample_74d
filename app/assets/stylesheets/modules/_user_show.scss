@@ -3,15 +3,21 @@
   width: 100vw;
   height: 100vh;
   display: flex;
+  justify-content: center;
   padding: 40px 0;
   overflow: scroll;
   .side,a {
     width: 260px;
-    margin-left:  auto;
     margin-right: 40px;
     display: block;
     text-decoration: none;
     color: black;
+    .side-box__choice{
+      border-bottom: solid 2px #f8f8f8;
+      background-color: #eee;
+      font-size: 14px;
+      padding: 16px;
+    }
     .side-box {
       border-bottom: solid 2px #f8f8f8;
       background-color: white;
@@ -19,13 +25,15 @@
       padding: 16px;
     }
     .side-info {
-      font-size: 14px;
-      padding: 16px;
+      height: 55px;
+      padding-top: 34px;
+      font-weight: bold;
+      font-size: 16px;
     }
   }
   .right {
     width: 700px;
-    margin-right: auto;
+    
     .header{
       background-image: url("/images/44631706_p0_master1200.jpg");
       height: 200px;
@@ -128,6 +136,22 @@
           border-radius: 5px;
         }
       }
+    }
+    .exhibition-title{
+      height: 70px;
+      line-height: 70px;
+    }
+    .mypage-tab__trio--choice{
+      width: calc( 100% / 3 );
+      background-color: white;
+      text-align: center;
+      line-height: 100px;
+      border-top: solid 2px red;
+    }
+    .mypage-tab__trio{
+      width: calc( 100% / 3 );
+      text-align: center;
+      line-height: 100px;
     }
   }
 }

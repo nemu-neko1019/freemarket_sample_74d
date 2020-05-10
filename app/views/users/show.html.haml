@@ -1,14 +1,14 @@
 .main-container
   .side
+    .side-box__choice
+      マイページ
     = link_to "#",class: "side-box" do
       出品する
-    = link_to "#",class: "side-box" do
-      出品した商品-取引中
-    = link_to "#",class: "side-box" do
-      出品した商品-売却済み
-    = link_to "購入した商品-取引中", {controller: "users", action:"edit", name: "buy_product"},class: "side-box"
-    = link_to "#",class: "side-box" do
-      購入した商品-過去の取引
+    = link_to "出品した商品-出品中", {controller: "users", action:"edit", name: "_exhibiting"}, class: "side-box"
+    = link_to "出品した商品-取引中", {controller: "users", action:"edit", name: "_exhibition-trading"}, class: "side-box"
+    = link_to "出品した商品-売却済み", {controller: "users", action:"edit", name: "_exhibition-sold"}, class: "side-box" 
+    = link_to "購入した商品-取引中", {controller: "users", action:"edit", name: "_buy_product-trading"},class: "side-box"
+    = link_to "購入した商品-過去の取引", {controller: "users", action:"edit", name: "_buy_product"},class: "side-box" 
     = link_to "#",class: "side-box" do
       評価一覧
     .side-info
@@ -17,8 +17,7 @@
       プロフィール
     = link_to "#",class: "side-box" do
       発送元・お届け先住所変更
-    = link_to "#",class: "side-box" do
-      クレジットカード登録
+    = link_to "クレジットカード登録", {controller: "users", action:"edit", name: "_card_registration"}, class: "side-box"
     = link_to "#",class: "side-box" do
       メール/パスワード
     = link_to "#",class: "side-box" do
@@ -26,5 +25,20 @@
     = link_to "#",class: "side-box" do
       電話番号の確認
     = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "side-box"
-
-  = render "card_registration"
+  .right
+    .header
+      .user-box
+        .user-box__image 
+        .user-box__name
+          name
+        .user-box__status
+          .user-box__status--evaluation
+            評価
+          .user-box__status--number-of-exhibits
+            出品数
+    .mypage-tab
+      .mypage-tab__title--choice
+        やることリスト
+      .mypage-tab__title
+    .mypage-tab__text
+      現在やることはありません

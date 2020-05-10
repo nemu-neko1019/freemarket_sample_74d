@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     end
   end
   resources :users, except: :index do
+    get 'users/:name', controller: 'users', action: 'edit'
     collection do
       get "address"
       get "complete_signup"

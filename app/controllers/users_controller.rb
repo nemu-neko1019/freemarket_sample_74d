@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    render "users/#{params[:buy_product]}", locals: {user: 1 }
+    render "users/#{params[:name]}", locals: {user: current_user }
   end
 
   def update
