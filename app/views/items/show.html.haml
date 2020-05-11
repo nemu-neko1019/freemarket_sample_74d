@@ -2,21 +2,21 @@
   .main__header
     %ul.main__header__lists
       %li
-        %a(href="#")FURIMA
+        = link_to('FURIMA', root_path{index})
       %li
-        %i.fa.fa-angle-right
+        = icon 'angle-right'
       %li
-        %a(href="#")レディース
+        = link_to('レディース', items_path{index})
       %li
-        %i.fa.fa-angle-right
+        = icon 'angle-right'
       %li
-        %a(href="#")トップス
+        = link_to('トップス', items_path{index})
       %li
-        %i.fa.fa-angle-right
+        = icon 'angle-right'
       %li
-        %a(href="#")Tシャツ/カットソー(半袖/袖なし)
+        = link_to('Tシャツ/カットソー(半袖/袖なし)', items_path{index})
       %li
-        %i.fa.fa-angle-right
+        = icon 'angle-right'
       %li
         %p product1
   .main__itempage
@@ -27,14 +27,14 @@
             product1
           .show-main__content__itembox__body
             .show-main__content__itembox__body__images
-              %img(src="https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png")
+              = image_tag 'https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png'
               %ul.mini-images
                 %li.list
-                  %img(src="https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png")
+                  = image_tag 'https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png'
                 %li.list
-                  %img(src="https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/8/a002.png")
+                  = image_tag 'https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/8/a002.png'
                 %li.list
-                  %img(src="https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/9/a003.png")
+                  = image_tag 'https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/9/a003.png'
           .show-main__content__itembox__price
             %p
               ¥10000
@@ -61,11 +61,11 @@
                   %th
                     カテゴリー
                   %td
-                    %a(href="#")レディース
+                    = link_to('レディース', items_path{index})
                     %br/
-                    %a(href="#")トップス
+                    = link_to('トップス', items_path{index})
                     %br/
-                    %a(href="#")Tシャツ/カットソー(半袖/袖なし)
+                    = link_to('Tシャツ/カットソー(半袖/袖なし)', items_path{index})
                 %tr
                   %th
                     ブランド
@@ -90,7 +90,7 @@
                   %th
                     発送元の地域
                   %td
-                    %a(href="#")青森県
+                    = link_to('青森県', "#")
                 %tr
                   %th
                     発送日の目安
@@ -99,12 +99,12 @@
           .show-main__content__itembox__option
             %ul
               %li#likeBtn.optionalBtnlikeBtn
-                %i.fa.fa-star
+                = icon 'star'
                 お気に入り０
             %ul.optional
               %li.optionalBtn
-                %a(href="#")
-                  %i.fa.fa-flag
+                = link_to root_path do
+                  = icon 'flag'
                   不適切な商品の通報
         .show-main__content__comment
           .from-box
@@ -119,18 +119,18 @@
                 %br/
             %br/
             %button(name="btn"  type="submit" class="commentBtn")
-              %i.fa.fa-comment
+              = icon 'comment'
               コメントする
       %ul.show-main__link
         %li
-          %a(href="#")
-            %i.fa.fa-angle-left
+          = link_to root_path do
+            = icon 'angle-left'
             %span
             前の商品
         %li
-          %a(href="#")
+          = link_to root_path do
             %span 後ろの商品
-            %i.fa.fa-angle-right
+            = icon 'angle-right'
       .show-main__reloaditems
-        %a(href="#")レディースをもっと見る
+        = link_to('レディースをもっと見る', items_path{index})
         .productLists
