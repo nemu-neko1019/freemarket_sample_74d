@@ -5,6 +5,9 @@ Rails.application.routes.draw do
     member do
       get "buy"
     end
+    collection do
+      get "complete_buy"
+    end
   end
   resources :users, except: :index do
     collection do
