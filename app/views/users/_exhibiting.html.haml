@@ -1,0 +1,39 @@
+.main-container
+  .side
+    = link_to "マイページ", user_path,class: "side-box"
+    = link_to "#",class: "side-box" do
+      出品する
+    .side-box__choice
+      出品した商品-出品中
+    = link_to "出品した商品-取引中", {controller: "users", action:"edit", name: "_exhibition-trading"}, class: "side-box"
+    = link_to "出品した商品-売却済み", {controller: "users", action:"edit", name: "_exhibition-sold"}, class: "side-box" 
+    = link_to "購入した商品-取引中", {controller: "users", action:"edit", name: "_buy_product-trading"},class: "side-box"
+    = link_to "購入した商品-過去の取引", {controller: "users", action:"edit", name: "_buy_product"},class: "side-box" 
+    = link_to "#",class: "side-box" do
+      評価一覧
+    .side-info
+      設定
+    = link_to "#",class: "side-box" do
+      プロフィール
+    = link_to "#",class: "side-box" do
+      発送元・お届け先住所変更
+    = link_to "クレジットカード登録", {controller: "users", action:"edit", name: "_card_registration"}, class: "side-box"
+    = link_to "#",class: "side-box" do
+      メール/パスワード
+    = link_to "#",class: "side-box" do
+      本人情報
+    = link_to "#",class: "side-box" do
+      電話番号の確認
+    = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "side-box"
+  .right
+    .exhibition-title
+      出品した商品
+    .mypage-tab
+      .mypage-tab__trio--choice
+        出品中
+      .mypage-tab__trio
+        取引中
+      .mypage-tab__trio
+        売却済み
+    .mypage-tab__text
+      出品中の商品はありません
