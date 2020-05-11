@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+    render "users/#{params[:name]}", locals: {user: current_user }
   end
 
   def update
