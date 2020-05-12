@@ -10,6 +10,6 @@ class User < ApplicationRecord
   has_many :user_reviews
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
-  has_many :buyer_item, class_name: 'Item', :foreign_key => 'buyer_id'
-  has_many :seller_item, class_name: 'Item', :foreign_key => 'seller_id'
+  has_many :buyer_items, class_name: 'Item', :foreign_key => 'buyer_id'
+  has_many :seller_items, class_name: 'Item', :foreign_key => 'seller_id'
 end

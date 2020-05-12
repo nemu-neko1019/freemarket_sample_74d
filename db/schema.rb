@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_11_061555) do
+ActiveRecord::Schema.define(version: 2020_05_12_020629) do
 
-  create_table "blands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -57,18 +57,17 @@ ActiveRecord::Schema.define(version: 2020_05_11_061555) do
     t.text "introduction", null: false
     t.integer "price", null: false
     t.bigint "category_id"
-    t.bigint "bland_id"
+    t.bigint "brand_id"
     t.integer "size", null: false
     t.integer "condition", null: false
     t.integer "postage_payer", null: false
     t.bigint "buyer_id", null: false
     t.bigint "seller_id", null: false
-    t.integer "trading_status", null: false
     t.integer "prefecture_code", null: false
     t.timestamp "deal_closed_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["bland_id"], name: "index_items_on_bland_id"
+    t.index ["brand_id"], name: "index_items_on_brand_id"
     t.index ["buyer_id"], name: "index_items_on_buyer_id"
     t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["seller_id"], name: "index_items_on_seller_id"
@@ -95,6 +94,7 @@ ActiveRecord::Schema.define(version: 2020_05_11_061555) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "postalcode"
     t.index ["user_id"], name: "index_sending_destinations_on_user_id"
   end
 
@@ -143,7 +143,7 @@ ActiveRecord::Schema.define(version: 2020_05_11_061555) do
   add_foreign_key "favorites", "items"
   add_foreign_key "favorites", "users"
   add_foreign_key "item_images", "items"
-  add_foreign_key "items", "blands"
+  add_foreign_key "items", "brands"
   add_foreign_key "items", "categories"
   add_foreign_key "items", "users", column: "buyer_id"
   add_foreign_key "items", "users", column: "seller_id"
