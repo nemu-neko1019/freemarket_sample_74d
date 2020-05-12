@@ -2,7 +2,7 @@ class Item < ApplicationRecord
   has_one :user_review
   has_many :item_images, dependent: :destroy
   belongs_to :category
-  belongs_to :bland
+  belongs_to :brand
   has_many :comments, dependent: :destroy
   has_many :favorites
   belongs_to :buyer, class_name: 'User', :foreign_key => 'buyer_id'
