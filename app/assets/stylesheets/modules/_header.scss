@@ -1,9 +1,8 @@
-
 .wrapper {
   
   .header {
     padding: 0 60px;
-  
+
     &__inner {
     max-width: 1040px;
     width: 100%;
@@ -11,7 +10,6 @@
     margin: 0 auto;
     padding: 15px 0 0;
     
-
       &__main {
       position: relative;
       display: flex;
@@ -46,7 +44,6 @@
               padding: 0 0 0 5px;
         }}}
         
-
         .searchBox {
           margin-left: auto;
           width: 100%;
@@ -64,7 +61,7 @@
 
               img {
                 width: 100%;
-                vertical-align: botto
+                vertical-align: bottom;
               
         }}}}
         
@@ -75,9 +72,8 @@
           top: 36px;
           z-index: 2;
         }
-      
-
       }
+
       .navi {
         font-size: 14px;
         display: flex;
@@ -86,69 +82,100 @@
         .listsLeft{
           position: relative;
           display: flex;
-
-          &__item-category {
+    
+          &__item__category {
+            position: relative;
             text-decoration: none;
             padding: 0;
-          }
-          &__item a {
-            color: #333;
-            text-decoration: none;
-            line-height: 32px;
-            background-position: center right;
-            background-repeat: no-repeat;
-            background-size: 18px;
-            padding-right: 30px;
-          }
-          
-          .displayNone {
-            display: none;
-          }
-
-          .tree{
-            z-index: 2;
-            position: absolute;
-            background-color: #fff;
-            width: 240px;
-            top: 40px;
-            .categoryTree {
-              background-color: #fff;
-              display: flex;
-              flex-direction: column;
-              position: relative;
+            &:hover {
+              color: orange;
+              ul {
+                li {
+                  display:block;
+                  height:44px;               
+                  border-bottom: 1px solid #f8f8f8;            
+            }}}
+            
+              ul {
+                position:absolute;
+                top:37px;
+                z-index: 1000;
+                background-color: #fff;
+                width: 240px;
+                li{
+                  height: 0;
+                  display:none;
+                  
+              }}
+              
+            .categoryBtn {
+              color: #333;
+              text-decoration: none;
+              line-height: 32px;
+              background-position: center right;
+              background-repeat: no-repeat;
+              background-size: 18px;
+              padding-right: 30px;
             }
+            .categoryBtn:hover {
+              color: orange;
+            }
+
+            .categoryTree {
+              &__item {
+                a {
+                color: #333;
+                text-decoration: none;
+                line-height: 32px;
+                background-position: center right;
+                background-repeat: no-repeat;
+                background-size: 18px;
+                padding-right: 30px;
+            }}}  
           }
 
-          &__item {
+
+          &__item__brand {
             display: flex;
             line-height: 38px;
-            padding: 0 0 0 16px;
-
-            .brandsPulldown {
-              position: absolute;
-              z-index: 1;
-              background-color: #fff;
+            padding-left: 16px;
+            a {
+              color: #333;
+              text-decoration: none;
+              line-height: 32px;
+              background-position: center right;
+              background-repeat: no-repeat;
+              background-size: 18px;
+              padding-right: 30px;
             }
-          }}
-        
+
+            .brandBtn:hover {
+              color: orange;
+          } }
+        }
+
         .listsRight {
           margin-left: auto;
           display: flex;
-          &__item {
-            color: #333;
-            line-height: 38px;
-            padding: 0 0 0 16px;
-          
-           a {
-            display: flex;
-            align-items: center;
-            color: #333;
-            text-decoration: none;
-            line-height: 32px;
-          }}
-        
-      }}
-    
-  }}
 
+          &__item__login {
+            line-height: 38px;
+            padding-left: 16px;
+            a {
+              color: #333;
+              text-decoration: none;
+          }}
+          
+
+          &__item__new {
+            line-height: 38px;
+            padding-left: 16px;
+            a {
+              color: #333;
+              text-decoration: none;
+          }}
+        }
+      }
+    }
+  }
 }

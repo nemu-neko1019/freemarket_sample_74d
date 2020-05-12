@@ -16,17 +16,24 @@
       %ul.resultLists
     .navi
       %ul.listsLeft
-        %li.listsLeft__item.listsLeft__item-category
-          %a#catBtn{:href => "#"} カテゴリー
-          .tree.displayNone
-            %ul.categoryTree 全てのカテゴリ一覧
-        %li.listsLeft__item
-          %a#brandBtn{:href => "#"} ブランド
-          %ul.brandsPulldown.displayNone
+        %li.listsLeft__item__category
+          %a.categoryBtn{:href => "#"} カテゴリー
+          %ul.categoryTree
+            %li.categoryTree__item
+              %a#1{:href => "#"} 全ての商品一覧
+            %li.categoryTree__item
+              %a#2{:href => "#"} 全ての商品一覧
+            %li.categoryTree__item
+              %a#3{:href => "#"} 全ての商品一覧
+        %li.listsLeft__item__brand
+          %a.brandBtn{:href => "#"} ブランド
       %ul.listsRight 
-        %li.listsRight__item.listsRight__item-login
+        %li.listsRight__item__login
           %a{:href => "#"} ログイン
-        %li.listsRight__item.listsRight__item-new
+        %li.listsRight__item__new
           %a{:href => "#"} 新規会員登録
 
   
+
+
+      
