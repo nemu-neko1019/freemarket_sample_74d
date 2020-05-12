@@ -12,7 +12,8 @@ Rails.application.routes.draw do
   resources :users, except: :index do
     get 'users/:name', controller: 'users', action: 'edit'
     collection do
-      get "address"
+      get "step1user"
+      post "step2user"
       get "complete_signup"
       get "complete_logout"
     end

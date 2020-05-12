@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :todo_lists, dependent: :destroy
   has_one :profile, dependent: :destroy
   has_one :sending_destination, dependent: :destroy
+  accepts_nested_attributes_for :sending_destination
   has_many :user_reviews
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
