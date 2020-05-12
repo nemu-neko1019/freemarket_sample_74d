@@ -260,9 +260,17 @@
          width: 600px;
          position: absolute;
          bottom: 0;
-         select {
+         .field {
            height: 100%;
            width: 100%;
+           .select-box {
+            height: 100%;
+            width: 100%;
+            .select {
+              height: 100%;
+              width: 100%;
+            }
+           }
          }
        }
      }
