@@ -55,10 +55,6 @@ group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
   gem 'capistrano-rails-console'
-  gem 'rspec-rails'
-  gem 'factory_bot_rails'
-  gem 'rails-controller-testing'
-  gem 'faker'
 end
 
 group :development do
@@ -87,7 +83,6 @@ gem 'sprockets'
 gem 'devise'
 gem 'kaminari'
 gem 'mini_magick'
+gem 'font-awesome-sass','4.7.0'
 gem 'carrierwave'
 gem 'fog-aws'
-gem 'active_hash'
-gem 'font-awesome-sass','4.7.0'
