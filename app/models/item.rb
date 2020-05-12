@@ -17,5 +17,8 @@ class Item < ApplicationRecord
   belongs_to_active_hash :preparation_day
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
-
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :category_choice
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :product_status
 end
