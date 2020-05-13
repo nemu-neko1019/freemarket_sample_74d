@@ -260,18 +260,13 @@
          width: 600px;
          position: absolute;
          bottom: 0;
-         .field {
-           height: 100%;
-           width: 100%;
            .select-box {
-            height: 100%;
-            width: 100%;
-            .select {
+            height: 48px;
+            #category_id {
               height: 100%;
               width: 100%;
             }
            }
-         }
        }
      }
      &--brand {
