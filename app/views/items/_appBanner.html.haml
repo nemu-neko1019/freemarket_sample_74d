@@ -3,7 +3,7 @@
     %h2.appBanner__inner__title だれでもかんたん、人生を変えるフリマアプリ
     %p.appBanner__inner__text 今すぐ無料ダウンロード！
     .appBanner__inner__icon
-      %a{:href => "#"}
+      = link_to root_path do
         %img.appBanner__inner__icon__btn-a{:src => "/material/logo/App_Store_Badge.svg"}/
-      %a{:href => "#"}
+      = link_to root_path do
         %img.appBanner__inner__icon__btn-g{:src => "/material/logo/google-play-badge.png"}/

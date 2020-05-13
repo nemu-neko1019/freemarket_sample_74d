@@ -2,7 +2,7 @@
   .header__inner
     .header__inner__main
       %h1.icon
-        %a{:href => "/"}
+        = link_to root_path do
           %img{:src => "/material/logo/logo.png"}/
       .searchBox
         %form{"accept-charset" => "UTF-8", :action => "#", :method => "get"}
@@ -17,23 +17,18 @@
     .navi
       %ul.listsLeft
         %li.listsLeft__item__category
-          %a.categoryBtn{:href => "#"} カテゴリー
+          =link_to("カテゴリー","#",class:"categoryBtn")
           %ul.categoryTree
             %li.categoryTree__item
-              %a#1{:href => "#"} 全ての商品一覧
+              =link_to("全ての商品一覧","#",id:"1")
             %li.categoryTree__item
-              %a#2{:href => "#"} 全ての商品一覧
+              =link_to("全ての商品一覧","#",id:"2")
             %li.categoryTree__item
-              %a#3{:href => "#"} 全ての商品一覧
+              =link_to("全ての商品一覧","#",id:"3")
         %li.listsLeft__item__brand
-          %a.brandBtn{:href => "#"} ブランド
+          =link_to("ブランド","#",class:"brandBtn")
       %ul.listsRight 
         %li.listsRight__item__login
-          %a{:href => "#"} ログイン
+          =link_to("ログイン","#")
         %li.listsRight__item__new
-          %a{:href => "#"} 新規会員登録
-
-  
-
-
-      
+          =link_to("新規会員登録","#")
