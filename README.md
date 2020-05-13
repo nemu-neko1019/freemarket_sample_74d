@@ -48,6 +48,7 @@
 |user_id|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
+- belongs_to_active_hash :prefecture
 
 ## todo_listsテーブル
 |Column|Type|Options|
@@ -63,16 +64,16 @@
 |name|string|null: false|
 |introduction|text|null: false|
 |price|integer|null: false|
-|user_id|references|foreign_key: true|
 |category_id|references|foreign_key: true|
-|bland_id|references|foreign_key: true|
-|size_id|references|null: false, foreign_key: true|
-|condition_id|references|null: false, foreign_key|
-|postage_id|references|null: false, foreign_key|
+|brand_id|references|foreign_key: true|
+|size|integer|null: false|
+|condition|integer|null: false|
+|postage|integer|null: false|
 |seller_id|references|null: false, foreign_key: true|
 |buyer_id|references|foreign_key: true, null: false|
 |deal_closed_date|timestamp||
-|trading_status|enum|null: false|
+|trading_status|integernull: false|
+|prefecture_code|integer|null:false|
 ### Association
 - has_many :comments, dependent: :destroy
 - has_many :favorites
@@ -83,7 +84,7 @@
 - belongs_to :active_hash :condition
 - belongs_to :active_hash :postage_payer
 - belongs_to :active_hash :preparation_day
-- belongs_to :active_hash :postage_area
+- belongs_to :active_hash :category_choice
 - belongs_to :brand
 - belongs_to :seller, class_name: "User"
 - belongs_to :buyer, class_name: "User"
@@ -120,14 +121,14 @@
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
 |item_id|references|null: false, foreign_key: true|
-|review_id|references|null: false, foreign_key: true|
-|review_comment|text|null: false|
+|review|integer|null: false|
+|comment|text|null: false|
 ### Association
 - belongs_to :user
 - belongs_to :item
 - belongs_to :active_hash: review
 
-## blandsテーブル
+## brandsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string||
@@ -162,6 +163,7 @@
 
 ## sizes
 - id
+- category
 - size
 
 ## Conditions
@@ -176,10 +178,10 @@
 - id
 - preparationday
 
-## PostageArea
-- id
-- postagearea
-
 ## reviews
 - id
 - review
+
+## category_choice
+- id
+- category_choice
