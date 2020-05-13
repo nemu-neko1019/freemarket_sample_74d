@@ -1,4 +1,7 @@
-= link_to root_path do
+= link_to new_item_path do
   .exhibitionBtn
     %span.exhibitionBtn__text 出品する
-    %img.exhibitionBtn__icon{:src => "material/icon/icon_camera.png"}/
+    = image_tag "/material/icon/icon_camera.png",class:"exhibitionBtn__icon"
+
+
+

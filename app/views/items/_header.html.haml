@@ -3,14 +3,14 @@
     .header__inner__main
       %h1.icon
         = link_to root_path do
-          %img{:src => "/material/logo/logo.png"}/
+          =image_tag "/material/logo/logo.png"
       .searchBox
         %form{"accept-charset" => "UTF-8", :action => "#", :method => "get"}
           %input{:name => "utf8", :type => "hidden", :value => "✓"}/
           %input#searchInput.searchBox__input{:name => "key", :placeholder => "キーワードから探す"}/
           %button{:type => "submit"}
             .searchBox__icon
-              %img{:src => "/material/icon/icon-search 1.png"}/
+              =image_tag "/material/icon/icon-search 1.png"
           %input{:name => "authenticity_token", :type => "hidden", :value => "Ki8VkNyvNLkAz9WBdSjyWLGZEp8Qvtnd7MnjNr08nSozFuPtkF+ckcfxxys4EdL+M9b7VOIzeDngTcLVSei8ZQ=="}/
           
       %ul.resultLists

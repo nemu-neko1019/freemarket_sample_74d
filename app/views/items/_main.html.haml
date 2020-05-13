@@ -24,7 +24,7 @@
       %li.introduction__contents__lists__list
         .introduction__contents__lists__list__pict
           %span.number 1
-          %img{src: "/material/pict/pict-reason-01.jpg"}/
+          =image_tag "/material/pict/pict-reason-01.jpg"
         %h3.introduction__contents__lists__list__text
           %span 3分
           ですぐに出品
@@ -33,7 +33,7 @@
       %li.introduction__contents__lists__list
         .introduction__contents__lists__list__pict
           %span.number 2
-          %img{src: "/material/pict/pict-reason-02.jpg"}/
+          =image_tag "/material/pict/pict-reason-02.jpg"
         %h3.introduction__contents__lists__list__text
           %span シンプル
           で使いやすい
@@ -42,7 +42,7 @@
       %li.introduction__contents__lists__list
         .introduction__contents__lists__list__pict
           %span.number 3
-          %img{src: "/material/pict/pict-reason-03.jpg"}/
+          =image_tag "/material/pict/pict-reason-03.jpg"
         %h3.introduction__contents__lists__list__text
           手数料
           %span 業界最安
@@ -59,27 +59,27 @@
         ほしかったあの商品に出会えるかもしれません。
       .middle__contents__inner__btn
         = link_to root_path do
-          %img.aBtn{src: "/material/logo/app_store_Badge.svg"}/
+          =image_tag "/material/logo/app_store_Badge.svg",class:"aBtn"
         = link_to root_path do
-          %img.gBtn{src: "/material/logo/google-play-badge.png"}/
+          =image_tag "/material/logo/google-play-badge.png",class:"gBtn"
   %section.features__contents
     %h2.features__contents__title FURIMAの特徴
     .items
       %section.items__item
         %figure.items__item__img
-          %img{src: "/material/icon/icon-01.png"}/
+          =image_tag "/material/icon/icon-01.png"
         %h3.items__item__subtitle 簡単に売り買いできる
         %p.items__item__detail
           スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
       %section.items__item
         %figure.items__item__img
-          %img{src: "/material/icon/icon-03.png"}/
+          =image_tag "/material/icon/icon-03.png"
         %h3.items__item__subtitle 売上金は即日振込みに対応
         %p.items__item__detail
           午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします!
       %section.items__item
         %figure.items__item__img
-          %img{src: "/material/icon/icon-04.png"}/
+          =image_tag "/material/icon/icon-04.png"
         %h3.items__item__subtitle 様々な支払いに対応
         %p.items__item__detail
           お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
@@ -93,7 +93,7 @@
         .product__lists__list
           = link_to root_path do
             %figure.product__lists__list__img
-              %img{src: "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"}/
+              =image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"
             .product__lists__list__body
               %h3.name product3
               .details
@@ -106,7 +106,7 @@
         .product__lists__list
           = link_to root_path do
             %figure.product__lists__list__img
-              %img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png"}/
+              =image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png"
             .product__lists__list__body
               %h3.name product2
               .details
@@ -119,7 +119,7 @@
         .product__lists__list
           = link_to root_path do
             %figure.product__lists__list__img
-              %img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png"}/
+              =image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png"
             .product__lists__list__body
               %h3.name product1
               .details
@@ -139,7 +139,7 @@
         .product__lists__list
           = link_to root_path do
             %figure.product__lists__list__img
-              %img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"}/
+              =image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"
             .product__lists__list__body
               %h3.name product3
               .details
@@ -152,7 +152,7 @@
         .product__lists__list
           = link_to root_path do
             %figure.product__lists__list__img
-              %img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png"}/
+              =image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png"
             .product__lists__list__body
               %h3.name product2
               .details
@@ -165,7 +165,7 @@
         .product__lists__list
           = link_to root_path do
             %figure.product__lists__list__img
-              %img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png"}/
+              =image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png"
             .product__lists__list__body
               %h3.name product1
               .details

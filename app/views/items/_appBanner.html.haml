@@ -4,6 +4,6 @@
     %p.appBanner__inner__text 今すぐ無料ダウンロード！
     .appBanner__inner__icon
       = link_to root_path do
-        %img.appBanner__inner__icon__btn-a{:src => "/material/logo/App_Store_Badge.svg"}/
+        = image_tag "/material/logo/App_Store_Badge.svg",class:"appBanner__inner__icon__btn-a"
       = link_to root_path do
-        %img.appBanner__inner__icon__btn-g{:src => "/material/logo/google-play-badge.png"}/
+        = image_tag "/material/logo/google-play-badge.png",class:"appBanner__inner__icon__btn-g"
