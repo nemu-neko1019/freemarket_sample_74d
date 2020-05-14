@@ -19,7 +19,7 @@
       %span.required必須
     .form
      = form_with model: @item, local: true do |f|
-      = f.text_field :content, class: 'input', placeholder: '40文字まで'
+      = f.text_field :name, class: 'input', placeholder: '40文字まで'
    .item__introduction--detail
     .top
      .top__left
@@ -28,7 +28,7 @@
       %span.required必須
     .form
      = form_with model: @item, local: true do |f|
-      = f.text_area :content, class: 'brand', placeholder: '商品の説明（色、素材、重さ、定価、注意点など）'
+      = f.text_area :detail, class: 'brand', placeholder: '商品の説明（色、素材、重さ、定価、注意点など）'
   .item__detail
    .item__detail--top
     %p.info商品の詳細
@@ -53,7 +53,7 @@
       %span.required任意
     .form
      = form_with model: @item, local: true do |f|
-      = f.text_field :content, class: 'input', placeholder: '例）シャネル'
+      = f.text_field :brand, class: 'input', placeholder: '例）シャネル'
    .item__detail--state
     .top
      .top__left
@@ -108,7 +108,7 @@
       %span.required必須
     .form
      = form_with model: @item, local: true do |f|
-      = f.text_field :content, class: 'input', placeholder: '0'
+      = f.text_field :price, class: 'input', placeholder: '0'
    .item__price--commission
     .top
      %p販売手数料（10%）

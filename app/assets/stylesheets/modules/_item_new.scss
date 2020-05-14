@@ -3,6 +3,8 @@
   width: 100vw;
   background-color: #f8f8f8;
   margin: 0 auto;
+  padding-top: 50px;
+  padding-bottom: 80px;
  .item {
    height: 100%;
    width: 700px;
@@ -183,7 +185,7 @@
          width: 600px;
          position: absolute;
          bottom: 0;
-         #content.brand {
+         #detail.brand {
            height: 165px;
            width: 600px;
            border: 1px solid #ccc;
@@ -311,7 +313,7 @@
          width: 600px;
          position: absolute;
          bottom: 0;
-         #content.input {
+         #brand.input {
            height: 48px;
            width: 100%;
            border: 1px solid #ccc;
@@ -616,7 +618,7 @@
          height: 48px;
          width: 300px;
          float: right;
-          #content.input {
+          #price.input {
            height: 48px;
            width: 100%;
            border: 1px solid #ccc;

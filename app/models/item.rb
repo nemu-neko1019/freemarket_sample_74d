@@ -19,4 +19,6 @@ class Item < ApplicationRecord
   belongs_to_active_hash :prefecture
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :category_choice
+  
+  validates :name, :detail, :category, :condition, :postage_payer, :prefecture, :preparation_day, :price, presence: true
 end
