@@ -1,4 +1,4 @@
-class size < ActiveHash::Base
+class Size < ActiveHash::Base
   self.data = [
     {id: 1, category: '洋服のサイズ', size: "XXS以下"}, 
     {id: 2, category: '洋服のサイズ', size: "XS(SS)"}, 
