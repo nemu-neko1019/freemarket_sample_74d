@@ -9,12 +9,15 @@ Rails.application.routes.draw do
       get "complete_buy"
     end
   end
-  resources :users, except: :index do
+  resources :users do
     get 'users/:name', controller: 'users', action: 'edit'
+  end
+  resources :signup, only: [:index, :create, :destroy] do
     collection do
-      get "step1user"
-      post "step2user"
+      get "step1"
+      get "step2"
       get "complete_signup"
+      get 'logout'
       get "complete_logout"
     end
   end

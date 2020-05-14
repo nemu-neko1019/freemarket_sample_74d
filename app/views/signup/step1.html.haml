@@ -1,0 +1,70 @@
+.usersession
+  .usersession__header
+    =link_to image_tag("/material/logo/logo.png", class: "usersession__header__top--logo"), root_path, class: "usersession__header__top"
+    .usersession__header__bottom
+      %ol.usersession__header__bottom__lists
+        %li.usersession__header__bottom__lists--step#first_step_text 会員情報
+        %li.usersession__header__bottom__lists--step 住所
+        %li.usersession__header__bottom__lists--step 完了
+      .usersession__header__bottom__status
+        .progress_status#first_step_dot
+        .progress_status
+        .progress_status#last_step_dot
+  .usersession__main
+    .usersession__main--top
+      会員情報入力
+      = render "layouts/error_messages", model: @user
+    = form_with model: @user, url: step2_signup_index_path, method: :get, html: {class: 'usersession__main__contents'} do |f|
+      .usersession__main__contents__nickname
+        %p.item_headline ニックネーム
+        %p.required_label 必須
+        = f.text_field :nickname, placeholder: "例）フリマ太郎", class: "user_input_text"
+      .usersession__main__contents__item
+        %p.item_headline メールアドレス
+        %p.required_label 必須
+        = f.text_field :email, placeholder: "PC・携帯どちらでも可", class: "user_input_text"
+      .usersession__main__contents__item
+        %p.item_headline パスワード
+        %p.required_label 必須
+        = f.password_field :password, placeholder: "7文字以上の半角英数字", class: "user_input_text"
+      .usersession__main__contents__item
+        %p.item_headline パスワード(確認用)
+        %p.required_label 必須
+        = f.password_field :password_confirmation, placeholder: "7文字以上の半角英数字", class: "user_input_text"
+        %p.usersession_explanation_gray ※英字と数字の両方を含めて設定してください
+      .usersession__main__contents__item
+        %p.usersession_explanation_bold 本人確認
+        %p.usersession_explanation_black 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+      .usersession__main__contents__name
+        %p.item_headline お名前(全角)
+        %p.required_label 必須
+        .usersession__main__contents__name--input
+          = f.text_field :familyname, placeholder: "例）山田", class: "user_input_name-right"
+          = f.text_field :firstname, placeholder: "例）彩", class: "user_input_name-left"
+      .usersession__main__contents__name
+        %p.item_headline お名前カナ(全角)
+        %p.required_label 必須
+        .usersession__main__contents__name--input
+          = f.text_field :familyname_kana, placeholder: "例）ヤマダ", class: "user_input_name-right"
+          = f.text_field :firstname_kana, placeholder: "例）アヤ", class:"user_input_name-left"
+        .usersession__main__contents__item
+          %p.item_headline 生年月日
+          %p.required_label 必須
+          .usersession__main__contents__item--birth
+            - year = ["--"]
+            - for num in 0..120
+              - year << 2020-num
+            = f.select :birthyear, year, {}, class: "birth_select_box"
+            %p.usersession_explanation_black 年
+            - month = ["--"]
+            - for num in 1..12
+              - month << num
+            = f.select :birthmonth, month, {}, class: "birth_select_box birth_select_box_md"
+            %p.usersession_explanation_black 月
+            - day = ["--"]
+            - for num in 1..31
+              - day << num
+            = f.select :birthday, day, {}, class: "birth_select_box birth_select_box_md"
+            %p.usersession_explanation_black 日
+      = f.submit  "次へ進む", class: "usersession__main__contents--button" 
+  .usersession__footer

@@ -13,5 +13,8 @@
             %li= link_to "submenu", "#"
         %li=link_to "ブランド", "#", class: "header__bottom__left--button"
     .header__bottom__right
-      =link_to "ログイン", "#", class: "header__bottom__right--button", id: "login_button"
-      =link_to "新規会員登録", "#", class: "header__bottom__right--button"
+      - if user_signed_in?
+        =link_to "ログアウト", logout_signup_index_path(current_user.id)
+      - else
+        =link_to "ログイン", new_user_session_path, class: "header__bottom__right--button", id: "login_button"
+        =link_to "新規会員登録", step1_signup_index_path, class: "header__bottom__right--button"
