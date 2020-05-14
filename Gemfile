@@ -55,6 +55,10 @@ group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
   gem 'capistrano-rails-console'
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
+  gem 'rails-controller-testing'
+  gem 'faker'
 end
 
 group :development do
@@ -65,8 +69,6 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
-gem 'carrierwave'
-gem 'fog-aws'
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
@@ -90,3 +92,5 @@ gem 'font-awesome-sass','4.7.0'
 gem 'activerecord-session_store'
 gem 'rails-i18n'
 gem 'devise-i18n-views'
+gem 'carrierwave'
+gem 'fog-aws'
