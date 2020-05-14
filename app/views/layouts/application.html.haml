@@ -8,4 +8,11 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
+    .wrapper
+      = render "/items/header"
     = yield
+    .wrapper
+      = render "appBanner"
+      = render "/items/exhibitionBtn"
+      = render "/items/footer"
+      
