@@ -126,8 +126,8 @@
          width: 600px;
          position: absolute;
          bottom: 0;
-         input {
-           height: 100%;
+         .input {
+           height: 48px;
            width: 100%;
            border: 1px solid #ccc;
            border-radius: 4px;
@@ -183,9 +183,9 @@
          width: 600px;
          position: absolute;
          bottom: 0;
-         textarea {
-           height: 100%;
-           width: 100%;
+         #content.brand {
+           height: 165px;
+           width: 600px;
            border: 1px solid #ccc;
            border-radius: 4px;
            box-sizing: border-box;
@@ -260,12 +260,9 @@
          width: 600px;
          position: absolute;
          bottom: 0;
-           .select-box {
+           .box {
             height: 48px;
-            #category_id {
-              height: 100%;
-              width: 100%;
-            }
+            width: 100%;
            }
        }
      }
@@ -314,8 +311,8 @@
          width: 600px;
          position: absolute;
          bottom: 0;
-         input {
-           height: 100%;
+         #content.input {
+           height: 48px;
            width: 100%;
            border: 1px solid #ccc;
            border-radius: 4px;
@@ -371,9 +368,12 @@
          width: 600px;
          position: absolute;
          bottom: 0;
-         select {
-           height: 100%;
-           width: 100%;
+         .select-box {
+          height: 48px;
+          #condition {
+            height: 100%;
+            width: 100%;
+          }
          }
        }
      }
@@ -439,9 +439,12 @@
          width: 600px;
          position: absolute;
          bottom: 0;
-         select {
-           height: 100%;
-           width: 100%;
+         .select-box {
+          height: 48px;
+          #postage_payer {
+            height: 100%;
+            width: 100%;
+          }
          }
        }
      }
@@ -490,9 +493,12 @@
          width: 600px;
          position: absolute;
          bottom: 0;
-         select {
-           height: 100%;
-           width: 100%;
+         .select-box {
+          height: 48px;
+          #prefecture {
+            height: 100%;
+            width: 100%;
+          }
          }
        }
      }
@@ -540,9 +546,12 @@
          width: 600px;
          position: absolute;
          bottom: 0;
-         select {
-           height: 100%;
-           width: 100%;
+         .select-box {
+          height: 48px;
+          #preparation_day {
+            height: 100%;
+            width: 100%;
+          }
          }
        }
      }
@@ -607,8 +616,8 @@
          height: 48px;
          width: 300px;
          float: right;
-         input {
-           height: 100%;
+          #content.input {
+           height: 48px;
            width: 100%;
            border: 1px solid #ccc;
            border-radius: 4px;
