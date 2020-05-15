@@ -8,12 +8,12 @@
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
   %body
-    .wrapper
-      = render "/items/header"
-    = yield
-    .wrapper
-      = render "/items/appBanner"
-      = render "/items/footer"
     - unless controller_name == "signup" || controller_name == "sessions"
       .wrapper
+        = render "/items/header"
+    = yield
+    - unless controller_name == "signup" || controller_name == "sessions"
+      .wrapper
+        = render "/items/appBanner"
+        = render "/items/footer"
         = render "/items/exhibitionBtn"

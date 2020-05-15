@@ -3,9 +3,10 @@
   height: 100%;
   display: contents;
   &__header {
-    height: 80px;
+    height: 128px;
     display: flex;
     justify-content: center;
+    align-items: center;
     &__top {
       height: 64px;
       display: flex;
@@ -13,12 +14,12 @@
       align-items: center;
       &--logo {
         height: 80%;
-        margin-right: 50px;
       }
     }
     &__bottom {
       height: 64px;
       padding-top: 12px;
+      margin-left: 50px;
       &__lists {
         display: flex;
         justify-content: space-between;
@@ -73,9 +74,6 @@
       }
     }
   }
-  #complete_header {
-    background-color: #f8f8f8;
-  }
   &__main {
     background-color: #f8f8f8;
     width: 700px;
@@ -85,7 +83,13 @@
       font-size: 22px;
       text-align: center;
       border-bottom: 1px solid #f8f8f8;
-      font-weight: bold;
+      font-weight: bold;    
+    }
+    #complete_header {
+      background-color: #f8f8f8;
+      margin-top: 50px;
+      padding: 50px 0 14px;
+
     }
     .error_messages {
       background-color: #ea352d;
