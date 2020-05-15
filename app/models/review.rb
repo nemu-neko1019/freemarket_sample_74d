@@ -1,4 +1,4 @@
-class review < ActiveHash::Base
+class Review < ActiveHash::Base
   self.data = [
     {id: 1, evaluation: 'excellent'}, 
     {id: 2, evaluation: 'good'}, 
