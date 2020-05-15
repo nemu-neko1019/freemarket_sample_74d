@@ -1,17 +1,6 @@
-.header
-  .header__top
-    =link_to image_tag("/material/logo/logo.png", class: "header__top__left--logo"), root_path, class: "header__top__left"
-    %input{class: "header__top--search", placeholder: "キーワードから探す"}
-  .header__bottom
-    .header__bottom__left
-      %ul.category_list
-        %li.list_item
-          =link_to "カテゴリー", "#", class: "header__bottom__left--button", id: "category_bottun"
-          %ul
-            %li= link_to "submenu", "#"
-            %li= link_to "submenu", "#"
-            %li= link_to "submenu", "#"
-        %li=link_to "ブランド", "#", class: "header__bottom__left--button"
-    .header__bottom__right
-      =link_to "ログイン", "#", class: "header__bottom__right--button", id: "login_button"
-      =link_to "新規会員登録", "#", class: "header__bottom__right--button"
+.wrapper
+  = render "header"
+  = render "main"
+  = render "appBanner"
+  = render "footer"
+  = render "exhibitionBtn"

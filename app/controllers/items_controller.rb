@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
 
   def index
     @parents = Category.where(ancestry: nil)
+    @items = Item.all.order(created_at: :desc)
   end
 
   def new
