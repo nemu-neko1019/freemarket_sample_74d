@@ -12,7 +12,8 @@
       = render "/items/header"
     = yield
     .wrapper
-      = render "appBanner"
-      = render "/items/exhibitionBtn"
+      = render "/items/appBanner"
       = render "/items/footer"
-      
+    - unless controller_name == "signup" || controller_name == "sessions"
+      .wrapper
+        = render "/items/exhibitionBtn"

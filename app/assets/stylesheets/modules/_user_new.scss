@@ -3,10 +3,9 @@
   height: 100%;
   display: contents;
   &__header {
-    height: 128px;
+    height: 80px;
     display: flex;
     justify-content: center;
-    align-items: center;
     &__top {
       height: 64px;
       display: flex;
@@ -87,6 +86,14 @@
       text-align: center;
       border-bottom: 1px solid #f8f8f8;
       font-weight: bold;
+    }
+    .error_messages {
+      background-color: #ea352d;
+      color: white;
+      border: 1px solid 3px;
+      padding: 20px;
+      width: 400px;
+      margin: 0 auto;
     }
     .alert {
       border: 3px solid #ea352d;
@@ -240,22 +247,6 @@
     align-items: center;
     text-align: center;
   }
-  .contents_short {
-    height: 128px;
-    &__top {
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      &--logo {
-        height: 40%;
-        display: inline-block;
-      }
-    }
-  }
-}
-#contents_short {
-  height: 100vh;
 }
   #contents_short_main {
     width: 456px;

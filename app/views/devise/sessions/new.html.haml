@@ -1,9 +1,10 @@
 .usersession#contents_short
-  .contents_short
-    =link_to image_tag("/material/logo/logo.png", class: "contents_short__top--logo"), root_path, class: "contents_short__top"
+  .usersession__header
   .usersession__main#contents_short_main
     .usersession__main--top
       ログイン
+    - if flash[:alert].present?
+      .error_messages=flash[:alert]
     = form_with model: @user, url: "/users/sign_in", method: :post, class: "usersession__main__contents" do |f|
       = f.email_field :email, placeholder: "メールアドレス", class: "user_input_text"
       = f.password_field :password, placeholder: "パスワード", class: "user_input_text"

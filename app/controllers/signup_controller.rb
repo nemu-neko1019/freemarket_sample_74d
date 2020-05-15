@@ -35,7 +35,6 @@ class SignupController < ApplicationController
       birthmonth: session[:birthmonth],
       birthday: session[:birthday])
     @user.build_sending_destination(user_params[:sending_destination_attributes])
-
     if @user.save
       session[:id] = @user.id
       redirect_to complete_signup_signup_index_path
