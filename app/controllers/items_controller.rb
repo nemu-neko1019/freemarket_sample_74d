@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
 
   def index
-    @parents = Category.all.order("id ASC").limit(13)
+    @parents = Category.where(ancestry: nil)
   end
 
   def new
@@ -28,4 +28,6 @@ class ItemsController < ApplicationController
   def complete_buy
   end
 
+  def category
+  end
 end
