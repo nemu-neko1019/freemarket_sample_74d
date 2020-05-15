@@ -44,6 +44,12 @@ GEM
       activemodel (= 5.2.4.2)
       activesupport (= 5.2.4.2)
       arel (>= 9.0)
+    activerecord-session_store (1.1.3)
+      actionpack (>= 4.0)
+      activerecord (>= 4.0)
+      multi_json (~> 1.11, >= 1.11.2)
+      rack (>= 1.5.2, < 3)
+      railties (>= 4.0)
     activestorage (5.2.4.2)
       actionpack (= 5.2.4.2)
       activerecord (= 5.2.4.2)
@@ -132,6 +138,7 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    devise-i18n-views (0.3.7)
     diff-lcs (1.3)
     erubi (1.9.0)
     erubis (2.7.0)
@@ -246,6 +253,9 @@ GEM
     rack (2.2.2)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
+    rack_session_access (0.2.0)
+      builder (>= 2.0.0)
+      rack (>= 1.0.0)
     rails (5.2.4.2)
       actioncable (= 5.2.4.2)
       actionmailer (= 5.2.4.2)
@@ -269,6 +279,9 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.3.0)
       loofah (~> 2.3)
+    rails-i18n (5.1.3)
+      i18n (>= 0.7, < 2)
+      railties (>= 5.0, < 6)
     railties (5.2.4.2)
       actionpack (= 5.2.4.2)
       activesupport (= 5.2.4.2)
@@ -366,6 +379,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_hash
+  activerecord-session_store
   bootsnap (>= 1.1.0)
   byebug
   capistrano
@@ -380,6 +394,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   compass-rails!
   devise
+  devise-i18n-views
   factory_bot_rails
   faker
   fog-aws
@@ -393,8 +408,10 @@ DEPENDENCIES
   mysql2 (>= 0.4.4, < 0.6.0)
   pry-rails
   puma (~> 3.11)
+  rack_session_access
   rails (~> 5.2.3)
   rails-controller-testing
+  rails-i18n
   rspec-rails
   sass-rails (~> 5.0)
   selenium-webdriver
