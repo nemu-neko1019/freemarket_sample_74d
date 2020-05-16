@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 2020_05_14_143503) do
     t.text "introduction", null: false
     t.integer "price", null: false
     t.bigint "category_id"
-    t.bigint "brand_id"
+    t.bigint "bland_id"
     t.integer "size", null: false
     t.integer "condition", null: false
     t.integer "postage_payer", null: false
@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 2020_05_14_143503) do
     t.timestamp "deal_closed_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["brand_id"], name: "index_items_on_brand_id"
+    t.index ["bland_id"], name: "index_items_on_bland_id"
     t.index ["buyer_id"], name: "index_items_on_buyer_id"
     t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["seller_id"], name: "index_items_on_seller_id"
@@ -148,7 +148,7 @@ ActiveRecord::Schema.define(version: 2020_05_14_143503) do
   add_foreign_key "favorites", "items"
   add_foreign_key "favorites", "users"
   add_foreign_key "item_images", "items"
-  add_foreign_key "items", "brands"
+  add_foreign_key "items", "brands", column: "bland_id"
   add_foreign_key "items", "categories"
   add_foreign_key "items", "users", column: "buyer_id"
   add_foreign_key "items", "users", column: "seller_id"
