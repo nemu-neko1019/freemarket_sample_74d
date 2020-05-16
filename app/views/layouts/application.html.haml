@@ -5,7 +5,15 @@
     %title FreemarketSample74d
     = csrf_meta_tags
     = csp_meta_tag
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
-    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag    'application', media: 'all'
+    = javascript_include_tag 'application'
   %body
+    - unless controller_name == "signup" || controller_name == "sessions"
+      .wrapper
+        = render "/items/header"
     = yield
+    - unless controller_name == "signup" || controller_name == "sessions"
+      .wrapper
+        = render "/items/appBanner"
+        = render "/items/footer"
+        = render "/items/exhibitionBtn"
