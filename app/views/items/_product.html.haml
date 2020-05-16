@@ -1,0 +1,21 @@
+.product__lists__list
+  = link_to item_path(item.id) do
+    .product__lists__list__img
+      - item.item_images.each.with_index(1) do |item_image,i|
+        - if i == 1
+          =image_tag "#{item_image.image}"
+      - if item.buyer_id.present?
+        .product__lists__list__img__sold
+          .product__lists__list__img__sold--inner
+            SOLD
+    .product__lists__list__body
+      %h3.name 
+        = item.name
+      .details
+        %ul
+          %li
+            = "¥#{item.price.to_s(:delimited)}"
+          %li
+            %i.fa.fa-star.likeIcon
+            0
+        %p (税込)

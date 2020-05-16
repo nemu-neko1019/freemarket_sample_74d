@@ -1,11 +1,13 @@
 .usersession#contents_short
-  .contents_short
-    =link_to image_tag("/material/logo/logo.png", class: "contents_short__top--logo"), root_path, class: "contents_short__top"
+  .usersession__header
+    = link_to image_tag("/material/logo/logo.png", class: "usersession__header__top--logo"), root_path, class: "usersession__header__top"
   .usersession__main#contents_short_main
-    .usersession__main--top
+    .usersession__main--top#complete_header
       ログイン
-    .usersession__main__contents
-      %input{class: "user_input_text", placeholder: "メールアドレス"}
-      %input{class: "user_input_text", placeholder: "パスワード"}
-      = link_to "ログイン", root_path, class: "usersession__main__contents--button"
+    - if flash[:alert].present?
+      .error_messages=flash[:alert]
+    = form_with model: @user, url: "/users/sign_in", method: :post, class: "usersession__main__contents" do |f|
+      = f.email_field :email, placeholder: "メールアドレス", class: "user_input_text"
+      = f.password_field :password, placeholder: "パスワード", class: "user_input_text"
+      = f.submit "ログイン", class: "usersession__main__contents--button"
   .usersession__footer

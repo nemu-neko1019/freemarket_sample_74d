@@ -11,6 +11,6 @@ class CategoryChoice < ActiveHash::Base
       {id: 9, category_choice: 'スポーツ・レジャー'},
       {id: 10, category_choice: 'ハンドメイド'},
       {id: 11, category_choice: 'チケット'},
-      {id: 12, category_choice: '自動車・オートバイ'}
+      {id: 12, category_choice: '自動車・オートバイ'},
   ]
 end
