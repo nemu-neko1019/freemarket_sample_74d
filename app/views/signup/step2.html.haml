@@ -1,0 +1,46 @@
+.usersession
+  .usersession__header
+    = link_to image_tag("/material/logo/logo.png", class: "usersession__header__top--logo"), root_path, class: "usersession__header__top"
+    .usersession__header__bottom
+      %ol.usersession__header__bottom__lists
+        %li.usersession__header__bottom__lists--step#first_step_text 会員情報
+        %li.usersession__header__bottom__lists--step 住所
+        %li.usersession__header__bottom__lists--step 完了
+      .usersession__header__bottom__status
+        .progress_status.progress_status_step2#first_step_dot
+        .progress_status#secand_step_dot
+        .progress_status#last_step_dot
+  .usersession__main
+    .usersession__main--top
+      住所情報
+      = render "layouts/error_messages", model: @sending_destination
+    = form_with model: @user, url: signup_index_path, method: :post, class: "usersession__main__contents" do |f|
+      = f.fields_for :sending_destination do |f|
+        .usersession__main__contents__nickname
+          %p.item_headline 郵便番号
+          %p.required_label 必須
+          = f.text_field :postalcode, placeholder: "例）0000000", class: "user_input_text"
+        .usersession__main__contents__item
+          %p.item_headline 都道府県
+          %p.required_label 必須
+          .usersession__main__contents__item--prefecture
+            = f.collection_select :prefecture_code, Prefecture.all, :id, :name, prompt: "--"
+        .usersession__main__contents__item
+          %p.item_headline 市区町村
+          %p.required_label 必須
+          = f.text_field :municipal_district, placeholder: "大阪市北区", class: "user_input_text"
+        .usersession__main__contents__item
+          %p.item_headline 番地
+          %p.required_label 必須
+          = f.text_field :housenumber, placeholder: "1231234", class: "user_input_text"
+        .usersession__main__contents__item
+          %p.item_headline 建物名
+          %p.required_label#label_gray 任意
+          = f.text_field :buildingname, placeholder: "furimaビル", class: "user_input_text"
+        .usersession__main__contents__item
+          %p.item_headline 電話番号
+          %p.required_label 必須
+          = f.text_field :phonenumber, placeholder: "例）09012345678", class: "user_input_text"
+          %p.usersession_explanation_gray ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+      = f.submit "登録を完了する", class: "usersession__main__contents--button"
+  .usersession__footer
