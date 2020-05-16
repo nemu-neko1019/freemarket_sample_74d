@@ -13,3 +13,4 @@ class CategoryChoice < ActiveHash::Base
       {id: 11, category_choice: 'チケット'},
       {id: 12, category_choice: '自動車・オートバイ'}
   ]
+end

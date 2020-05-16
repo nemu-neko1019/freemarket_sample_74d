@@ -20,5 +20,5 @@ class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :category_choice
   
-  validates :name, :detail, :category, :condition, :postage_payer, :prefecture, :preparation_day, :price, presence: true
+  # validates :name, :introduction, :category_id, :condition_id, :postage_payer_id, :prefecture_id, :preparation_day_id, :price, presence: true
 end

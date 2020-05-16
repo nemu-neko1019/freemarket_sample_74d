@@ -1,11 +1,11 @@
- .contents {
+.contents {
   height: 100%;
   width: 100vw;
   background-color: #f8f8f8;
   margin: 0 auto;
   padding-top: 50px;
   padding-bottom: 80px;
- .item {
+  .item {
    height: 100%;
    width: 700px;
    margin: 0 auto;
@@ -185,7 +185,7 @@
          width: 600px;
          position: absolute;
          bottom: 0;
-         #detail.brand {
+         .introduction {
            height: 165px;
            width: 600px;
            border: 1px solid #ccc;
@@ -207,7 +207,6 @@
      width: 700px;
      margin: 0 auto;
      &--top {
-       height: 20px;
        width: 600px;
        margin: 0 auto;
        padding-top: 40px;
@@ -313,7 +312,7 @@
          width: 600px;
          position: absolute;
          bottom: 0;
-         #brand.input {
+         .input {
            height: 48px;
            width: 100%;
            border: 1px solid #ccc;
@@ -370,13 +369,10 @@
          width: 600px;
          position: absolute;
          bottom: 0;
-         .select-box {
-          height: 48px;
-          #condition {
+          #item_condition_id {
             height: 100%;
             width: 100%;
           }
-         }
        }
      }
    }
@@ -387,7 +383,6 @@
      border-top: solid lightgray 0.1px;
      border-bottom: solid lightgray 0.1px;
      &--top {
-       height: 20px;
        width: 600px;
        margin: 0 auto;
        padding-top: 40px;
@@ -441,13 +436,10 @@
          width: 600px;
          position: absolute;
          bottom: 0;
-         .select-box {
-          height: 48px;
-          #postage_payer {
+          #item_postage_payer_id {
             height: 100%;
             width: 100%;
           }
-         }
        }
      }
      &--region {
@@ -495,13 +487,10 @@
          width: 600px;
          position: absolute;
          bottom: 0;
-         .select-box {
-          height: 48px;
-          #prefecture {
+          #item_prefecture_id {
             height: 100%;
             width: 100%;
           }
-         }
        }
      }
      &--day {
@@ -548,13 +537,10 @@
          width: 600px;
          position: absolute;
          bottom: 0;
-         .select-box {
-          height: 48px;
-          #preparation_day {
+          #item_preparation_day_id {
             height: 100%;
             width: 100%;
           }
-         }
        }
      }
    }
@@ -618,7 +604,7 @@
          height: 48px;
          width: 300px;
          float: right;
-          #price.input {
+          #item_price.input {
            height: 48px;
            width: 100%;
            border: 1px solid #ccc;
@@ -670,7 +656,7 @@
      }
    }
   .button {
-   height: 130px;
+   height: 100%;
    width: 700px;
    margin: 0 auto;
    &__exhibition {
@@ -705,13 +691,13 @@
    }
   }
   .warning {
-    height: 80px;
+    height: 110px;
     width: 700px;
     margin: 0 auto;
     display: flex;
     justify-content: center;
     .agreement {
-      height: 35px;
+      height: 100%;
       width: 650px;
       font-size: 12px;
     }
