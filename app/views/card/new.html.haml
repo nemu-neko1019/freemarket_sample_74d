@@ -1,0 +1,55 @@
+.main-container
+  .side
+    = link_to "マイページ", user_path,class: "side-box"
+    = link_to "#",class: "side-box" do
+      出品する
+    = link_to "出品した商品-出品中", {controller: "users", action:"edit", name: "_exhibiting"}, class: "side-box"
+    = link_to "出品した商品-取引中", {controller: "users", action:"edit", name: "_exhibition-trading"}, class: "side-box"
+    = link_to "出品した商品-売却済み", {controller: "users", action:"edit", name: "_exhibition-sold"}, class: "side-box" 
+    = link_to "購入した商品-取引中", {controller: "users", action:"edit", name: "_buy_product-trading"},class: "side-box"
+    = link_to "購入した商品-過去の取引", {controller: "users", action:"edit", name: "_buy_product"},class: "side-box" 
+    = link_to "#",class: "side-box" do
+      評価一覧
+    .side-info
+      設定
+    = link_to "#",class: "side-box" do
+      プロフィール
+    = link_to "#",class: "side-box" do
+      発送元・お届け先住所変更
+    .side-box__choice
+      クレジットカード登録
+    = link_to "#",class: "side-box" do
+      メール/パスワード
+    = link_to "#",class: "side-box" do
+      本人情報
+    = link_to "#",class: "side-box" do
+      電話番号の確認
+    = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "side-box"
+  .right
+    .card-registration
+      クレジットカード情報入力
+      = form_with model: @credit_card do |f|
+        .card-registration__title
+          カード番号
+          %span{class: "require"}必須
+        = f.text_field :card_number, {class: "card-registration__text", placeholder: "半角数字のみ"}
+        .card-registration__title
+          有効期限
+          %span{class: "require"}必須
+          .date-box
+            - month = ["01"]
+            - for num in 1..12
+              - month << num
+            = f.select :expiration_month, month,{}, class: "card-registration__select"
+            月
+            - year =["2020"]
+            - for num in 2020..2030
+              - year << num
+            = f.select :expiration_year, year,{}, class: "card-registration__select"
+            年
+        .card-registration__title
+          セキュリティコード
+          %span{class: "require"}必須
+          = f.text_field :security_code, {class: "card-registration__text", placeholder: "カード背面の４桁または３桁の数字"}
+        .card-registration__title
+          = f.submit "次へ", class: "card-registration__btn--submit"
