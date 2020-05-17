@@ -1,21 +1,25 @@
 .usersession {
   background-color: #f8f8f8;
   height: 100%;
+  display: contents;
   &__header {
     height: 128px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     &__top {
       height: 64px;
       display: flex;
       justify-content: center;
       align-items: center;
       &--logo {
-        height: 75%;
+        height: 80%;
       }
     }
     &__bottom {
       height: 64px;
       padding-top: 12px;
-      border-top: 1px solid white;
+      margin-left: 50px;
       &__lists {
         display: flex;
         justify-content: space-between;
@@ -57,21 +61,21 @@
           bottom: 11px;
           z-index: -1;
         }
-        #last_step_border::after{
-          display: none;
-        }
-        #first_step_dot {
+        .progress_status_step2::after,
+        .progress_status_complete::after,
+        #first_step_dot, #secand_step_dot,
+        .progress_status_dot {
           background-color: #ea352d;
           border: 1px solid #ea352d;
+        }
+        #last_step_dot::after{
+          display: none;
         }
       }
     }
   }
-  #complete_header {
-    background-color: #f8f8f8;
-  }
   &__main {
-    background-color: white;
+    background-color: #f8f8f8;
     width: 700px;
     margin: 0 auto;
     &--top {
@@ -79,12 +83,44 @@
       font-size: 22px;
       text-align: center;
       border-bottom: 1px solid #f8f8f8;
-      font-weight: bold;
+      font-weight: bold;    
+    }
+    #complete_header {
+      background-color: #f8f8f8;
+      margin-top: 50px;
+      padding: 50px 0 14px;
+
+    }
+    .error_messages {
+      background-color: #ea352d;
+      color: white;
+      border: 1px solid 3px;
+      padding: 20px;
+      width: 400px;
+      margin: 0 auto;
+    }
+    .alert {
+      border: 3px solid #ea352d;
+      background-color: #ea352d;
+      color: white;
+      padding: 20px 20px 20px 40px;
+      font-size: 14px;
+      text-align: left;
+      width: 450px;
+      margin: 15px auto 0;
+      ul {
+        list-style: disc;
+      }
     }
     &__contents {
       padding: 24px 16px 60px;
       max-width: 343px;
       margin: 0 auto;
+      background-color: #f8f8f8;
+        #user_firstname {
+          width: 100%;
+          height: 47px;
+        }
         .item_headline {
           font-size: 14px;
           margin-right: 8px;
@@ -152,20 +188,20 @@
           height: 48px;
           line-height: 48px;
           margin-top: 8px;
-          .prefecture_box {
+          #user_sending_destination_attributes_prefecture_code {
             -moz-appearance: none;
             appearance: none;
             padding: 10px;
             font-size: 12px;
             border: 1px solid #888;
             width: 100%;
-            height: 48px;
+            height: 100%;
           }
         }
       }
         .user_input_name-right {
           height: 48px;
-          width: calc(50% - 6px);
+          width: 100%;
           display: block;
           border-radius: 4px;
           margin-right: 6px;
@@ -174,7 +210,7 @@
         }
         .user_input_name-left {
           height: 48px;
-          width: calc(50% - 6px);
+          width: 100%;
           display: block;
           border-radius: 4px;
           margin-top: 8px;
@@ -215,22 +251,6 @@
     align-items: center;
     text-align: center;
   }
-  .contents_short {
-    height: 128px;
-    &__top {
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      &--logo {
-        height: 40%;
-        display: inline-block;
-      }
-    }
-  }
-}
-#contents_short {
-  height: 100vh;
 }
   #contents_short_main {
     width: 456px;
