@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 2020_05_16_101833) do
     t.integer "size_id", null: false
     t.integer "condition_id", null: false
     t.integer "postage_payer_id", null: false
-    t.bigint "buyer_id", null: false
+    t.bigint "buyer_id"
     t.bigint "seller_id", null: false
     t.integer "prefecture_id", null: false
     t.timestamp "deal_closed_date"
