@@ -1,4 +1,5 @@
 class CardController < ApplicationController
+  before_action :card_confirmation, only: [:delete, :show]
 
   require "payjp"
 
@@ -27,7 +28,6 @@ class CardController < ApplicationController
   end
 
   def delete
-    card = Card.where(user_id: current_user.id).first
     if card.blank?
     else
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
@@ -39,7 +39,6 @@ class CardController < ApplicationController
   end
 
   def show
-    card = Card.where(user_id: current_user.id).first
     if card.blank?
       redirect_to action: "new"
     else
@@ -47,5 +46,10 @@ class CardController < ApplicationController
       customer = Payjp::Customer.retrieve(card.customer_id)
       @default_card_information = customer.cards.retrieve(card.card_id)
     end
+  end
+
+  private
+  def card_confirmation
+    card = Card.where(user_id: current_user.id).first
   end
 end
