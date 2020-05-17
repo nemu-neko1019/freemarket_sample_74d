@@ -11,7 +11,6 @@ document.addEventListener(
           exp_month: document.getElementById("exp_month").value,
           exp_year: document.getElementById("exp_year").value
         };
-        
         Payjp.createToken(card, (status, response) => {
           if (status === 200) { 
             $("#card_number").removeAttr("name");
@@ -22,9 +21,8 @@ document.addEventListener(
             console.log(token);
             $("#card-form").append($('<input type="hidden" name="payjp_token" class="payjp-token" />').val(token));
             var form = $('#card-form')[0];
-            console.log(form)
             form.submit();
-            // alert("登録が完了しました");
+            alert("登録が完了しました");
           } else {
             alert("カード情報が正しくありません。");
           }
