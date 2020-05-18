@@ -6,15 +6,15 @@
       %li
         = icon 'angle-right'
       %li
-        = link_to('レディース', items_path{index})
+        =link_to "#{@category.name}"
       %li
         = icon 'angle-right'
       %li
-        = link_to('トップス', items_path{index})
+        =link_to "#{@category.name}"
       %li
         = icon 'angle-right'
       %li
-        = link_to('Tシャツ/カットソー(半袖/袖なし)', items_path{index})
+        =link_to "#{@category.name}"
       %li
         = icon 'angle-right'
       %li
@@ -58,8 +58,11 @@
                     カテゴリー
                   %td
                     %br/
-                    = @category.name
+                    =link_to "#{@category.name}"
                     %br/
+                    =link_to "#{@category.name}"
+                    %br/
+                    =link_to "#{@category.name}"
                 %tr
                   %th
                     ブランド
@@ -117,16 +120,27 @@
               コメントする
       %ul.show-main__link
         %li
-          = link_to root_path do
+          - if @item.previous.present?
+            =link_to item_path(@item.previous.id) do
+              = icon 'angle-left'
+              %span
+              前の商品
+          - else
+            .none
             = icon 'angle-left'
             %span
             前の商品
         %li
-          = link_to root_path do
+          - if @item.next.present?
+            =link_to item_path(@item.next.id) do
+              %span 後ろの商品
+              = icon 'angle-right'
+          - else
+            .none
             %span 後ろの商品
             = icon 'angle-right'
       .show-main__reloaditems
-        = link_to('レディースをもっと見る', items_path{index})
+        =link_to "#{@category.name}をもっと見る" 
         .productLists
 
 
