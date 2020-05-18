@@ -18,7 +18,6 @@ document.addEventListener(
             $("#exp_month").removeAttr("name");
             $("#exp_year").removeAttr("name"); 
             var token = response.id;
-            console.log(token);
             $("#card-form").append($('<input type="hidden" name="payjp_token" class="payjp-token" />').val(token));
             var form = $('#card-form')[0];
             form.submit();
