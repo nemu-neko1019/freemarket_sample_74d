@@ -4,10 +4,10 @@ Rails.application.routes.draw do
   resources :items do
     member do
       get "buy"
-      get "category"
     end
     collection do
       get "complete_buy"
+      get "category"
     end
   end
   resources :users, except: :index do

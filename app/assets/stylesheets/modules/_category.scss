@@ -2,16 +2,13 @@
   display: none;
 }
 
-.category__icon,.brands__icon{
-  color: $mainblueColor;
-}
-
 // カテゴリーの大枠の要素の共通項
 .category__list{
   position: absolute;
   height: 560px;
   background-color: white;
-  border-right: 1px solid $whitesmoke;
+  border-right: 1px solid #f8f8f8;
+  
 }
 
 // 子要素はカテゴリー名の共通項
@@ -22,10 +19,15 @@
   padding: 3px 15px;
   font-size: 11px;
   letter-spacing: 2px;
-  @include hover__color(black, $lightgray, 1);
+  // @include hover__color(black, $lightgray, 1);
+  &:hover {
+    color: orange;
+  }
 }
 
 .categories{
+  position: relative;
+  display: flex;
   padding-bottom: 10px;
   &:hover{
     .category__parent{
@@ -38,7 +40,9 @@
         padding: 10px 20px;
         font-size: 13px;
         letter-spacing: 2px;
-        @include hover__color(white, $skyblue, 1);
+        &:hover {
+          color: orange;
+        }
       }
       li {
         &:hover{
@@ -62,4 +66,95 @@
       }
     }
   }
+
+
+// .listsLeft__item__category {
+//   position: relative;
+//   padding-top: 7px;
+//   &:hover {
+//     color: orange;
+//     ul {
+//       position: absolute;
+//       height: 519px;
+//       background-color: white;
+//       border-right: 1px solid #f8f8f8;
+      
+//       li {
+//         display:block;
+//         height:40px;
+//         border-bottom: 1px solid #f8f8f8;
+//         text-decoration: none;
+//         .categoryTree__item:hover {
+//           color: orange;
+//         }
+        
+//         a {
+//           color: #333;
+//           text-decoration: none;
+//           line-height: 40px;
+//           padding: 10px;
+//           background-position: center right;
+//           background-repeat: no-repeat;
+//           background-size: 18px;
+//           padding-right: 30px;
+//         }
+//         .category__child {
+//           position: absolute;
+//           left: 240px;
+//           .--name {
+//             width: 240px;
+//             background-color: orange;
+//             height: 100%;
+//           }
+          
+//           .category__child--name{
+//             width: 100%;
+//             color: black;
+//             display: inline-block;
+//             padding: 3px 15px;
+//             font-size: 11px;
+//             letter-spacing: 2px;
+//           }
+//         }
+//       }
+//     }
+//   }
+
+  
+  // ul {
+  //   position:absolute;
+  //   top:37px;
+  //   z-index: 1000;
+  //   background-color: #fff;
+  //   width: 240px;
+  //   li{
+  //     display:none;
+  //   }
+  // }
+      
+  // .categoryBtn {
+  //   color: #333;
+  //   text-decoration: none;
+  //   line-height: 32px;
+  //   background-position: center right;
+  //   background-repeat: no-repeat;
+  //   background-size: 18px;
+  //   padding-right: 30px;
+  // }
+  // .categoryBtn:hover {
+  //   color: orange;
+  // }
+
+
+  // .categoryTree {
+  //   &__item {
+  //     a {
+  //     color: #333;
+  //     text-decoration: none;
+  //     line-height: 32px;
+  //     background-position: center right;
+  //     background-repeat: no-repeat;
+  //     background-size: 18px;
+  //     padding-right: 30px;
+  // }}}  
 }
