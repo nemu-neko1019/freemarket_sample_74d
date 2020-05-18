@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       get "buy"
     end
     collection do
+      post 'items/create' => 'items#create'
       get "complete_buy"
     end
   end
