@@ -1,9 +1,11 @@
 .contents
   .item
-    = form_with model: @item,url: '/items/create/items',method: :post local: true, class: 'form' do |f|
+    = form_with model: @brand,url: items_path,method: :post, local: true, class: 'form' do |f|
       .item__image
         .item__image--img
           .top
+            = f.fields_for :item_image do |r|
+              = r.file_field :image
             .top__left
               %p 出品画像
             .top__right
@@ -11,43 +13,45 @@
           %p.exp 最大10枚までアップロードできます
           .file
             %p.upload ドラッグアンドドロップまたはクリックしてファイルをアップロード
-      .item__introduction
-        .item__introduction--name
-          .top
-            .top__left
-              %p 商品名
-            .top__right
-              %span.required 必須
-          .form
-            = f.text_field :name, class: 'input', placeholder: '40文字まで'
-        .item__introduction--detail
-          .top
-            .top__left
-              %p 商品の説明
-            .top__right
-              %span.required 必須
-          .form
-            = f.text_area :introduction, class: 'introduction', placeholder: '商品の説明（色、素材、重さ、定価、注意点など）'
-      .item__detail
-        .item__detail--top
-          %p.info 商品の詳細
-        .item__detail--category
-          .top
-            .top__left
-              %p カテゴリー
-            .top__right
-              %span.required 必須
-          .form
-            = f.collection_select :category_id, CategoryChoice.all, :id, :category_choice, prompt: "選択してください"
-        .item__detail--brand
-          .top
-            .top__left
-              %p ブランド
-            .top__right
-              %span.required 任意
-          .form
-            = f.fields_for :brand do |i| 
-              = i.text_field :name, class: 'input', placeholder: '例）シャネル'
+      = f.fields_for :item do |f|
+        .item__introduction
+          .item__introduction--name
+            .top
+              .top__left
+                %p 商品名
+              .top__right
+                %span.required 必須
+            .form
+              = f.text_field :name, class: 'input', placeholder: '40文字まで'
+          .item__introduction--detail
+            .top
+              .top__left
+                %p 商品の説明
+              .top__right
+                %span.required 必須
+            .form
+              = f.text_area :introduction, class: 'introduction', placeholder: '商品の説明（色、素材、重さ、定価、注意点など）'
+        .item__detail
+          .item__detail--top
+            %p.info 商品の詳細
+          .item__detail--category
+            .top
+              .top__left
+                %p カテゴリー
+              .top__right
+                %span.required 必須
+            .form
+              = f.collection_select :category_id, CategoryChoice.all, :id, :category_choice, prompt: "選択してください"
+          .item__detail--brand
+            .top
+              .top__left
+                %p ブランド
+              .top__right
+                %span.required 任意
+            .form
+              = f.fields_for :brand do |i| 
+                = i.text_field :name, class: 'input', placeholder: '例）シャネル'
+      = f.fields_for :item do |f|
         .item__detail--state
           .top
             .top__left
@@ -56,57 +60,57 @@
               %span.required 必須
           .form
             = f.collection_select :condition_id, Condition.all, :id, :item_condition, prompt: "選択してください"
-      .item__delivery
-        .item__delivery--top
-          %p.info 配送について
-        .item__delivery--fee
-          .top
-            .top__left
-              %p 配送料の負担
-            .top__right
-              %span.required 必須
-          .form
-            = f.collection_select :postage_payer_id, PostagePayer.all, :id, :postage_payer, prompt: "選択してください"
-        .item__delivery--region
-          .top
-            .top__left
-              %p 発送元の地域
-            .top__right
-              %span.required 必須
-          .form
-            = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "選択してください"
-        .item__delivery--day
-          .top
-            .top__left
-              %p 発送までの日数
-            .top__right
-              %span.required 必須
-          .form
-            = f.collection_select :preparation_day_id, PreparationDay.all, :id, :preparation_day,   prompt: "選択してください"
-      .item__price
-        .item__price--top
-          %p.info価格（¥300〜9,999,999)
-        .item__price--fee
-          .top
-            .top__left
-              %p 販売価格(￥)
-            .top__right
-              %span.required 必須
-          .form
-            = f.text_field :price, class: 'input', placeholder: '0'
-        .item__price--commission
-          .top
-            %p 販売手数料（10%）
-          %span.commission -
-        .item__price--return
-          .top
-            %p 販売利益
-          %span.profit -
-      .button
-        .btn
-          .button__exhibition
-            = f.submit :出品する, class: 'btn', placeholder: '0'
-          .button__return
-            = link_to 'もどる', "root_path", class: "return"
-        .warning
-          %p.agreement 禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
+        .item__delivery
+          .item__delivery--top
+            %p.info 配送について
+          .item__delivery--fee
+            .top
+              .top__left
+                %p 配送料の負担
+              .top__right
+                %span.required 必須
+            .form
+              = f.collection_select :postage_payer_id, PostagePayer.all, :id, :postage_payer, prompt: "選択してください"
+          .item__delivery--region
+            .top
+              .top__left
+                %p 発送元の地域
+              .top__right
+                %span.required 必須
+            .form
+              = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "選択してください"
+          .item__delivery--day
+            .top
+              .top__left
+                %p 発送までの日数
+              .top__right
+                %span.required 必須
+            .form
+              = f.collection_select :preparation_day_id, PreparationDay.all, :id, :preparation_day,   prompt: "選択してください"
+        .item__price
+          .item__price--top
+            %p.info価格（¥300〜9,999,999)
+          .item__price--fee
+            .top
+              .top__left
+                %p 販売価格(￥)
+              .top__right
+                %span.required 必須
+            .form
+              = f.text_field :price, class: 'input', placeholder: '0'
+          .item__price--commission
+            .top
+              %p 販売手数料（10%）
+            %span.commission -
+          .item__price--return
+            .top
+              %p 販売利益
+            %span.profit -
+        .button
+          .btn
+            .button__exhibition
+              = f.submit :出品する, class: 'btn', placeholder: '0'
+            .button__return
+              = link_to 'もどる', "root_path", class: "return"
+          .warning
+            %p.agreement 禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。

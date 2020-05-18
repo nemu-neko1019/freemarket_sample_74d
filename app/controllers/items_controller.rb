@@ -5,19 +5,21 @@ class ItemsController < ApplicationController
   end
 
   def new
-    # @brand = Brand.new
     @item = Item.new
     @item.build_brand
+    @item.item_images.build
   end
 
   def create
-    binding.pry
-    @item = Item.new
-    @item.build_brand
-    @item.save
-    # Brand.new(brand_params[:brand]) 
-    # Item.new(item_params)
-    redirect_to root_path
+    @item = Item.new(item_params)
+    if @item.save!
+      brand_id = Brand.find(@item.id).id
+      item = Item.find(@item.id)
+      item.update(brand_id: brand_id)
+      redirect_to root_path
+    else
+      render action: :new
+    end
   end
 
   def destroy
@@ -40,15 +42,21 @@ class ItemsController < ApplicationController
 
   private
   
-  # def brand_params
-  #   params.require(:brand).permit(:name)
-  # end  
-
   def item_params
-    params.require(:item).permit(:name, :introduction, :price, 
-    :category_id,:condition_id, :postage_payer_id, :prefecture_id, :preparation_day_id,:ids,
-    brand_attributes: [
-     :name
+    params.require(:item).permit(
+      :name,
+      :introduction,
+      :price, 
+      :category_id,
+      :condition_id,
+      :postage_payer_id,
+      :prefecture_id,
+      :preparation_day_id,
+      brand_attributes: [
+        :name
+      ], item_image_attributes: [
+        :image,
+        :ids
     ])
     
   end

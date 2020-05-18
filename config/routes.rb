@@ -6,7 +6,6 @@ Rails.application.routes.draw do
       get "buy"
     end
     collection do
-      post 'items/create' => 'items#create'
       get "complete_buy"
     end
   end
@@ -20,7 +19,7 @@ Rails.application.routes.draw do
       get "complete_signup"
       get 'logout'
       get "complete_logout"
-      get "choice"z
+      get "choice"
     end
   end
 end
