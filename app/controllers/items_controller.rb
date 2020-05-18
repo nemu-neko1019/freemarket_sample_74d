@@ -5,9 +5,19 @@ class ItemsController < ApplicationController
   end
 
   def new
+    # @brand = Brand.new
+    @item = Item.new
+    @item.build_brand
   end
 
   def create
+    binding.pry
+    @item = Item.new
+    @item.build_brand
+    @item.save
+    # Brand.new(brand_params[:brand]) 
+    # Item.new(item_params)
+    redirect_to root_path
   end
 
   def destroy
@@ -26,6 +36,21 @@ class ItemsController < ApplicationController
   end
 
   def complete_buy
+  end
+
+  private
+  
+  # def brand_params
+  #   params.require(:brand).permit(:name)
+  # end  
+
+  def item_params
+    params.require(:item).permit(:name, :introduction, :price, 
+    :category_id,:condition_id, :postage_payer_id, :prefecture_id, :preparation_day_id,:ids,
+    brand_attributes: [
+     :name
+    ])
+    
   end
 
 end

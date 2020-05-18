@@ -1,6 +1,6 @@
 .contents
   .item
-    = form_with model: @item, local: true, class: 'form' do |f|
+    = form_with model: @item,url: '/items/create/items',method: :post local: true, class: 'form' do |f|
       .item__image
         .item__image--img
           .top
@@ -38,12 +38,7 @@
             .top__right
               %span.required 必須
           .form
-            %select.box{name:""}
-              %option{value: "0"}  選択してください
-              %option{value: "1"}  
-              %option{value: "2"}  
-              %option{value: "3"}  
-              %option{value: "4"}
+            = f.collection_select :category_id, CategoryChoice.all, :id, :category_choice, prompt: "選択してください"
         .item__detail--brand
           .top
             .top__left
@@ -51,7 +46,8 @@
             .top__right
               %span.required 任意
           .form
-            = f.text_field :bland_id, class: 'input', placeholder: '例）シャネル'
+            = f.fields_for :brand do |i| 
+              = i.text_field :name, class: 'input', placeholder: '例）シャネル'
         .item__detail--state
           .top
             .top__left
