@@ -19,6 +19,7 @@ Rails.application.routes.draw do
       get "complete_signup"
       get 'logout'
       get "complete_logout"
+      get "choice"z
     end
   end
 end
