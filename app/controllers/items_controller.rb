@@ -28,4 +28,28 @@ class ItemsController < ApplicationController
   def complete_buy
   end
 
+  private
+  
+
+  def item_params
+    params.require(:item).permit(
+      :name,
+      :introduction,
+      :price, 
+      :category_id,
+      :condition_id,
+      :postage_payer_id,
+      :prefecture_id,
+      :preparation_day_id,
+      :buyer_id,
+      :deal_closed_date,
+      brand_attributes: [
+        :name
+      ], item_image_attributes: [
+        :image,
+        :id
+    ]).merge(seller_id: current_user.id)
+    
+  end
+
 end
