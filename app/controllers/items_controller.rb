@@ -1,10 +1,39 @@
 class ItemsController < ApplicationController
 
   def index
+    @parents = Category.where(ancestry: nil)
+    @category_children1 = Category.where(parent_id: 1)
+    @category_children2 = Category.where(parent_id: 2)
+    @category_children3 = Category.where(parent_id: 3)
+    @category_children4 = Category.where(parent_id: 4)
+    @category_children5 = Category.where(parent_id: 5)
+    @category_children6 = Category.where(parent_id: 6)
+    @category_children7 = Category.where(parent_id: 7)
+    @category_children8 = Category.where(parent_id: 8)
+    @category_children9 = Category.where(parent_id: 9)
+    @category_children10 = Category.where(parent_id: 10)
+    @category_children11 = Category.where(parent_id: 11)
+    @category_children12 = Category.where(parent_id: 12)
+    @category_children13 = Category.where(parent_id: 13)
     @items = Item.all.order(created_at: :desc)
   end
 
   def new
+    @parents = Category.where(ancestry: nil)
+    @category_children1 = Category.where(parent_id: 1)
+    @category_children2 = Category.where(parent_id: 2)
+    @category_children3 = Category.where(parent_id: 3)
+    @category_children4 = Category.where(parent_id: 4)
+    @category_children5 = Category.where(parent_id: 5)
+    @category_children6 = Category.where(parent_id: 6)
+    @category_children7 = Category.where(parent_id: 7)
+    @category_children8 = Category.where(parent_id: 8)
+    @category_children9 = Category.where(parent_id: 9)
+    @category_children10 = Category.where(parent_id: 10)
+    @category_children11 = Category.where(parent_id: 11)
+    @category_children12 = Category.where(parent_id: 12)
+    @category_children13 = Category.where(parent_id: 13)
+    @items = Item.all.order(created_at: :desc)
     @item = Item.new
     @item.build_brand
     @item.item_images.build
@@ -13,9 +42,9 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save!
-      brand_id = Brand.find(@item.id).id
-      item = Item.find(@item.id)
-      item.update(brand_id: brand_id)
+      # brand_id = Brand.find(@item.id).id
+      # item = Item.find(@item.id)
+      # item.update(brand_id: brand_id)
       redirect_to root_path
     else
       render action: :new
@@ -32,15 +61,6 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
-    @seller = User.find(@item.seller_id)
-    @category = Category.find(@item.category_id)
-    @brand = Brand.find(@item.brand_id)
-    @size = Size.find(@item.size_id)
-    @condition = Condition.find(@item.condition_id)
-    @postage_payer = PostagePayer.find(@item.postage_payer_id)
-    @prefecture = Prefecture.find(@item.prefecture_id)
-    @preparationday = PreparationDay.find(@item.preparation_day_id)
   end
 
   def buy
@@ -50,6 +70,7 @@ class ItemsController < ApplicationController
   end
 
   private
+
   
 
   def item_params
@@ -62,8 +83,8 @@ class ItemsController < ApplicationController
       :postage_payer_id,
       :prefecture_id,
       :preparation_day_id,
+      :brand_id,
       :buyer_id,
-      :deal_closed_date,
       brand_attributes: [
         :name
       ], item_image_attributes: [
