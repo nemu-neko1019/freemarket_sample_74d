@@ -24,4 +24,12 @@ class Item < ApplicationRecord
   belongs_to_active_hash :category_choice
 
   # validates :name, :introduction, :category_id, :condition_id, :postage_payer_id, :prefecture_id, :preparation_day_id, :price, presence: true
+  def previous
+    Item.where("id < ?", self.id).order("id DESC").first
+  end
+
+  def next
+    Item.where("id > ?", self.id).order("id ASC").first
+  end
+
 end
