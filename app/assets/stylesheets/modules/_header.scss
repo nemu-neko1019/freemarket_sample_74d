@@ -79,68 +79,66 @@
         display: flex;
         margin-bottom: 10px;
 
-        // .listsLeft{
-        //   position: relative;
-        //   display: flex;
+        .listsLeft{
+          position: relative;
+          display: flex;
     
-          // &__item__category {
-          //   position: relative;
-          //   text-decoration: none;
-          //   padding-top: 7px;
-          //   &:hover {
-          //     color: orange;
-          //     ul {
-          //       li {
-          //         display:block;
-          //         height:37px;
-          //         border-bottom: 1px solid #f8f8f8;
-          //       }
-          //     }
-          //   }
+          &__item__category {
+            position: relative;
+            text-decoration: none;
+            padding: 0;
+            &:hover {
+              color: orange;
+              ul {
+                li {
+                  display:block;
+                  height:44px;               
+                  border-bottom: 1px solid #f8f8f8;            
+            }}}
             
-          //     ul {
-          //       position:absolute;
-          //       top:37px;
-          //       z-index: 1000;
-          //       background-color: #fff;
-          //       width: 240px;
-          //       li{
-          //         height: 0;
-          //         display:none;
+              ul {
+                position:absolute;
+                top:37px;
+                z-index: 1000;
+                background-color: #fff;
+                width: 240px;
+                li{
+                  height: 0;
+                  display:none;
                   
-          //     }}
+              }}
               
-          //   .categoryBtn {
-          //     color: #333;
-          //     text-decoration: none;
-          //     line-height: 32px;
-          //     background-position: center right;
-          //     background-repeat: no-repeat;
-          //     background-size: 18px;
-          //     padding-right: 30px;
-          //   }
-          //   .categoryBtn:hover {
-          //     color: orange;
-          //   }
+            .categoryBtn {
+              color: #333;
+              text-decoration: none;
+              line-height: 32px;
+              background-position: center right;
+              background-repeat: no-repeat;
+              background-size: 18px;
+              padding-right: 30px;
+            }
+            .categoryBtn:hover {
+              color: orange;
+            }
 
-            // .categoryTree {
-            //   &__item {
-            //     a {
-            //     color: #333;
-            //     text-decoration: none;
-            //     line-height: 32px;
-            //     background-position: center right;
-            //     background-repeat: no-repeat;
-            //     background-size: 18px;
-            //     padding-right: 30px;
-            // }}}  
-          // }
+            .categoryTree {
+              &__item {
+                a {
+                color: #333;
+                text-decoration: none;
+                line-height: 32px;
+                background-position: center right;
+                background-repeat: no-repeat;
+                background-size: 18px;
+                padding-right: 30px;
+            }}}  
+          }
 
 
           &__item__brand {
             display: flex;
             line-height: 38px;
-            padding-left: 50px;
+            padding-left: 16px;
             a {
               color: #333;
               text-decoration: none;
@@ -153,7 +151,7 @@
 
             .brandBtn:hover {
               color: orange;
-          } 
+          } }
         }
 
         .listsRight {

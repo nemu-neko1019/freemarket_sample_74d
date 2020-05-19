@@ -17,16 +17,14 @@
     .navi
       %ul.listsLeft
         %li.listsLeft__item__category
-          = render partial: 'category'
-      -#     カテゴリー
-          -# =link_to("カテゴリー",class:"categoryBtn")
-            -# %ul.categoryTree
-            -# %li.categoryTree__item
-            -#   =link_to("全ての商品一覧","#",id:"1")
-            -# %li.categoryTree__item
-            -#   =link_to("全ての商品一覧","#",id:"2")
-            -# %li.categoryTree__item
-            -#   =link_to("全ての商品一覧","#",id:"3")
+          =link_to("カテゴリー","#",class:"categoryBtn")
+          %ul.categoryTree
+            %li.categoryTree__item
+              =link_to("全ての商品一覧","#",id:"1")
+            %li.categoryTree__item
+              =link_to("全ての商品一覧","#",id:"2")
+            %li.categoryTree__item
+              =link_to("全ての商品一覧","#",id:"3")
         %li.listsLeft__item__brand
           =link_to("ブランド","#",class:"brandBtn")
       %ul.listsRight 
