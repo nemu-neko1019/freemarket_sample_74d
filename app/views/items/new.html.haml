@@ -36,14 +36,12 @@
         .item__detail--category
           .top
             .top__left
-              %p カテゴリー
+              = f.label 'カテゴリー', class: 'listing-default__label'
             .top__right
               %span.required 必須
           .form
-            = f.fields_for :category do |d| 
-              -# = d.collection_select :category_ids, CategoryChoice.all, :id, :category_choice, prompt: "選択してください"
-               = d.collection_select :category_ids, @parents, :id, :name,{prompt: "---"}, class: "select-default", id: "parent-form", name: 'item[category_ids][]'
-
+            -# = f.collection_select :category_id, CategoryChoice.all, :id, :category_choice, prompt: "選択してください"
+            = f.select :category, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'category_choice'}
         .item__detail--brand
           .top
             .top__left
