@@ -40,7 +40,10 @@
             .top__right
               %span.required 必須
           .form
-            = f.collection_select :category_id, CategoryChoice.all, :id, :category_choice, prompt: "選択してください"
+            = f.fields_for :category do |d| 
+              -# = d.collection_select :category_ids, CategoryChoice.all, :id, :category_choice, prompt: "選択してください"
+               = d.collection_select :category_ids, @parents, :id, :name,{prompt: "---"}, class: "select-default", id: "parent-form", name: 'item[category_ids][]'
+
         .item__detail--brand
           .top
             .top__left

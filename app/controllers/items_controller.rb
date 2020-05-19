@@ -6,16 +6,20 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
+    # @item.build_category
     @item.build_brand
     @item.item_images.build
+    @parents = Category.all.order("id ASC").limit(13)
   end
 
   def create
     @item = Item.new(item_params)
     if @item.save!
+      # category_id = Category.find(@item.id).id
       brand_id = Brand.find(@item.id).id
       item = Item.find(@item.id)
       item.update(brand_id: brand_id)
+      # item.update(category_id: category_id,brand_id: brand_id)
       redirect_to root_path
     else
       render action: :new
@@ -55,12 +59,15 @@ class ItemsController < ApplicationController
       :preparation_day_id,
       :buyer_id,
       :deal_closed_date,
+      category_attributes: [
+        :name
+      ],
       brand_attributes: [
         :name
       ], item_image_attributes: [
         :image,
         :ids
-    ]).merge(seller_id: current_user.id)
+        ]).merge(seller_id: current_user.id)
     
   end
 
