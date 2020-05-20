@@ -1,32 +1,59 @@
 class ItemsController < ApplicationController
 
   def index
+    # @parents = Category.where(ancestry: nil)
+    # @category_children1 = Category.where(parent_id: 1)
+    # @category_children2 = Category.where(parent_id: 2)
+    # @category_children3 = Category.where(parent_id: 3)
+    # @category_children4 = Category.where(parent_id: 4)
+    # @category_children5 = Category.where(parent_id: 5)
+    # @category_children6 = Category.where(parent_id: 6)
+    # @category_children7 = Category.where(parent_id: 7)
+    # @category_children8 = Category.where(parent_id: 8)
+    # @category_children9 = Category.where(parent_id: 9)
+    # @category_children10 = Category.where(parent_id: 10)
+    # @category_children11 = Category.where(parent_id: 11)
+    # @category_children12 = Category.where(parent_id: 12)
+    # @category_children13 = Category.where(parent_id: 13)
     @items = Item.all.order(created_at: :desc)
   end
 
   def new
     @item = Item.new
-    # @item.build_category
     @item.build_brand
-    @item.item_images.build
-    @parents = Category.all.order("id ASC").limit(13)
-    @item.item_images.build
+    @item_image = 5.times{@item.item_images.build}
+    @parents = Category.where(ancestry: nil)
+    @category_children1 = Category.where(parent_id: 1)
+    @category_children2 = Category.where(parent_id: 2)
+    @category_children3 = Category.where(parent_id: 3)
+    @category_children4 = Category.where(parent_id: 4)
+    @category_children5 = Category.where(parent_id: 5)
+    @category_children6 = Category.where(parent_id: 6)
+    @category_children7 = Category.where(parent_id: 7)
+    @category_children8 = Category.where(parent_id: 8)
+    @category_children9 = Category.where(parent_id: 9)
+    @category_children10 = Category.where(parent_id: 10)
+    @category_children11 = Category.where(parent_id: 11)
+    @category_children12 = Category.where(parent_id: 12)
+    @category_children13 = Category.where(parent_id: 13)
+    @items = Item.all.order(created_at: :desc)
     @category_parent_array = ["---"]
     Category.where(ancestry: nil).each do |parent|
-      @category_parent_array << parent.name
-   end
+    @category_parent_array << parent.name
+    end
   end
 
   def create
     @item = Item.new(item_params)
-    if @item.save!
-      # category_id = Category.find(@item.id).id
-      brand_id = Brand.find(@item.id).id
-      item = Item.find(@item.id)
-      item.update(brand_id: brand_id)
-      # item.update(category_id: category_id,brand_id: brand_id)
+    @item_images = params[:item_images]["image"].nil?
+    if @item.save && @item_images
+      params[:item_images]["image"].each do |a|
+        @item_image = @item.item_images.create!(image: a, item_id: @item.id)
+      end
       redirect_to root_path
     else
+      @item.build_brand
+      @item_image = 5.times{@item.item_images.build}  
       render action: :new
     end
   end
@@ -50,6 +77,7 @@ class ItemsController < ApplicationController
   end
 
   private
+
   
 
   def item_params
@@ -62,17 +90,15 @@ class ItemsController < ApplicationController
       :postage_payer_id,
       :prefecture_id,
       :preparation_day_id,
+      :brand_id,
       :buyer_id,
-      :deal_closed_date,
-      category_attributes: [
-        :name
-      ],
       brand_attributes: [
         :name
-      ], item_image_attributes: [
-        :image,
-        :ids
-        ]).merge(seller_id: current_user.id)
+      ], item_images_attributes: [
+        :id,
+        :item_id,
+        image:[]
+      ]).merge(seller_id: current_user.id)
     
   end
 
