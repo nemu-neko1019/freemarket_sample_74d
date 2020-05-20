@@ -203,13 +203,13 @@
      }
    }
    &__detail {
-     height: 450px;
+     height: 100%;
      width: 700px;
      margin: 0 auto;
+     padding: 40px;
      &--top {
        width: 600px;
        margin: 0 auto;
-       padding-top: 40px;
        .info {
          font-size: 14px;
          color: gray;
@@ -217,16 +217,16 @@
        }
      }
      &--category {
-       height: 80px;
+       height: 100%;
        width: 600px;
        margin: 0 auto;
        position: relative;
        margin-top: 30px;
-       .top {
-         height: 22px;
+       .listing-form-box {
+         height: 210px;
          width: 600px;
          display: flex;
-         &__left {
+         .listing-product-detail__category {
            height: 22px;
            font-size: 14px;
            color: black;
@@ -234,38 +234,46 @@
            display: flex;
            justify-content: center;
            align-items: center;
-         }
-         &__right {
-           height: 22px;
-           font-size: 13px;
-           color: white;
-           font-weight: 600;
-           margin-left: 10px;
-           display: flex;
-           justify-content: center;
-           align-items: center;
-           .required {
-             height: 16px;
-             width: 35px;
-             background-color: red;
-             border-radius: 2px;
+           .listing-default {
+             height: 22px;
+             font-size: 13px;
+             color: white;
+             font-weight: 600;
+             margin-left: 10px;
              display: flex;
              justify-content: center;
              align-items: center;
-             padding-top: 1px;
-           }
-         }
-       }
-       .form {
-         height: 48px;
-         width: 600px;
-         position: absolute;
-         bottom: 0;
-           .box {
-            height: 48px;
-            width: 100%;
-           }
-       }
+             &--require {
+               height: 16px;
+               width: 35px;
+               background-color: red;
+               border-radius: 2px;
+               display: flex;
+               justify-content: center;
+               align-items: center;
+               padding-top: 1px;
+              }
+            }
+          }
+         .listing-select-wrapper {
+           height: 210px;
+           width: 600px;
+           position: absolute;
+           top: 30px;
+           &__box{
+             height: 80px;
+             margin: 0 auto;
+             height: 48px;
+             width: 600px;
+             margin-bottom: 10px;
+             &--select{
+               height: 48px;
+               width: 600px;
+               margin-bottom: 10px;
+              }
+            }
+          }
+        }
      }
      &--brand {
        height: 80px;
