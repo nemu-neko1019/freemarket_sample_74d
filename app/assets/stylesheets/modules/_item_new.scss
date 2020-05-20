@@ -55,6 +55,13 @@
              padding-top: 1px;
            }
          }
+         .image_form {
+          width: 100%;
+          &--item {
+            display: block;
+            width: 100%;
+          }
+        }
        }
        .exp {
          font-size: 14px;

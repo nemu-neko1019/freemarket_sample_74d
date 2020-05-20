@@ -1,4 +1,6 @@
 class ItemImage < ApplicationRecord
-  belongs_to :item
-  mount_uploader :image_url, ImageUploader
+  belongs_to :item, optional: true
+  mount_uploader :image, ImageUploader
+
+  validates :image,  presence: { message: "名前を入力してください" }
 end
