@@ -1,7 +1,6 @@
 .contents
   .item
-    -# = render "layouts/_error_item_messages", model: f.object
-    = form_with model: @item,url: items_path,method: :post, local: true, multipart: true, class: 'form' do |f|
+    = form_with model: @item,url: items_path,method: :post, local: true, class: 'form' do |f|
       = render "layouts/error_messages", model: @item
       .item__image
         .item__image--img
@@ -12,8 +11,8 @@
               %span.required 必須
           = f.fields_for :item_images, class: "top__form" do |r|
             .image_form
-              = r.file_field :image, multiple: true, name: "item_images[image][]", class: "image_form--item", 'data-image': 0
-          -# %p.exp 最大10枚までアップロードできます
+              = r.file_field :image, class: "image_form--item"
+          %p.exp 最大4枚までアップロードできます
           -# .file
           -#   %p.upload ドラッグアンドドロップまたはクリックしてファイルをアップロード
       .item__introduction
@@ -43,7 +42,6 @@
             .top__right
               %span.required 必須
               .form
-                -# = f.select :category_id, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
                 %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
           .top
             .top__left
