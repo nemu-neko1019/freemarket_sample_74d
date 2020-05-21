@@ -1,3 +1,18 @@
+
+.usersession#contents_short
+  .usersession__header
+    = link_to image_tag("/material/logo/logo.png", class: "usersession__header__top--logo"), root_path, class: "usersession__header__top"
+    .usersession__header__bottom
+      %ol.usersession__header__bottom__lists
+        %li.usersession__header__bottom__lists--step#first_step_text 会員情報
+        %li.usersession__header__bottom__lists--step 住所
+        %li.usersession__header__bottom__lists--step カード
+        %li.usersession__header__bottom__lists--step 完了
+      .usersession__header__bottom__status
+        .progress_status.progress_status_step2#first_step_dot
+        .progress_status.progress_status_complete#secand_step_dot
+        .progress_status#secand_step_dot
+        .progress_status#last_step_dot
 .main-container
   .right
     .card-registration

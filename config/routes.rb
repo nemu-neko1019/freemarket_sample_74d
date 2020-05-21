@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   resources :signup, only: [:index, :create, :destroy] do
     collection do
       get "step1"
-      get "step2"
+      get "step2" 
       get "complete_signup"
       get 'logout'
       get "complete_logout"

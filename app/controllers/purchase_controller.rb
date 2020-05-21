@@ -3,7 +3,7 @@ class PurchaseController < ApplicationController
   require 'payjp'
 
   def index
-    @item = Item.find[params[:id]]
+    @item = Item.find(params[:id])
     card = Card.where(user_id: current_user.id).first
     if card = blank?
       redirect_to card_new_path
@@ -19,7 +19,7 @@ class PurchaseController < ApplicationController
     card = Card.where(user_id: current_user.id).first
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
     Payjp::Charge.create(
-      :amount => @item.price
+      :amount => @item.price,
       :customer => card.customer_id,
       :currency => jpy,
     )

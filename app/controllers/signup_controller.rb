@@ -37,7 +37,8 @@ class SignupController < ApplicationController
     @user.build_sending_destination(user_params[:sending_destination_attributes])
     if @user.save
       session[:id] = @user.id
-      redirect_to complete_signup_signup_index_path
+      sign_in(:user, @user)
+      redirect_to new_card_path
     else
       render "/signup/step2"
     end
