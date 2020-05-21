@@ -1,3 +1,4 @@
+= javascript_include_tag 'category.js', 'data-turbolinks-track': 'reload'
 .contents
   .item
     = form_with model: @item,url: items_path,method: :post, local: true, class: 'form' do |f|
@@ -11,10 +12,7 @@
               %span.required 必須
           = f.fields_for :item_images, class: "top__form" do |r|
             .image_form
-              = r.file_field :image, class: "image_form--item"
-          %p.exp 最大4枚までアップロードできます
-          -# .file
-          -#   %p.upload ドラッグアンドドロップまたはクリックしてファイルをアップロード
+              = r.file_field :image
       .item__introduction
         .item__introduction--name
           .top
@@ -36,13 +34,17 @@
         .item__detail--top
           %p.info 商品の詳細
         .item__detail--category
-          .top
-            .top__left
+          .listing-form-box
+            .listing-product-detail__category
               = f.label 'カテゴリー', class: 'listing-default__label'
-            .top__right
-              %span.required 必須
-              .form
-                %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
+              .listing-default
+                .listing-default--require 必須
+            .listing-select-wrapper
+              .listing-select-wrapper__box
+                = f.select :category_id, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+                #category_id1
+                #category_id2
+        .item__detail--brand
           .top
             .top__left
               %p ブランド
@@ -113,3 +115,5 @@
             = link_to 'もどる', "root_path", class: "return"
         .warning
           %p.agreement 禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
+          -# = f.select :category_id, Category.where(ancestry: nil).pluck(:name), {prompt: "選択して下さい"}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}                #category_id1
+

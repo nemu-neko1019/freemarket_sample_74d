@@ -8,24 +8,9 @@ class ItemsController < ApplicationController
     @item = Item.new
     @item.build_brand
     @item_image = 4.times{@item.item_images.build}
-    @parents = Category.where(ancestry: nil)
-    @category_children1 = Category.where(parent_id: 1)
-    @category_children2 = Category.where(parent_id: 2)
-    @category_children3 = Category.where(parent_id: 3)
-    @category_children4 = Category.where(parent_id: 4)
-    @category_children5 = Category.where(parent_id: 5)
-    @category_children6 = Category.where(parent_id: 6)
-    @category_children7 = Category.where(parent_id: 7)
-    @category_children8 = Category.where(parent_id: 8)
-    @category_children9 = Category.where(parent_id: 9)
-    @category_children10 = Category.where(parent_id: 10)
-    @category_children11 = Category.where(parent_id: 11)
-    @category_children12 = Category.where(parent_id: 12)
-    @category_children13 = Category.where(parent_id: 13)
-    @items = Item.all.order(created_at: :desc)
-    @category_parent_array = ["---"]
+    @category_parent_array = ["選択してください"]
     Category.where(ancestry: nil).each do |parent|
-    @category_parent_array << parent.name
+      @category_parent_array << parent.name
     end
   end
 
@@ -34,8 +19,12 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path
     else
-      @item.build_brand
-      @item_image = 4.times{@item.item_images.build}  
+      @category_parent_array = ["選択してください"]
+      Category.where(ancestry: nil).each do |parent|
+        @category_parent_array << parent.name
+      end
+        @item.build_brand
+      @item_image = 5.times{@item.item_images.build}  
       render action: :new
     end
   end
@@ -56,6 +45,14 @@ class ItemsController < ApplicationController
   end
 
   def complete_buy
+  end
+
+  def get_category_children
+    @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
+  end
+
+  def get_category_grandchildren
+    @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
 
   private
@@ -79,14 +76,7 @@ class ItemsController < ApplicationController
       ], item_images_attributes: [
         :image
       ]).merge(seller_id: current_user.id)
-    
+
   end
 
-  def get_category_children
-    @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
-  end
-
-  def get_category_grandchildren
-    @category_grandchildren = Category.find("#{params[:child_id]}").children
-  end
 end

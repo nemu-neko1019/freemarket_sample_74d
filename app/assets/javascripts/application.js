@@ -12,4 +12,4 @@
 //
 // = require activestorage
 // = require turbolinks
-// = require_tree
+//require_tree
