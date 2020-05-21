@@ -20,7 +20,11 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path
     else
-      @item.build_brand
+      @category_parent_array = ["---"]
+      Category.where(ancestry: nil).each do |parent|
+        @category_parent_array << parent.name
+      end
+        @item.build_brand
       @item_image = 5.times{@item.item_images.build}  
       render action: :new
     end
