@@ -8,7 +8,7 @@ class ItemsController < ApplicationController
     @item = Item.new
     @item.build_brand
     @item_image = 4.times{@item.item_images.build}
-    @category_parent_array = ["---"]
+    @category_parent_array = ["選択してください"]
     Category.where(ancestry: nil).each do |parent|
       @category_parent_array << parent.name
     end
@@ -19,7 +19,7 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path
     else
-      @category_parent_array = ["---"]
+      @category_parent_array = ["選択してください"]
       Category.where(ancestry: nil).each do |parent|
         @category_parent_array << parent.name
       end
