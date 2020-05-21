@@ -6,15 +6,15 @@
       %li
         = icon 'angle-right'
       %li
-        =link_to "#{@category.name}"
+        =link_to "#{@category}"
       %li
         = icon 'angle-right'
       %li
-        =link_to "#{@category.name}"
+        =link_to "#{@category}"
       %li
         = icon 'angle-right'
       %li
-        =link_to "#{@category.name}"
+        =link_to "##{@category}"
       %li
         = icon 'angle-right'
       %li
@@ -27,7 +27,7 @@
           %h2.show-main__content__itembox__name
             = @item.name
           .show-main__content__itembox__body
-            =image_tag @item.item_images[0].image
+            = image_tag ("#{@item.item_images[0].image}")
           .show-main__content__itembox__images
             -@item.item_images.each_with_index do |item_image, index|
               -if index >= 1
@@ -37,7 +37,7 @@
               = "¥#{@item.price.to_s(:delimited)}" 
             .show-main__content__itembox__price__detail
               （税込）
-              - if @postage_payer.postage_payer == "着払い（購入者負担）"
+              - if @item.postage_payer == "着払い（購入者負担）"
                 送料別
               - else
                 送料込み
@@ -72,27 +72,27 @@
                   %th
                     商品のサイズ
                   %td
-                    = @size.size
+                    なし
                 %tr
                   %th
                     商品の状態
                   %td
-                    = @condition.item_condition
+                    = @item.condition.item_condition
                 %tr
                   %th
                     配送料の負担
                   %td
-                    = @postage_payer.postage_payer
+                    = @item.postage_payer.postage_payer
                 %tr
                   %th
                     発送元の地域
                   %td
-                    = @prefecture.name
+                    = @item.prefecture.name
                 %tr
                   %th
                     発送日の目安
                   %td
-                    = @preparationday.preparation_day
+                    = @item.preparation_day.preparation_day
           .show-main__content__itembox__option
             %ul
               %li#likeBtn.optionalBtnlikeBtn
@@ -118,6 +118,8 @@
             %button(name="btn"  type="submit" class="commentBtn")
               = icon 'comment'
               コメントする
+            = link_to "購入する", purchase_index_path(@item.id), method: :get, class: "creditcard__content--purcharce"
+
       %ul.show-main__link
         %li
           - if @item.previous.present?

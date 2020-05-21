@@ -35,6 +35,11 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @item = Item.find(params[:id])
+    @category = @item.category
+    @item_images = @item.item_images
+    @seller = User.find(@item.seller_id)
+    @brand = @item.brand
   end
 
   def buy
