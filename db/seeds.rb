@@ -19,7 +19,6 @@ lady_8 = lady.children.create(name: "レッグウェア")
 lady_8.children.create([{name: "ソックス"},{name: "スパッツ/レギンス"},{name: "ストッキング/タイツ"},{name: "レッグウォーマー"},{name: "その他"}])
 lady_9 = lady.children.create(name: "帽子")
 lady_9.children.create([{name: "ニットキャップ/ビーニー"},{name: "ハット"},{name: "ハンチング/ベレー帽"},{name: "キャップ"},{name: "キャスケット"},{name: "麦わら帽子"},{name: "その他"}])
-
 lady_10 = lady.children.create(name: "バッグ")
 lady_10.children.create([{name: "ハンドバッグ"},{name: "トートバッグ"},{name: "エコバッグ"},{name: "リュック/バックパック"},{name: "ボストンバッグ"},{name: "スポーツバッグ"},{name: "ショルダーバッグ"},{name: "クラッチバッグ"},{name: "ポーチ/バニティ"},{name: "ボディバッグ/ウェストバッグ"},{name: "マザーズバッグ"},{name: "メッセンジャーバッグ"},{name: "ビジネスバッグ"},{name: "旅行用バッグ/キャリーバッグ"},{name: "ショップ袋"},{name: "和装用バッグ"},{name: "かごバッグ"},{name: "その他"}])
 lady_11 = lady.children.create(name: "アクセサリー")
@@ -226,7 +225,6 @@ appliance_smartphone_camera_9 = appliance_smartphone_camera.children.create(name
 appliance_smartphone_camera_9.children.create([{name: "冷蔵庫"},{name: "洗濯機"},{name: "炊飯器"},{name: "電子レンジ/オーブン"},{name: "調理機器"},{name: "アイロン"},{name: "掃除機"},{name: "エスプレッソマシン"},{name: "コーヒーメーカー"},{name: "衣類乾燥機"},{name: "その他"}])
 appliance_smartphone_camera_10 = appliance_smartphone_camera.children.create(name: "その他")
 appliance_smartphone_camera_10.children.create([{name: "その他"}])
-
 # スポーツ・レジャー
 sport_leisure = Category.create(name: "スポーツ・レジャー")
 sport_leisure_1 = sport_leisure.children.create(name: "ゴルフ")
