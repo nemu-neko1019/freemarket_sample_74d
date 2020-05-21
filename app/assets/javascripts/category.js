@@ -1,7 +1,7 @@
 //= require jquery
 $(function(){
   function appendOption(category){
-    var html = `<option value="${category.name}" data-category="${category.id}">${category.name}</option>`;
+    var html = `<option value="${category.id}" data-category="${category.id}">${category.name}</option>`;
     return html;
   }
   function appendChidrenBox(insertHTML){
