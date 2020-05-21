@@ -2,20 +2,18 @@
 .contents
   .item
     = form_with model: @item,url: items_path,method: :post, local: true, class: 'form' do |f|
-      = render "layouts/error_messages", model: @item
       .item__image
         .item__image--img
           .top
+            = f.fields_for :item_image do |r|
+              = r.file_field :image
             .top__left
               %p 出品画像
             .top__right
               %span.required 必須
-          = f.fields_for :item_images, class: "top__form" do |r|
-            .image_form
-              = r.file_field :image
-          -# %p.exp 最大10枚までアップロードできます
-          -# .file
-          -#   %p.upload ドラッグアンドドロップまたはクリックしてファイルをアップロード
+          %p.exp 最大10枚までアップロードできます
+          .file
+            %p.upload ドラッグアンドドロップまたはクリックしてファイルをアップロード
       .item__introduction
         .item__introduction--name
           .top
@@ -45,7 +43,7 @@
             .listing-select-wrapper
               .listing-select-wrapper__box
                 = f.select :category_id, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
-                -# = f.select :category_id, Category.where(ancestry: nil).pluck(:name), {prompt: "選択して下さい"}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}                #category_id1
+                #category_id1
                 #category_id2
         .item__detail--brand
           .top
@@ -90,7 +88,7 @@
             .top__right
               %span.required 必須
           .form
-            = f.collection_select :preparation_day_id, PreparationDay.all, :id, :preparation_day, prompt: "選択してください"
+            = f.collection_select :preparation_day_id, PreparationDay.all, :id, :preparation_day,   prompt: "選択してください"
       .item__price
         .item__price--top
           %p.info価格（¥300〜9,999,999)
@@ -118,3 +116,4 @@
             = link_to 'もどる', "root_path", class: "return"
         .warning
           %p.agreement 禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
+                -# = f.select :category_id, Category.where(ancestry: nil).pluck(:name), {prompt: "選択して下さい"}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}                #category_id1
