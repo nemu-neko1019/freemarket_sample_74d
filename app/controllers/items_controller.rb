@@ -34,6 +34,10 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @item = Item.find(params[:id])
+    if Rails.env.production?
+      client
+    end
   end
 
   def update
