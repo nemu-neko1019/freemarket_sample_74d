@@ -66,14 +66,14 @@
 |price|integer|null: false|
 |category_id|references|foreign_key: true|
 |brand_id|references|foreign_key: true|
-|size|integer|null: false|
-|condition|integer|null: false|
-|postage|integer|null: false|
+|size_id|integer|null: false|
+|condition_id|integer|null: false|
+|postage_payer_id|integer|null: false|
 |seller_id|references|null: false, foreign_key: true|
 |buyer_id|references|foreign_key: true, null: false|
 |deal_closed_date|timestamp||
-|trading_status|integernull: false|
-|prefecture_code|integer|null:false|
+|prefecture_id|integer|null:false|
+|preparation_day_id|integer|null:false|
 ### Association
 - has_many :comments, dependent: :destroy
 - has_many :favorites

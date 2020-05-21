@@ -59,6 +59,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'rails-controller-testing'
   gem 'faker'
+  gem 'ancestry'
 end
 
 group :development do
@@ -95,3 +96,4 @@ gem 'devise-i18n-views'
 gem 'carrierwave'
 gem 'fog-aws'
 gem 'payjp'
+gem 'ancestry'

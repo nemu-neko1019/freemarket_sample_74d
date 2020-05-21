@@ -15,8 +15,8 @@
   .usersession__main
     .usersession__main--top
       住所情報
-      = render "layouts/error_messages", model: @sending_destination
-    = form_with model: @user, url: signup_index_path, local:true, method: :post, class: "usersession__main__contents" do |f|
+      = render "layouts/error_messages", model: @user
+    = form_with model: @user, url: signup_index_path, method: :post, local: true, class: "usersession__main__contents" do |f|
       = f.fields_for :sending_destination do |f|
         .usersession__main__contents__nickname
           %p.item_headline 郵便番号
