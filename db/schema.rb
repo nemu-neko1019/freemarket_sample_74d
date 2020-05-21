@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_16_101833) do
+ActiveRecord::Schema.define(version: 2020_05_19_034649) do
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 2020_05_16_101833) do
     t.integer "price", null: false
     t.bigint "category_id"
     t.bigint "brand_id"
-    t.integer "size_id", null: false
+    t.integer "size_id"
     t.integer "condition_id", null: false
     t.integer "postage_payer_id", null: false
     t.bigint "buyer_id"
@@ -68,7 +68,7 @@ ActiveRecord::Schema.define(version: 2020_05_16_101833) do
     t.timestamp "deal_closed_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "preparation_day_id", null: false
+    t.string "preparation_day_id"
     t.index ["brand_id"], name: "index_items_on_brand_id"
     t.index ["buyer_id"], name: "index_items_on_buyer_id"
     t.index ["category_id"], name: "index_items_on_category_id"
@@ -103,6 +103,15 @@ ActiveRecord::Schema.define(version: 2020_05_16_101833) do
     t.datetime "updated_at", null: false
     t.index ["session_id"], name: "index_sessions_on_session_id", unique: true
     t.index ["updated_at"], name: "index_sessions_on_updated_at"
+  end
+
+  create_table "sns", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "provider"
+    t.string "uid"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_sns_on_user_id"
   end
 
   create_table "todo_lists", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -156,6 +165,7 @@ ActiveRecord::Schema.define(version: 2020_05_16_101833) do
   add_foreign_key "items", "users", column: "seller_id"
   add_foreign_key "profiles", "users"
   add_foreign_key "sending_destinations", "users"
+  add_foreign_key "sns", "users"
   add_foreign_key "todo_lists", "users"
   add_foreign_key "user_reviews", "items"
 end
