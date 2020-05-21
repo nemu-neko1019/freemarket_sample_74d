@@ -9,7 +9,9 @@ class ItemsController < ApplicationController
     @item.build_brand
     @item_image = 4.times{@item.item_images.build}
     @category_parent_array = ["選択してください"]
-    @category_parent_array = Category.where(ancestry: nil).pluck(:name)
+    Category.where(ancestry: nil).pluck(:name).each do |parent|
+      @category_parent_array << parent
+    end
   end
 
   def create
@@ -18,7 +20,9 @@ class ItemsController < ApplicationController
       redirect_to root_path
     else
       @category_parent_array = ["選択してください"]
-      @category_parent_array = Category.where(ancestry: nil).pluck(:name)
+      Category.where(ancestry: nil).pluck(:name).each do |parent|
+        @category_parent_array << parent
+      end
       @item.build_brand
       @item_image = 5.times{@item.item_images.build}  
       render action: :new
