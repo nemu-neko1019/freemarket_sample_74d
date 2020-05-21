@@ -5,9 +5,24 @@ class ItemsController < ApplicationController
   end
 
   def new
+    @item = Item.new
+    @item.build_brand
+    @item_image = 4.times{@item.item_images.build}
+    @category_parent_array = ["選択してください"]
+    @category_parent_array = Category.where(ancestry: nil).pluck(:name)
   end
 
   def create
+    @item = Item.new(item_params)
+    if @item.save
+      redirect_to root_path
+    else
+      @category_parent_array = ["選択してください"]
+      @category_parent_array = Category.where(ancestry: nil).pluck(:name)
+      @item.build_brand
+      @item_image = 5.times{@item.item_images.build}  
+      render action: :new
+    end
   end
 
   def destroy
@@ -20,15 +35,6 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
-    @seller = User.find(@item.seller_id)
-    @category = Category.find(@item.category_id)
-    @brand = Brand.find(@item.brand_id)
-    @size = Size.find(@item.size_id)
-    @condition = Condition.find(@item.condition_id)
-    @postage_payer = PostagePayer.find(@item.postage_payer_id)
-    @prefecture = Prefecture.find(@item.prefecture_id)
-    @preparationday = PreparationDay.find(@item.preparation_day_id)
   end
 
   def buy
@@ -37,7 +43,16 @@ class ItemsController < ApplicationController
   def complete_buy
   end
 
+  def get_category_children
+    @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
+  end
+
+  def get_category_grandchildren
+    @category_grandchildren = Category.find("#{params[:child_id]}").children
+  end
+
   private
+
   
 
   def item_params
@@ -50,15 +65,14 @@ class ItemsController < ApplicationController
       :postage_payer_id,
       :prefecture_id,
       :preparation_day_id,
+      :brand_id,
       :buyer_id,
-      :deal_closed_date,
       brand_attributes: [
         :name
-      ], item_image_attributes: [
-        :image,
-        :id
-    ]).merge(seller_id: current_user.id)
-    
+      ], item_images_attributes: [
+        :image
+      ]).merge(seller_id: current_user.id)
+
   end
 
 end
