@@ -26,10 +26,10 @@ Rails.application.routes.draw do
       get "choice"
     end
   end
-  resources :products, only: [:index, :show, :new, :edit, :destroy] do
-    collection do
-      get 'get_category_children', defaults: { format: 'json' }
-      get 'get_category_grandchildren', defaults: { format: 'json' }
-    end
-  end
+  # resources :products, only: [:index, :show, :new, :edit, :destroy] do
+  #   collection do
+  #     get 'get_category_children', defaults: { format: 'json' }
+  #     get 'get_category_grandchildren', defaults: { format: 'json' }
+  #   end
+  # end
 end

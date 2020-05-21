@@ -1,7 +1,7 @@
+= javascript_include_tag 'category.js', 'data-turbolinks-track': 'reload'
 .contents
   .item
-    -# = render "layouts/_error_item_messages", model: f.object
-    = form_with model: @item,url: items_path,method: :post, local: true, multipart: true, class: 'form' do |f|
+    = form_with model: @item,url: items_path,method: :post, local: true, class: 'form' do |f|
       = render "layouts/error_messages", model: @item
       .item__image
         .item__image--img
@@ -12,7 +12,7 @@
               %span.required 必須
           = f.fields_for :item_images, class: "top__form" do |r|
             .image_form
-              = r.file_field :image, multiple: true, name: "item_images[image][]", class: "image_form--item", 'data-image': 0
+              = r.file_field :image
           -# %p.exp 最大10枚までアップロードできます
           -# .file
           -#   %p.upload ドラッグアンドドロップまたはクリックしてファイルをアップロード
@@ -43,8 +43,10 @@
             .top__right
               %span.required 必須
               .form
-                -# = f.select :category_id, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+                = f.select :category_id, Category.where(ancestry: nil).pluck(:name), {prompt: "選択して下さい"}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
                 %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
+              #form
+              #form2
           .top
             .top__left
               %p ブランド
@@ -87,7 +89,7 @@
             .top__right
               %span.required 必須
           .form
-            = f.collection_select :preparation_day_id, PreparationDay.all, :id, :preparation_day,   prompt: "選択してください"
+            = f.collection_select :preparation_day_id, PreparationDay.all, :id, :preparation_day, prompt: "選択してください"
       .item__price
         .item__price--top
           %p.info価格（¥300〜9,999,999)
