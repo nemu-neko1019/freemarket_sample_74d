@@ -2,11 +2,12 @@
   .purchase
     .purchase__confirmation
       購入を確定しますか？
-    .purchase__confirmation
-      = @item.name
-    .purchase__confirmation
-      = @item.price
-      円（税込）
+    .purchase__goods
+      .purchase__goods--name
+        = @item.name
+      .purchase__goods--price
+        = @item.price
+        円（税込）
   .creditcard
     .creditcard__title
       支払い方法
