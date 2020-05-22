@@ -1,12 +1,80 @@
+$white:#ffffff;
+
 .main-container {
   background-color: #f8f8f8;
   width: 100vw;
-  justify-content: center;
   padding: 40px 0;
+  margin: 0 auto;
   .purchase {
+    background-color: $white;
     width: 700px;
-    &__confirmation{
-      
+    margin: 0 auto;
+    text-align: center;
+    border-bottom: solid 1px #f8f8f8;
+    &__confirmation {
+      height: 100px;
+      font-size: 22px;
+      font-weight: bold;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-bottom: solid 1px #f8f8f8;
     }
+    &__goods {
+      height: 150px;
+      &--name {
+        height: 80px;
+        width: 250px;
+        font-size: 15px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+      }
+      &--price {
+        height: 50px;
+        width: 250px;
+        font-size: 15px;
+        font-weight: bold;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+  .creditcard {
+    background-color: $white;
+    width: 700px;
+    padding-bottom: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0 auto;
+    .creditcard__title {
+      height: 110px;
+      width: 340px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-bottom: solid 1px #f8f8f8;
+    }
+    .creditcard__content {
+      height: 110px;
+      width: 340px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-bottom: solid 1px #f8f8f8;
+    }
+    a {
+      height: 80px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      }
   }
 }
