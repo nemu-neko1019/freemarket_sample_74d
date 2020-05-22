@@ -1,7 +1,7 @@
 - if user_signed_in? && current_user.id == @item.seller_id
   .display-none
 - else 
-  = link_to buy_item_path do
+  = link_to confirmation_purchase_path(@item.id), method: :get do
     .buyBtn
       %span.buyBtn__text 購入する
       = image_tag "/material/icon/ifn0578.png",class:"buyBtn__icon"
