@@ -118,8 +118,6 @@
             %button(name="btn"  type="submit" class="commentBtn")
               = icon 'comment'
               コメントする
-            = link_to "購入する", confirmation_purchase_path(@item.id), method: :get, class: "creditcard__content--purcharce"
-
       %ul.show-main__link
         %li
           - if @item.previous.present?
