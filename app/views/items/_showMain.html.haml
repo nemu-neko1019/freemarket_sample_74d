@@ -6,15 +6,15 @@
       %li
         = icon 'angle-right'
       %li
-        =link_to "#{@category}"
+        =link_to "#{@item.category.root.name}"
       %li
         = icon 'angle-right'
       %li
-        =link_to "#{@category_children.name}"
+        =link_to "#{@item.category.parent.name}"
       %li
         = icon 'angle-right'
       %li
-        =link_to "#{@category_grandchildren.name}"
+        =link_to "#{@item.category.name}"
       %li
         = icon 'angle-right'
       %li
@@ -27,7 +27,7 @@
           %h2.show-main__content__itembox__name
             = @item.name
           .show-main__content__itembox__body
-            -# =image_tag @item.item_images[0].image
+            =image_tag @item.item_images[0].image
           .show-main__content__itembox__images
             -@item.item_images.each_with_index do |item_image, index|
               -if index >= 1
@@ -57,13 +57,11 @@
                   %th
                     カテゴリー
                   %td
-                    %br/
-                    #{@category_parent_array}
-                    %br/
-                    #{@category_children.name}
-
-                    %br/
-                    #{@category_grandchildren.name}
+                    #{@item.category.root.name}
+                    %br
+                    #{@item.category.parent.name}
+                    %br
+                    #{@item.category.name}
                 %tr
                   %th
                     ブランド
@@ -73,7 +71,7 @@
                   %th
                     商品のサイズ
                   %td
-                    -# = @size.size
+                    = @size.size
                 %tr
                   %th
                     商品の状態
@@ -141,7 +139,5 @@
             %span 後ろの商品
             = icon 'angle-right'
       .show-main__reloaditems
-        -# =link_to "#{@category}をもっと見る" 
+        =link_to "#{@item.category.root.name}をもっと見る" 
         .productLists
-
-
