@@ -68,10 +68,10 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item_images = ItemImage.where(item_id: params[:id])
     @item = Item.find(params[:id])
     @seller = User.find(@item.seller_id)
     @brand = Brand.find(@item.brand_id)
+    @size = Size.find(@item.size_id)
     @condition = Condition.find(@item.condition_id)
     @postage_payer = PostagePayer.find(@item.postage_payer_id)
     @prefecture = Prefecture.find(@item.prefecture_id)
