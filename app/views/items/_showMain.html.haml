@@ -118,6 +118,7 @@
             %button(name="btn"  type="submit" class="commentBtn")
               = icon 'comment'
               コメントする
+
       %ul.show-main__link
         %li
           - if @item.previous.present?
@@ -142,3 +143,5 @@
       .show-main__reloaditems
         =link_to "#{@category.name}をもっと見る" 
         .productLists
+
+
