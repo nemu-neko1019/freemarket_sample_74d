@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_19_034649) do
+ActiveRecord::Schema.define(version: 2020_05_22_145737) do
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -20,9 +20,9 @@ ActiveRecord::Schema.define(version: 2020_05_19_034649) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
+    t.string "ancestry"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "ancestry"
     t.index ["ancestry"], name: "index_categories_on_ancestry"
   end
 
@@ -59,13 +59,14 @@ ActiveRecord::Schema.define(version: 2020_05_19_034649) do
     t.integer "price", null: false
     t.bigint "category_id"
     t.bigint "brand_id"
-    t.integer "size", null: false
-    t.integer "condition", null: false
-    t.integer "postage_payer", null: false
+    t.integer "size_id"
+    t.integer "condition_id", null: false
+    t.integer "postage_payer_id", null: false
     t.bigint "buyer_id"
     t.bigint "seller_id", null: false
-    t.integer "prefecture_code", null: false
+    t.integer "prefecture_id", null: false
     t.timestamp "deal_closed_date"
+    t.string "preparation_day_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["brand_id"], name: "index_items_on_brand_id"
@@ -83,7 +84,8 @@ ActiveRecord::Schema.define(version: 2020_05_19_034649) do
   end
 
   create_table "sending_destinations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "prefecture_code", null: false
+    t.integer "postalcode", null: false
+    t.integer "prefecture_id", null: false
     t.string "municipal_district", null: false
     t.string "housenumber", null: false
     t.string "buildingname"
@@ -91,7 +93,6 @@ ActiveRecord::Schema.define(version: 2020_05_19_034649) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "postalcode"
     t.index ["user_id"], name: "index_sending_destinations_on_user_id"
   end
 

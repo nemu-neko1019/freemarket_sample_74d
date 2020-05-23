@@ -1,0 +1,143 @@
+.main
+  .main__header
+    %ul.main__header__lists
+      %li
+        = link_to('FURIMA', root_path{index})
+      %li
+        = icon 'angle-right'
+      %li
+        =link_to "#{@item.category.root.name}"
+      %li
+        = icon 'angle-right'
+      %li
+        =link_to "#{@item.category.parent.name}"
+      %li
+        = icon 'angle-right'
+      %li
+        =link_to "#{@item.category.name}"
+      %li
+        = icon 'angle-right'
+      %li
+        %p 
+          = @item.name
+  .main__itempage
+    .show-main
+      .show-main__content
+        .show-main__content__itembox
+          %h2.show-main__content__itembox__name
+            = @item.name
+          .show-main__content__itembox__body
+            =image_tag @item.item_images[0].image
+          .show-main__content__itembox__images
+            -@item.item_images.each_with_index do |item_image, index|
+              -if index >= 1
+                =image_tag item_image.image
+          .show-main__content__itembox__price
+            %p
+              = "¥#{@item.price.to_s(:delimited)}" 
+            .show-main__content__itembox__price__detail
+              （税込）
+              - if @postage_payer.postage_payer == "着払い（購入者負担）"
+                送料別
+              - else
+                送料込み
+          .show-main__content__itembox__detail
+            %text
+            =@item.introduction
+
+          .show-main__content__itembox__table
+            %table
+              %tbody
+                %tr
+                  %th
+                    出品者
+                  %td
+                    = @seller.nickname 
+                %tr
+                  %th
+                    カテゴリー
+                  %td
+                    =link_to "#{@item.category.root.name}"
+                    %br
+                    =link_to "#{@item.category.parent.name}"
+                    %br
+                    =link_to "#{@item.category.name}"
+                %tr
+                  %th
+                    ブランド
+                  %td
+                    = @brand.name
+                %tr
+                  %th
+                    商品のサイズ
+                  %td
+                    = @size.size
+                %tr
+                  %th
+                    商品の状態
+                  %td
+                    = @condition.item_condition
+                %tr
+                  %th
+                    配送料の負担
+                  %td
+                    = @postage_payer.postage_payer
+                %tr
+                  %th
+                    発送元の地域
+                  %td
+                    = @prefecture.name
+                %tr
+                  %th
+                    発送日の目安
+                  %td
+                    = @preparationday.preparation_day
+          .show-main__content__itembox__option
+            %ul
+              %li#likeBtn.optionalBtnlikeBtn
+                = icon 'star'
+                お気に入り０
+            %ul.optional
+              %li.optionalBtn
+                = link_to root_path do
+                  = icon 'flag'
+                  不適切な商品の通報
+        .show-main__content__comment
+          .from-box
+            %input(type="hidden" name="utf8" value="✓")
+            %input(type="hidden" name="")
+            %textarea(required="required" name="comment_body" style="margin: 0px; height: 104px; width: 652px;")
+            %p.notic-message
+              %text
+                相手のことを考え丁寧なコメントを心がけましょう。
+                %br/
+                不快な言葉遣いなどは利用制限や退会処分となることがあります。
+                %br/
+            %br/
+            %button(name="btn"  type="submit" class="commentBtn")
+              = icon 'comment'
+              コメントする
+      %ul.show-main__link
+        %li
+          - if @item.previous.present?
+            =link_to item_path(@item.previous.id) do
+              = icon 'angle-left'
+              %span
+              前の商品
+          - else
+            .none
+            = icon 'angle-left'
+            %span
+            前の商品
+        %li
+          - if @item.next.present?
+            =link_to item_path(@item.next.id) do
+              %span 後ろの商品
+              = icon 'angle-right'
+          - else
+            .none
+            %span 後ろの商品
+            = icon 'angle-right'
+      .show-main__reloaditems
+        =link_to "#{@item.category.root.name}をもっと見る" 
+        .productLists

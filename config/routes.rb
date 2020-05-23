@@ -4,9 +4,13 @@ Rails.application.routes.draw do
   resources :items do
     member do
       get "buy"
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
     end
     collection do
       get "complete_buy"
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
     end
   end
   resources :users do
@@ -19,6 +23,7 @@ Rails.application.routes.draw do
       get "complete_signup"
       get 'logout'
       get "complete_logout"
+      get "choice"
     end
   end
 end

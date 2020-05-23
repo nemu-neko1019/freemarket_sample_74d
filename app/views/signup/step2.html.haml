@@ -13,7 +13,7 @@
   .usersession__main
     .usersession__main--top
       住所情報
-      = render "layouts/error_messages", model: @sending_destination
+      = render "layouts/error_messages", model: @user
     = form_with model: @user, url: signup_index_path, method: :post, class: "usersession__main__contents" do |f|
       = f.fields_for :sending_destination do |f|
         .usersession__main__contents__nickname
@@ -24,7 +24,7 @@
           %p.item_headline 都道府県
           %p.required_label 必須
           .usersession__main__contents__item--prefecture
-            = f.collection_select :prefecture_code, Prefecture.all, :id, :name, prompt: "--"
+            = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "--"
         .usersession__main__contents__item
           %p.item_headline 市区町村
           %p.required_label 必須
