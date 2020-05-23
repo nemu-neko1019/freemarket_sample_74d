@@ -1,7 +1,7 @@
 FactoryBot.define do
 
   factory :sending_destination do
-    prefecture_code       {"30"}
+    prefecture_id       {"30"}
     municipal_district    {"大阪市北区"}
     housenumber           {888}
     buildingname          {"フリマ"}
