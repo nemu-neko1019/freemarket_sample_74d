@@ -234,7 +234,7 @@ ja:
         postage_payer: 配送料負担者
         buyer_id: 購入者
         seller_id: 販売者
-        prefecture_id: 発送元の地域
+        prefecture_code: 発送元の地域
         preparation_day: 発送までの日数
         created_at: 登録日時
         updated_at: 更新日時

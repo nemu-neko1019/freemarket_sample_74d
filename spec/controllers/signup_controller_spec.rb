@@ -104,7 +104,7 @@ describe SignupController do
           password_confirmation: "a9a9a9a9",
           sending_destination_attributes: [
             postalcode: "9687465",
-            prefecture_id: "32",
+            prefecture_code: "32",
             municipal_district: "大阪",
             housenumber: "765",
             buildingname: "gwwe",

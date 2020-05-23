@@ -7,10 +7,10 @@ describe SendingDestination do
       expect(sending_destination).to be_valid
     end
 
-    it "prefecture_idがない場合は登録できないこと" do
-      sending_destination = build(:sending_destination, prefecture_id: "")
+    it "prefecture_codeがない場合は登録できないこと" do
+      sending_destination = build(:sending_destination, prefecture_code: "")
       sending_destination.valid?
-      expect(sending_destination.errors[:prefecture_id]).to include("を入力してください")
+      expect(sending_destination.errors[:prefecture_code]).to include("を入力してください")
     end
 
     it "municipal_districtがない場合は登録できないこと" do

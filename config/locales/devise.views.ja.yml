@@ -15,15 +15,15 @@ ja:
         email: メールアドレス
         password: パスワード
         password_confirmation: パスワード（確認用）
-        sending_destination_prefecture_id: 都道府県
+        sending_destination_prefecture_code: 都道府県
       user/sending_destination:
-        prefecture_id: 都道府県
+        prefecture_code: 都道府県
         postalcode: 郵便番号
         municipal_district: 市区町村
         housenumber: 番地
         phonenumber: 電話番号
       sending_destination:
-        prefecture_id: 都道府県
+        prefecture_code: 都道府県
         postalcode: 郵便番号
         municipal_district: 市区町村
         housenumber: 番地

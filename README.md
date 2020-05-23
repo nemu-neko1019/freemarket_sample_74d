@@ -40,7 +40,7 @@
 |firstname_kana|string|null: false|
 |familyname_kana|string|null: false|
 |postalcode|integer(7)|null: false|
-|prefecture_id|integer|null: false|
+|prefecture_code|integer|null: false|
 |municipal_district|string|null: false|
 |house_number|string|null: false|
 |building_name|string||
