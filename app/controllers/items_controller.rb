@@ -7,11 +7,13 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.build_brand
-    @item_image = 4.times{@item.item_images.build}
+    @item.item_images.build
     @category_parent_array = ["---"]
-    Category.where(ancestry: nil).each do |parent|
-      @category_parent_array << parent.name
+    Category.where(ancestry: nil).pluck(:name).each do |parent|
+      @category_parent_array << parent
     end
+    @category_parent_array = Category.where(ancestry: nil).pluck(:name)
+    @category_parent_array.unshift("選択してください")
   end
 
   def create
@@ -20,12 +22,18 @@ class ItemsController < ApplicationController
       redirect_to root_path
     else
       @category_parent_array = ["---"]
-      Category.where(ancestry: nil).each do |parent|
-        @category_parent_array << parent.name
+      Category.where(ancestry: nil).pluck(:name).each do |parent|
+        @category_parent_array << parent
       end
-        @item.build_brand
-      @item_image = 5.times{@item.item_images.build}  
-      render action: :new
+      @item.build_brand
+      @item.item_images.build
+      @category_parent_array = ["---"]
+      Category.where(ancestry: nil).pluck(:name).each do |parent|
+        @category_parent_array << parent
+      end
+      @category_parent_array = Category.where(ancestry: nil).pluck(:name)
+      @category_parent_array.unshift("選択してください")
+        render action: :new
     end
   end
 
@@ -34,15 +42,40 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
-    if Rails.env.production?
-      client
-    end
+    @item_images = ItemImage.where(item_id: params[:id])
+    @item.item_images.build
+    grandchild_category = @item.category
+    child_category = grandchild_category.parent
+    @category_parent_array = Category.where(ancestry: nil).pluck(:name)
+    @category_children_array = Category.where(ancestry: child_category.ancestry)
+    @category_grandchildren_array = Category.where(ancestry: grandchild_category.ancestry)
   end
 
   def update
+    @item = Item.find(params[:id])
+    if @item.update(item_update_params)
+      redirect_to item_path(params[:id])
+    else
+      @item_images = ItemImage.where(item_id: params[:id])
+      grandchild_category = @item.category
+      child_category = grandchild_category.parent
+      @category_parent_array = Category.where(ancestry: nil).pluck(:name)
+      @category_children_array = Category.where(ancestry: child_category.ancestry)
+      @category_grandchildren_array = Category.where(ancestry: grandchild_category.ancestry)
+      @item.item_images.build
+      render action: :edit
+    end
   end
 
   def show
+    @item_images = ItemImage.where(item_id: params[:id])
+    @item = Item.find(params[:id])
+    @seller = User.find(@item.seller_id)
+    @brand = Brand.find(@item.brand_id)
+    @condition = Condition.find(@item.condition_id)
+    @postage_payer = PostagePayer.find(@item.postage_payer_id)
+    @prefecture = Prefecture.find(@item.prefecture_id)
+    @preparationday = PreparationDay.find(@item.preparation_day_id)
   end
 
   def buy
@@ -61,8 +94,6 @@ class ItemsController < ApplicationController
 
   private
 
-  
-
   def item_params
     params.require(:item).permit(
       :name,
@@ -80,7 +111,27 @@ class ItemsController < ApplicationController
       ], item_images_attributes: [
         :image
       ]).merge(seller_id: current_user.id)
+  end
 
+  def item_update_params
+    params.require(:item).permit(
+      :name,
+      :introduction,
+      :price, 
+      :category_id,
+      :condition_id,
+      :postage_payer_id,
+      :prefecture_id,
+      :preparation_day_id,
+      :brand_id,
+      :buyer_id,
+      brand_attributes: [
+        :name
+      ], item_images_attributes: [
+        :image,
+        :_destroy,
+        :id
+      ]).merge(seller_id: current_user.id)
   end
 
 end

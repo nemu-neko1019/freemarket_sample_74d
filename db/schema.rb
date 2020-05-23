@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_19_034649) do
+ActiveRecord::Schema.define(version: 2020_05_22_145737) do
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -20,9 +20,9 @@ ActiveRecord::Schema.define(version: 2020_05_19_034649) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
+    t.string "ancestry"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "ancestry"
     t.index ["ancestry"], name: "index_categories_on_ancestry"
   end
 
@@ -66,9 +66,9 @@ ActiveRecord::Schema.define(version: 2020_05_19_034649) do
     t.bigint "seller_id", null: false
     t.integer "prefecture_id", null: false
     t.timestamp "deal_closed_date"
+    t.string "preparation_day_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "preparation_day_id"
     t.index ["brand_id"], name: "index_items_on_brand_id"
     t.index ["buyer_id"], name: "index_items_on_buyer_id"
     t.index ["category_id"], name: "index_items_on_category_id"
@@ -84,7 +84,8 @@ ActiveRecord::Schema.define(version: 2020_05_19_034649) do
   end
 
   create_table "sending_destinations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "prefecture_code", null: false
+    t.integer "postalcode", null: false
+    t.integer "prefecture_id", null: false
     t.string "municipal_district", null: false
     t.string "housenumber", null: false
     t.string "buildingname"
@@ -92,7 +93,6 @@ ActiveRecord::Schema.define(version: 2020_05_19_034649) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "postalcode"
     t.index ["user_id"], name: "index_sending_destinations_on_user_id"
   end
 
@@ -103,15 +103,6 @@ ActiveRecord::Schema.define(version: 2020_05_19_034649) do
     t.datetime "updated_at", null: false
     t.index ["session_id"], name: "index_sessions_on_session_id", unique: true
     t.index ["updated_at"], name: "index_sessions_on_updated_at"
-  end
-
-  create_table "sns", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "provider"
-    t.string "uid"
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_sns_on_user_id"
   end
 
   create_table "todo_lists", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -165,7 +156,6 @@ ActiveRecord::Schema.define(version: 2020_05_19_034649) do
   add_foreign_key "items", "users", column: "seller_id"
   add_foreign_key "profiles", "users"
   add_foreign_key "sending_destinations", "users"
-  add_foreign_key "sns", "users"
   add_foreign_key "todo_lists", "users"
   add_foreign_key "user_reviews", "items"
 end
