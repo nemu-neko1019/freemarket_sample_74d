@@ -20,7 +20,7 @@ class ItemsController < ApplicationController
       @category_parent_array = Category.where(ancestry: nil).pluck(:name)
       @category_parent_array.unshift("選択してください")
       @item.build_brand
-      @item_image = 5.times{@item.item_images.build}  
+      @item_image = 4.times{@item.item_images.build}  
       render action: :new
     end
   end
@@ -36,10 +36,13 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    @category = @item.category
-    @item_images = @item.item_images
     @seller = User.find(@item.seller_id)
-    @brand = @item.brand
+    @brand = Brand.find(@item.brand_id)
+    @size = Size.find(@item.size_id)
+    @condition = Condition.find(@item.condition_id)
+    @postage_payer = PostagePayer.find(@item.postage_payer_id)
+    @prefecture = Prefecture.find(@item.prefecture_id)
+    @preparationday = PreparationDay.find(@item.preparation_day_id)
   end
 
   def buy
