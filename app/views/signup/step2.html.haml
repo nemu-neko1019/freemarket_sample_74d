@@ -26,7 +26,7 @@
           %p.item_headline 都道府県
           %p.required_label 必須
           .usersession__main__contents__item--prefecture
-            = f.collection_select :prefecture_code, Prefecture.all, :id, :name, prompt: "--"
+            = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "--"
         .usersession__main__contents__item
           %p.item_headline 市区町村
           %p.required_label 必須

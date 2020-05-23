@@ -5,7 +5,7 @@ class CreateSendingDestinations < ActiveRecord::Migration[5.2]
       t.string :familyname, null: false
       t.string :firstname_kana, null: false
       t.string :familyname_kana, null: false
-      t.integer :prefecture_code, null: false
+      t.integer :prefecture_id, null: false
       t.string :municipal_district, null: false
       t.string :housenumber, null: false
       t.string :buildingname
