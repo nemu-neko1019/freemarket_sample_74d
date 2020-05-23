@@ -3,9 +3,6 @@ class PurchaseController < ApplicationController
   require 'payjp'
 
   def index
-    @user = User.find(current_user.id)
-    @sending_destination = @user.sending_destination
-    @prefecture_code = @sending_destination.prefecture_code
     @item = Item.find(params[:id])
     @card = Card.where(user_id: current_user.id).first
     if card = blank?
