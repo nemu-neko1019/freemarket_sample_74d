@@ -1,5 +1,5 @@
-= javascript_include_tag 'category.js', 'data-turbolinks-track': 'reload'
-= javascript_include_tag 'item_edit.js', 'data-turbolinks-track': 'reload'
+= javascript_include_tag 'category.js', 'data-turbolinks-track': 'load'
+= javascript_include_tag 'item_edit.js', 'data-turbolinks-track': 'load'
 .contents
   .item
     = form_with model: @item,url: item_path, method: :PUT, local: true, class: 'form' do |f|
@@ -20,19 +20,18 @@
                       = image_tag image.image.url, width: "112", height: "112", alt: "preview"
                     .lower-box
                       .update-box
-                        %div{class: "edit-btn#{i}"}
-                          編集
+                        編集
                       .delete-box
                         .delete-btn
-                          %div{class: "delete-btn#{i}"}
-                            削除
+                          削除
             .label-content
-              = f.label :"item_images_attributes_#{@item_images.length}_image", class: "label-box", id: "label-box--#{@item_images.length}" do
-                %p.label-box__text-visible クリックしてファイルをアップロード
-                .hidden-content
-                  = f.fields_for :item_images do |i|
-                    = i.file_field :image, class: "hidden-field"
-                    = i.check_box:_destroy, class: "hidden-checkbox"
+              - if @item_images.present?
+                = f.label :"item_images_attributes_#{@item_images.length}_image", class: "label-box", id: "label-box--#{@item_images.length}" do
+                  %p.label-box__text-visible クリックしてファイルをアップロード
+                  .hidden-content
+                    = f.fields_for :item_images do |i|
+                      = i.file_field :image, class: "hidden-field"
+                      = i.check_box:_destroy, class: "hidden-checkbox"
         .sell__block__form__name
           .form-group__name
             %label

@@ -27,10 +27,6 @@ class ItemsController < ApplicationController
       end
       @item.build_brand
       @item.item_images.build
-      @category_parent_array = ["---"]
-      Category.where(ancestry: nil).pluck(:name).each do |parent|
-        @category_parent_array << parent
-      end
       @category_parent_array = Category.where(ancestry: nil).pluck(:name)
       @category_parent_array.unshift("選択してください")
         render action: :new
@@ -53,16 +49,16 @@ class ItemsController < ApplicationController
 
   def update
     @item = Item.find(params[:id])
+    @item_images = ItemImage.where(item_id: params[:id])
     if @item.update(item_update_params)
       redirect_to item_path(params[:id])
     else
-      @item_images = ItemImage.where(item_id: params[:id])
+      @item.item_images.build
       grandchild_category = @item.category
       child_category = grandchild_category.parent
       @category_parent_array = Category.where(ancestry: nil).pluck(:name)
       @category_children_array = Category.where(ancestry: child_category.ancestry)
       @category_grandchildren_array = Category.where(ancestry: grandchild_category.ancestry)
-      @item.item_images.build
       render action: :edit
     end
   end
