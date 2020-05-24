@@ -26,9 +26,6 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    # @item = Item.find(params[:id])
-    # @item.destroy
-    # redirect_to("/")
     @item = Item.find(params[:id])
     if @item.seller_id == current_user.id
       @item.destroy
