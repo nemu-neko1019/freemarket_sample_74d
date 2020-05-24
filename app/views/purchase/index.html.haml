@@ -24,7 +24,7 @@
     .buy__main__items__item
       %p.small_bold_text 配送先
       = @sending_destination.postalcode
-      = @sending_destination.prefecture_id.name
+      = @sending_destination.prefecture.name
       = @user.nickname
-    = link_to "購入する", pay_purchase_path, class: "buy__main__items--button"
+    = link_to "購入する", pay_purchase_path, method: :post, class: "buy__main__items--button"
 .buy__footer

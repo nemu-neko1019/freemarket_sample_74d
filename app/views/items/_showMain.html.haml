@@ -67,7 +67,10 @@
                   %th
                     ブランド
                   %td
-                    = @brand.name
+                    - if @item.brand.nil?
+                      なし
+                    - else
+                      = @item.brand
                 %tr
                   %th
                     商品のサイズ

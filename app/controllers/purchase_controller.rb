@@ -5,7 +5,7 @@ class PurchaseController < ApplicationController
   def index
     @user = User.find(current_user.id)
     @sending_destination = @user.sending_destination
-    @prefecture_id = @sending_destination.prefecture_id
+    
     @item = Item.find(params[:id])
     @card = Card.where(user_id: current_user.id).first
     if card = blank?
