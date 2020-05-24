@@ -20,29 +20,6 @@ $(document).on('turbolinks:load', function(){
       </div>`
       return html;
     };
-
-
-
-
-    // function buildFile(num){
-    //   var html =`
-    //   <input class="hidden-field" type="file"
-    //   name="item[item_images_attributes][${num}][image]"
-    //   id="product_images_attributes_${num}_image"><br>
-    //   <input class="hidden-checkbox" type="checkbox" value="1" name="item[item_images_attributes][${id}][_destroy]" id="item_images_attributes_${id}__destroy">
-    //   </div>`;
-    //   return html;
-    // };
-
-    // <div data-index="${num}" class="js-file_group">
-
-
-    // <input class="hidden-field" type="file" name="item[item_images_attributes][${id}][image]" id="item_images_attributes_${id}_image">
-    // <input name="item[item_images_attributes][${id}][_destroy]" type="hidden" value="0">
-    // <input class="hidden-checkbox" type="checkbox" value="1" name="item[item_images_attributes][${id}][_destroy]" id="item_images_attributes_${id}__destroy">
-
-
-
     if (window.location.href.match(/\/items\/\d/)){
       $('.preview-box').each(function(index, box){
         $(box).attr('id', `preview-box__${index}`);
@@ -114,8 +91,6 @@ $(document).on('turbolinks:load', function(){
         setLabel();
         if(count < 4){
           $('.label-box').attr({id: `label-box--${count}`,for: `item_item_images_attributes_${count}_image`});
-          // var imagefile = buildFile(count)
-          // $(".hidden-content").append(imagefile)
         }
       }
     });
