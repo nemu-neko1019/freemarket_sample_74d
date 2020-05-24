@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-
+  before_action :authenticate_user!, except: [:index, :show]
   def index
     @items = Item.all.order(created_at: :desc)
   end
@@ -20,12 +20,16 @@ class ItemsController < ApplicationController
       @category_parent_array = Category.where(ancestry: nil).pluck(:name)
       @category_parent_array.unshift("選択してください")
       @item.build_brand
-      @item_image = 5.times{@item.item_images.build}  
+      @item_image = 4.times{@item.item_images.build}  
       render action: :new
     end
   end
 
   def destroy
+    item = Item.find(params[:id])
+    if item.user_id == current_user.id
+      item.destroy
+    end
   end
 
   def edit
@@ -38,7 +42,6 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @seller = User.find(@item.seller_id)
     @brand = Brand.find(@item.brand_id)
-    @size = Size.find(@item.size_id)
     @condition = Condition.find(@item.condition_id)
     @postage_payer = PostagePayer.find(@item.postage_payer_id)
     @prefecture = Prefecture.find(@item.prefecture_id)

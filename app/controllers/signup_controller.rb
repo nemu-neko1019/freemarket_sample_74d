@@ -71,7 +71,7 @@ class SignupController < ApplicationController
       :birthday,
       sending_destination_attributes: [
         :postalcode,
-        :prefecture_code,
+        :prefecture_id,
         :municipal_district,
         :housenumber,
         :buildingname,
