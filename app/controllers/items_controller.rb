@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
-
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :set_item, only: [:show, :destroy]
   def index
     @items = Item.all.order(created_at: :desc)
   end
@@ -8,9 +9,8 @@ class ItemsController < ApplicationController
     @item = Item.new
     @item.build_brand
     @item.item_images.build
-    @category_parent_array = ["---"]
-    Category.where(ancestry: nil).pluck(:name).each do |parent|
-      @category_parent_array << parent
+    @category_parent_array = Category.where(ancestry: nil).pluck(:name)
+    @category_parent_array.unshift("選択してください")
     end
     @category_parent_array = Category.where(ancestry: nil).pluck(:name)
     @category_parent_array.unshift("選択してください")
@@ -21,9 +21,8 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path
     else
-      @category_parent_array = ["---"]
-      Category.where(ancestry: nil).pluck(:name).each do |parent|
-        @category_parent_array << parent
+      @category_parent_array = Category.where(ancestry: nil).pluck(:name)
+      @category_parent_array.unshift("選択してください")
       end
       @item.build_brand
       @item.item_images.build
@@ -34,6 +33,10 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+    if @item.seller_id == current_user.id && @item.destroy
+      @item.destroy
+      redirect_to root_path
+    end
   end
 
   def edit
@@ -64,7 +67,6 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
     @seller = User.find(@item.seller_id)
     @brand = Brand.find(@item.brand_id)
     @condition = Condition.find(@item.condition_id)
@@ -88,6 +90,11 @@ class ItemsController < ApplicationController
   end
 
   private
+
+  def set_item
+    @item = Item.find(params[:id])
+  end
+  
 
   def item_params
     params.require(:item).permit(
