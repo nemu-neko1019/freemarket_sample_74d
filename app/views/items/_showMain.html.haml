@@ -58,19 +58,19 @@
                     カテゴリー
                   %td
                     %br/
-                    =link_to "#{@category.name}"
+                    =link_to "#{@item.category.root.name}"
                     %br/
-                    =link_to "#{@category.name}"
+                    =link_to "#{@item.category.parent.name}"
                     %br/
-                    =link_to "#{@category.name}"
+                    =link_to "#{@item.category.name}"
                 %tr
                   %th
                     ブランド
                   %td
-                    - if @item.brand.nil?
+                    - if @brand.name.nil?
                       なし
                     - else
-                      = @item.brand
+                      = @brand.name
                 %tr
                   %th
 
@@ -140,7 +140,5 @@
             %span 後ろの商品
             = icon 'angle-right'
       .show-main__reloaditems
-        =link_to "#{@category.name}をもっと見る" 
+        =link_to "#{@item.category.name}をもっと見る" 
         .productLists
-
-
