@@ -1,0 +1,35 @@
+.main-container {
+  background-color: #f8f8f8;
+  width: 100vw;
+  justify-content: center;
+  text-align: center;
+  .creditcard {
+    width: 700px;
+    height: 350px;
+    background-color: white;
+    &__title {
+      display: block;
+      height: 50px;
+      border-bottom: 2px solid #f8f8f8;
+      line-height: 50px;
+    }
+    &__contents {
+      margin-top: 20px;
+    }
+    &__btn{
+      margin: 40px auto;
+      &--d {
+        margin: 0 auto;
+        .delete-btn {
+          height: 100%;
+          width: 100%;
+          padding: 0px;
+          background-color: #3ccacc;
+          font-size: 20px;
+          color: white;
+          border-radius: 5px;
+        }
+      }
+    }
+  }
+}

@@ -101,7 +101,6 @@ class ItemsController < ApplicationController
       :postage_payer_id,
       :prefecture_id,
       :preparation_day_id,
-      :brand_id,
       :buyer_id,
       brand_attributes: [
         :name

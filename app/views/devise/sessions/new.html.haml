@@ -6,7 +6,7 @@
       ログイン
     - if flash[:alert].present?
       .error_messages=flash[:alert]
-    = form_with model: @user, url: "/users/sign_in", method: :post, class: "usersession__main__contents" do |f|
+    = form_with model: @user, url: "/users/sign_in", local:true, method: :post, class: "usersession__main__contents" do |f|
       = f.email_field :email, placeholder: "メールアドレス", class: "user_input_text"
       = f.password_field :password, placeholder: "パスワード", class: "user_input_text"
       = f.submit "ログイン", class: "usersession__main__contents--button"

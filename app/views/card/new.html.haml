@@ -1,0 +1,59 @@
+
+.usersession#contents_short
+  .usersession__header
+    = link_to image_tag("/material/logo/logo.png", class: "usersession__header__top--logo"), root_path, class: "usersession__header__top"
+    .usersession__header__bottom
+      %ol.usersession__header__bottom__lists
+        %li.usersession__header__bottom__lists--step#first_step_text 会員情報
+        %li.usersession__header__bottom__lists--step 住所
+        %li.usersession__header__bottom__lists--step カード
+        %li.usersession__header__bottom__lists--step 完了
+      .usersession__header__bottom__status
+        .progress_status.progress_status_step2#first_step_dot
+        .progress_status.progress_status_complete#secand_step_dot
+        .progress_status#secand_step_dot
+        .progress_status#last_step_dot
+.main-container
+  .right
+    .card-registration
+      クレジットカード情報入力
+      = form_with url: pay_card_path(current_user.id),method: :post, class: "inputForm", id:'card-form' do |f|
+        .card-registration__title
+          カード番号
+          %span{class: "require"}必須
+        = f.text_field "number", class: "card-registration__text", placeholder: "半角数字のみ", type: "text", id: "card_number", maxlength: "16"
+        .card-registration__title
+          有効期限
+          %span{class: "require"}必須
+          .date-box
+            %select.card-registration__select#exp_month{name: "exp_month",type:"text"}
+              %option{value: ""} --
+              %option{value: "01"} 01
+              %option{value: "02"} 02
+              %option{value: "03"} 03
+              %option{value: "04"} 04
+              %option{value: "05"} 05
+              %option{value: "06"} 06
+              %option{value: "07"} 07
+              %option{value: "08"} 08
+              %option{value: "09"} 09
+              %option{value: "10"} 10
+              %option{value: "11"} 11
+              %option{value: "12"} 12
+            月
+            %select.card-registration__select#exp_year{name: "exp-year", type: "text"}
+              %option{value: ""} --
+              %option{value: "2020"} 20
+              %option{value: "2021"} 21
+              %option{value: "2022"} 22
+              %option{value: "2023"} 23
+              %option{value: "2024"} 24
+              %option{value: "2025"} 25
+              %option{value: "2026"} 26
+            年
+        .card-registration__title
+          セキュリティコード
+          %span{class: "require"}必須
+          = f.text_field "cvc", class: "card-registration__text", placeholder: "カード背面の４桁または３桁の数字", type: "text"
+        .card-registration__title#card_token
+          = f.submit "登録", class: "card-registration__btn--submit", id: "token_submit"

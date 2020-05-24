@@ -5,16 +5,18 @@
       %ol.usersession__header__bottom__lists
         %li.usersession__header__bottom__lists--step#first_step_text 会員情報
         %li.usersession__header__bottom__lists--step 住所
+        %li.usersession__header__bottom__lists--step カード
         %li.usersession__header__bottom__lists--step 完了
       .usersession__header__bottom__status
         .progress_status#first_step_dot
+        .progress_status
         .progress_status
         .progress_status#last_step_dot
   .usersession__main
     .usersession__main--top
       会員情報入力
       = render "layouts/error_messages", model: @user
-    = form_with model: @user, url: step2_signup_index_path, method: :get, html: {class: 'usersession__main__contents'} do |f|
+    = form_with model: @user, url: step2_signup_index_path, method: :get, local: true,  html: {class: 'usersession__main__contents'} do |f|
       .usersession__main__contents__nickname
         %p.item_headline ニックネーム
         %p.required_label 必須

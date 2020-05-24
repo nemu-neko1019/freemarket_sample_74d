@@ -54,7 +54,7 @@
         .progress_status::after {
           content: " ";
           background-color: #ccc;
-          width: 100px;
+          width: 70px;
           border: 1px solid #ccc;
           display: block;
           position: absolute;
@@ -63,7 +63,7 @@
         }
         .progress_status_step2::after,
         .progress_status_complete::after,
-        #first_step_dot, #secand_step_dot,
+        #first_step_dot, #secand_step_dot, #third_step_dot,
         .progress_status_dot {
           background-color: #ea352d;
           border: 1px solid #ea352d;

@@ -1,6 +1,7 @@
 .buy_complete {
   background-color: #f8f8f8;
   height: 100vh;
+  
   &__header {
     height: 128px;
     &__top {
@@ -18,6 +19,11 @@
     background-color: white;
     margin: 64px auto 0;
     padding: 56px 0px 60px;
+    #text {
+      text-align: center;
+      background-color: red;
+      color: white;
+    }
     &__contents {
       text-align: center;
       max-width: 343px;
