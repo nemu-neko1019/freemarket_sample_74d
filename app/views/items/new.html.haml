@@ -1,5 +1,3 @@
-= javascript_include_tag 'category.js', 'data-turbolinks-track': 'reload'
-= javascript_include_tag 'item_edit.js', 'data-turbolinks-track': 'reload'
 .contents
   .item
     = form_with model: @item,url: items_path,method: :post, local: true, class: 'form' do |f|
@@ -11,17 +9,9 @@
               %p 出品画像
             .top__right
               %span.required 必須
-          .post__drop__box__container
-            .prev-content
-              .label-content
-                %label{for: "item_images_attributes_0_image", class: "abel-box", id: "label-box--0"}
-                  %pre.label-box__text-visible クリックしてファイルをアップロード
-              .hidden-content
-                = f.fields_for :item_images do |i|
-                  = i.file_field :image, class: "hidden-field"
-                  %input{class:"hidden-field", type: "file", name: "item[images_attributes][1][image]", id: "item_images_attributes_1_image" }
-                  %input{class:"hidden-field", type: "file", name: "item[images_attributes][2][image]", id: "item_images_attributes_2_image" }
-                  %input{class:"hidden-field", type: "file", name: "item[images_attributes][3][image]", id: "item_images_attributes_3_image" }
+          = f.fields_for :item_images, class: "top__form" do |r|
+            .image_form
+              = r.file_field :image
       .item__introduction
         .item__introduction--name
           .top
