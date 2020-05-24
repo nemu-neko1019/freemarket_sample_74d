@@ -1,6 +1,6 @@
-class CreateBlands < ActiveRecord::Migration[5.2]
+class CreateBrands < ActiveRecord::Migration[5.2]
   def change
-    create_table :blands do |t|
+    create_table :brands do |t|
       t.string :name
       t.timestamps
     end
