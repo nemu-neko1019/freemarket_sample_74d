@@ -1,7 +1,8 @@
 .main-container
   .side
     = link_to "マイページ", user_path,class: "side-box"
-    = link_to "出品する", new_item_path, class: "side-box"
+    = link_to "#",class: "side-box" do
+      出品する
     = link_to "出品した商品-出品中", {controller: "users", action:"edit", name: "_exhibiting"}, class: "side-box"
     = link_to "出品した商品-取引中", {controller: "users", action:"edit", name: "_exhibition-trading"}, class: "side-box"
     .side-box__choice

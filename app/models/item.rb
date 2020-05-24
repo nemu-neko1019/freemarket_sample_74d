@@ -11,6 +11,8 @@ class Item < ApplicationRecord
   belongs_to :buyer, class_name: 'User', :foreign_key => 'buyer_id', optional: true
   belongs_to :seller, class_name: 'User', :foreign_key => 'seller_id'
   extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :size
+  extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :condition
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :postage_payer
