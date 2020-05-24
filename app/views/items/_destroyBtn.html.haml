@@ -1,7 +1,7 @@
 - if @item.seller_id == current_user.try(:id)
-  = link_to items_url{item.id}, method: :delete do
+  = link_to item_path(@item.id), method: :delete do
     .destroyBtn
       %span.destroyBtn__text 削除
-      = image_tag "/material/icon/ifn0342.png",class:"destroyBtn__icon"
+      = image_tag "/material/icon/ifn0342.png",class:"editBtn__icon"
 - else 
   .display-none

@@ -27,11 +27,11 @@
           %h2.show-main__content__itembox__name
             = @item.name
           .show-main__content__itembox__body
-            =image_tag @item.item_images[0].image
+            =image_tag @item.item_images[0].image.url
           .show-main__content__itembox__images
             -@item.item_images.each_with_index do |item_image, index|
               -if index >= 1
-                =image_tag item_image.image
+                =image_tag item_image.image.url
           .show-main__content__itembox__price
             %p
               = "¥#{@item.price.to_s(:delimited)}" 
@@ -71,7 +71,7 @@
                   %th
                     商品のサイズ
                   %td
-                    = @size.size
+                    -# = @size.size
                 %tr
                   %th
                     商品の状態
