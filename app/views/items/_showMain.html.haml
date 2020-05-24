@@ -6,15 +6,15 @@
       %li
         = icon 'angle-right'
       %li
-        =link_to "#{@category}"
+        =link_to "#{@item.category.root.name}"
       %li
         = icon 'angle-right'
       %li
-        =link_to "#{@category}"
+        =link_to "#{@item.category.parent.name}"
       %li
         = icon 'angle-right'
       %li
-        =link_to "##{@category}"
+        =link_to "#{@item.category.name}"
       %li
         = icon 'angle-right'
       %li
@@ -57,11 +57,10 @@
                   %th
                     カテゴリー
                   %td
-                    %br/
                     =link_to "#{@item.category.root.name}"
-                    %br/
+                    %br
                     =link_to "#{@item.category.parent.name}"
-                    %br/
+                    %br
                     =link_to "#{@item.category.name}"
                 %tr
                   %th
@@ -73,7 +72,6 @@
                       = @brand.name
                 %tr
                   %th
-
                     商品の状態
                   %td
                     = @item.condition.item_condition
@@ -140,5 +138,5 @@
             %span 後ろの商品
             = icon 'angle-right'
       .show-main__reloaditems
-        =link_to "#{@item.category.name}をもっと見る" 
+        =link_to "#{@item.category.root.name}をもっと見る" 
         .productLists
