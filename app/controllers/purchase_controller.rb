@@ -1,5 +1,6 @@
 class PurchaseController < ApplicationController
   before_action :set_item, only: [ :index, :pay, :done]
+  before_action :set_card, only: :index
   require 'payjp'
 
   def index
@@ -26,16 +27,17 @@ class PurchaseController < ApplicationController
   end
 
   def done
-    @item.update(buyer_id: current_user.id)
-    if @item.buyer_id.nil?
-    flash.now[:alert] = 'データの保存に失敗しました'
-    end
+    flash.now[:alert] = 'データの保存に失敗しました' if @item.update(buyer_id: current_user.id)
   end
 
   private
 
   def set_item
     @item = Item.find(params[:id])
+  end
+
+  def set_card
+    card = Card.where(user_id: current_user.id)
   end
 
 end
