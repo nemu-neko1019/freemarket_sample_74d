@@ -1,12 +1,9 @@
 class PurchaseController < ApplicationController
-
+  before_action :set_item, only: [ :index, :pay, :done]
   require 'payjp'
 
   def index
-    @user = User.find(current_user.id)
-    @sending_destination = @user.sending_destination
-    
-    @item = Item.find(params[:id])
+    @sending_destination = current_user.sending_destination
     @card = Card.where(user_id: current_user.id).first
     if card = blank?
       redirect_to card_new_path
@@ -18,20 +15,29 @@ class PurchaseController < ApplicationController
   end
 
   def pay
-    @item = Item.find(params[:id])
     card = Card.where(user_id: current_user.id).first
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
     Payjp::Charge.create(
-      :amount => @item.price,
-      :customer => card.customer_id,
-      :currency => 'jpy',
+      amount: @item.price,
+      customer: card.customer_id,
+      currency: 'jpy',
     )
-    redirect_to action: 'done'
+    if Payjp::Charge.create
+      redirect_to action: 'done'
+    else
+      redirect_to action: 'index'
+    end
+
   end
 
   def done
-    @item = Item.find(params[:id])
     @item.update(buyer_id: current_user.id)
+  end
+
+  private
+
+  def set_item
+    @item = Item.find(params[:id])
   end
 
 end

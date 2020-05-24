@@ -19,7 +19,6 @@ document.addEventListener(
             $("#exp_year").removeAttr("name"); 
             var token = response.id;
             $("#card-form").append($('<input type="hidden" name="payjp_token" class="payjp-token" />').val(token));
-            console.log(token)
             var form = $('#card-form')[0];
             form.submit();
             alert("登録が完了しました");

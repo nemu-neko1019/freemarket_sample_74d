@@ -82,7 +82,6 @@ class ItemsController < ApplicationController
       ], item_images_attributes: [
         :image
       ]).merge(seller_id: current_user.id)
-
   end
 
 end

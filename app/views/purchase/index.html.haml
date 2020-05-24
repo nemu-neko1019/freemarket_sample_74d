@@ -12,7 +12,7 @@
       #pay_price
         .large_bold_text 支払い金額
         .large_bold_text 
-          = "#{@item.price.to_s(:delimited)}"
+          = "￥#{@item.price.to_s(:delimited)}（税込）"
     .buy__main__items__item
       %p.small_bold_text 支払い方法
       %p クレジットカード
@@ -25,6 +25,6 @@
       %p.small_bold_text 配送先
       = @sending_destination.postalcode
       = @sending_destination.prefecture.name
-      = @user.nickname
+      = current_user.nickname
     = link_to "購入する", pay_purchase_path, method: :post, class: "buy__main__items--button"
 .buy__footer
