@@ -6,7 +6,7 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    # @item.build_brand
+    
     @item_image = 4.times{@item.item_images.build}
     @category_parent_array = Category.where(ancestry: nil).pluck(:name)
     @category_parent_array.unshift("選択してください")

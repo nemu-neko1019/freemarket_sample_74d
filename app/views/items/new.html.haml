@@ -50,9 +50,8 @@
               %p ブランド
             .top__right
               %span.required 任意
-          .form
-            = f.fields_for :brand do |i| 
-              = i.text_field :name, class: 'input', placeholder: '例）シャネル'
+          .form 
+            = f.text_field :name, class: 'input', placeholder: '例）シャネル'
         .item__detail--state
           .top
             .top__left
