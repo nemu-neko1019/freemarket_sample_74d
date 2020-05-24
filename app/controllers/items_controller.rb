@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_item, only: [:destroy]
+  before_action :set_item, only: [:show, :destroy]
   def index
     @items = Item.all.order(created_at: :desc)
   end
@@ -40,7 +40,6 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
     @seller = User.find(@item.seller_id)
     @brand = Brand.find(@item.brand_id)
     @condition = Condition.find(@item.condition_id)
