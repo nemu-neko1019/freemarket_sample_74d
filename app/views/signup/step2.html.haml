@@ -5,16 +5,18 @@
       %ol.usersession__header__bottom__lists
         %li.usersession__header__bottom__lists--step#first_step_text 会員情報
         %li.usersession__header__bottom__lists--step 住所
+        %li.usersession__header__bottom__lists--step カード
         %li.usersession__header__bottom__lists--step 完了
       .usersession__header__bottom__status
         .progress_status.progress_status_step2#first_step_dot
         .progress_status#secand_step_dot
+        .progress_status
         .progress_status#last_step_dot
   .usersession__main
     .usersession__main--top
       住所情報
       = render "layouts/error_messages", model: @user
-    = form_with model: @user, url: signup_index_path, method: :post, class: "usersession__main__contents" do |f|
+    = form_with model: @user, url: signup_index_path, method: :post, local: true, class: "usersession__main__contents" do |f|
       = f.fields_for :sending_destination do |f|
         .usersession__main__contents__nickname
           %p.item_headline 郵便番号

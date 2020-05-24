@@ -21,7 +21,7 @@ class ItemsController < ApplicationController
       @category_parent_array = Category.where(ancestry: nil).pluck(:name)
       @category_parent_array.unshift("選択してください")
       @item.build_brand
-      @item_image = 4.times{@item.item_images.build}  
+      @item_image = 5.times{@item.item_images.build}  
       render action: :new
     end
   end
@@ -79,14 +79,12 @@ class ItemsController < ApplicationController
       :postage_payer_id,
       :prefecture_id,
       :preparation_day_id,
-      :brand_id,
       :buyer_id,
       brand_attributes: [
         :name
       ], item_images_attributes: [
         :image
       ]).merge(seller_id: current_user.id)
-
   end
 
 end

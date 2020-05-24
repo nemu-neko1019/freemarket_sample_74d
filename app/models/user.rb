@@ -13,6 +13,7 @@ class User < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :buyer_items, class_name: 'Item', :foreign_key => 'buyer_id'
   has_many :seller_items, class_name: 'Item', :foreign_key => 'seller_id'
+  has_many :cards, dependent: :destroy
 
   validates :nickname, :firstname, :familyname, presence: true
   validates :password, presence: true, length: {minimum: 7},format: {with: /\A[a-z0-9]+\z/i}
