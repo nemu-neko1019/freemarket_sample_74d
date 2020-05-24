@@ -15,7 +15,7 @@
                 - @item_images.each_with_index do |image, i|
                   .preview-box
                     .upper-box
-                      = image_tag image.image.url, width: "112", height: "112", alt: "preview"
+                      = image_tag image.image.url, width: "112", height: "112", alt: "preview", id: "item_image_preview"
                     .lower-box
                       .update-box
                         .edit-btn

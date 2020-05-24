@@ -8,9 +8,7 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.build_brand
-    @item.item_images.build
-    @category_parent_array = Category.where(ancestry: nil).pluck(:name)
-    @category_parent_array.unshift("選択してください")
+    @item_image = 4.times{@item.item_images.build}
     @category_parent_array = Category.where(ancestry: nil).pluck(:name)
     @category_parent_array.unshift("選択してください")
   end
@@ -23,10 +21,8 @@ class ItemsController < ApplicationController
       @category_parent_array = Category.where(ancestry: nil).pluck(:name)
       @category_parent_array.unshift("選択してください")
       @item.build_brand
-      @item.item_images.build
-      @category_parent_array = Category.where(ancestry: nil).pluck(:name)
-      @category_parent_array.unshift("選択してください")
-        render action: :new
+      @item_image = 4.times{@item.item_images.build}
+      render action: :new
     end
   end
 
@@ -54,6 +50,7 @@ class ItemsController < ApplicationController
     if @item.update(item_update_params)
       redirect_to item_path(params[:id])
     else
+      @item_images = ItemImage.where(item_id: params[:id])
       @item.item_images.build
       grandchild_category = @item.category
       child_category = grandchild_category.parent
