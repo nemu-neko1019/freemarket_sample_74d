@@ -17,7 +17,7 @@
   .right
     .card-registration
       クレジットカード情報入力
-      = form_with url: pay_card_index_path, class: "inputForm", id:'card-form',method: :post do |f|
+      = form_with url: pay_card_path(current_user.id),method: :post, class: "inputForm", id:'card-form' do |f|
         .card-registration__title
           カード番号
           %span{class: "require"}必須
