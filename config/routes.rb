@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   end
   resources :users do
     get 'users/:name', controller: 'users', action: 'edit'
+    
   end
   resources :signup, only: [:index, :create, :destroy] do
     collection do
