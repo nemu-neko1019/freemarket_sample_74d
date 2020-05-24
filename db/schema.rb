@@ -160,7 +160,7 @@ ActiveRecord::Schema.define(version: 2020_05_22_113356) do
   add_foreign_key "favorites", "items"
   add_foreign_key "favorites", "users"
   add_foreign_key "item_images", "items"
-  add_foreign_key "items", "brands"
+  add_foreign_key "items", "brands", column: "bland_id"
   add_foreign_key "items", "categories"
   add_foreign_key "items", "users", column: "buyer_id"
   add_foreign_key "items", "users", column: "seller_id"

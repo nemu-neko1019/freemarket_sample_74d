@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-
+  before_action :authenticate_user!, except: [:index, :show]
   def index
     @items = Item.all.order(created_at: :desc)
   end
@@ -26,6 +26,10 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+    item = Item.find(params[:id])
+    if item.user_id == current_user.id
+      item.destroy
+    end
   end
 
   def edit
@@ -39,7 +43,11 @@ class ItemsController < ApplicationController
     @category = @item.category
     @item_images = @item.item_images
     @seller = User.find(@item.seller_id)
-    @brand = @item.brand
+    @brand = Brand.find(@item.brand_id)
+    @condition = Condition.find(@item.condition_id)
+    @postage_payer = PostagePayer.find(@item.postage_payer_id)
+    @prefecture = Prefecture.find(@item.prefecture_id)
+    @preparationday = PreparationDay.find(@item.preparation_day_id)
   end
 
   def buy
