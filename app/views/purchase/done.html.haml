@@ -2,6 +2,8 @@
   .buy_complete__header
     =link_to image_tag("/material/logo/logo.png", class: "buy_complete__header__top--logo"), root_path, class: "buy_complete__header__top"
   .buy_complete__main
+    .buy_complete__main--alert
+      = flash[:alert]
     .buy_complete__main__contents
       .buy_complete__main__contents--top
         購入を完了しました

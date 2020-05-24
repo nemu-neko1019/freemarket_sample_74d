@@ -22,16 +22,14 @@ class PurchaseController < ApplicationController
       customer: card.customer_id,
       currency: 'jpy',
     )
-    if Payjp::Charge.create
       redirect_to action: 'done'
-    else
-      redirect_to action: 'index'
-    end
-
   end
 
   def done
     @item.update(buyer_id: current_user.id)
+    if @item.buyer_id.nil?
+    flash.now[:alert] = 'データの保存に失敗しました'
+    end
   end
 
   private
