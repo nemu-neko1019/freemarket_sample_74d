@@ -11,7 +11,6 @@ class ItemsController < ApplicationController
     @item.item_images.build
     @category_parent_array = Category.where(ancestry: nil).pluck(:name)
     @category_parent_array.unshift("選択してください")
-    end
     @category_parent_array = Category.where(ancestry: nil).pluck(:name)
     @category_parent_array.unshift("選択してください")
   end
@@ -23,7 +22,6 @@ class ItemsController < ApplicationController
     else
       @category_parent_array = Category.where(ancestry: nil).pluck(:name)
       @category_parent_array.unshift("選択してください")
-      end
       @item.build_brand
       @item.item_images.build
       @category_parent_array = Category.where(ancestry: nil).pluck(:name)
