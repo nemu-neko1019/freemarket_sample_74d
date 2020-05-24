@@ -1,4 +1,4 @@
-.editBtn {
+.destroyBtn {
   width: 120px;
   background: #3CCACE;
   text-align: center;
@@ -7,7 +7,7 @@
   position: fixed;
   padding: 15px;
   height: 120px;
-  left:160px;
+  right:170px;
     &__text {
       color: #fff;
       display: block;
