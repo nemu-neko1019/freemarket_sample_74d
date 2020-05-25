@@ -229,7 +229,6 @@ ja:
         price: 販売価格
         category_id: カテゴリー
         brand_id: ブランド
-        size: サイズ
         condition: 商品の状態
         postage_payer: 配送料負担者
         buyer_id: 購入者

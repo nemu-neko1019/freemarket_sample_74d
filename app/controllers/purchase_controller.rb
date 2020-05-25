@@ -27,7 +27,10 @@ class PurchaseController < ApplicationController
   end
 
   def done
-    flash.now[:alert] = 'データの保存に失敗しました' if @item.update(buyer_id: current_user.id)
+    @item.update(buyer_id: current_user.id)
+    if @item.buyer_id.nil?
+    flash.now[:alert] = 'データの保存に失敗しました'
+    end
   end
 
   private

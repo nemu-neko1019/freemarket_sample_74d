@@ -66,7 +66,6 @@
 |price|integer|null: false|
 |category_id|references|foreign_key: true|
 |brand_id|references|foreign_key: true|
-|size_id|integer|null: false|
 |condition_id|integer|null: false|
 |postage_payer_id|integer|null: false|
 |seller_id|references|null: false, foreign_key: true|
@@ -80,7 +79,6 @@
 - has_many :item_images, dependent: :destroy
 - has_one :user_review
 - belongs_to :category
-- belongs_to :active_hash :size
 - belongs_to :active_hash :condition
 - belongs_to :active_hash :postage_payer
 - belongs_to :active_hash :preparation_day
@@ -160,11 +158,6 @@
 ## prefecture
 - id
 - name
-
-## sizes
-- id
-- category
-- size
 
 ## Conditions
 - id
