@@ -18,7 +18,7 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   include CarrierWave::MiniMagick 
 
-  process resize_to_fit: [100, 100]
+  process resize_to_fit: [600, 600]
   process :convert => 'jpg'
   def filename
     super.chomp(File.extname(super)) + '.jpg' if original_filename.present?
