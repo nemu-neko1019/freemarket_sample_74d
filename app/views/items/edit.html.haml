@@ -1,6 +1,6 @@
 .contents
   .item
-    = form_with model: @item,url: items_path,method: :post, local: true, class: 'form' do |f|
+    = form_with model: @item,url: item_path, method: :PUT, local: true, class: 'form' do |f|
       = render "layouts/error_messages", model: @item
       .item__image
         .item__image--img
@@ -9,9 +9,33 @@
               %p 出品画像
             .top__right
               %span.required 必須
-          = f.fields_for :item_images, class: "top__form" do |r|
-            .image_form
-              = r.file_field :image
+          .post__drop__box__container
+            .prev-content
+              - if @item_images.present?
+                - @item_images.each_with_index do |image, i|
+                  .preview-box
+                    .upper-box
+                      = image_tag image.image.url, width: "112", height: "112", alt: "preview", id: "item_image_preview"
+                    .lower-box
+                      .update-box
+                        .edit-btn
+                          編集
+                      .delete-box
+                        .delete-btn
+                          削除
+            .label-content
+              - if @item_images.present?
+                = f.label :"item_images_attributes_#{@item_images.length}_image", class: "label-box", id: "label-box--#{@item_images.length}" do
+                  %p.label-box__text-visible クリックしてファイルをアップロード
+                  .hidden-content
+                    = f.fields_for :item_images do |i|
+                      = i.file_field :image, class: "hidden-field"
+                      = i.check_box:_destroy, class: "hidden-checkbox"
+                    - @item_images.length.upto(3) do |i|
+                      %input{name: "item[item_images_attributes][#{i}][image]", id: "item_item_images_attributes_#{i}_image", class:"hidden-field", type:"file"}
+        .sell__block__form__name
+          .form-group__name
+            %label
       .item__introduction
         .item__introduction--name
           .top
@@ -40,9 +64,15 @@
                 .listing-default--require 必須
             .listing-select-wrapper
               .listing-select-wrapper__box
-                = f.select :category_id, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+                = f.select :parent_name, @category_parent_array, {selected: @item.category.parent.parent.name}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
                 #category_id1
+                  .listing-select-wrapper__added#children_wrapper
+                    .listing-select-wrapper__box
+                      = f.select :child_id, options_for_select(@category_children_array.map{|b| [b.name, b.id, {data:{category: b.id}}]}, {prompt: "指定なし", selected: @item.category.parent.id}),{}, {class: 'listing-select-wrapper__box--select', id: 'grandchild_category'}
                 #category_id2
+                  .listing-select-wrapper__added#grandchildren_wrapper
+                    .listing-select-wrapper__box
+                      = f.select :category_id, options_for_select(@category_grandchildren_array.map{|b| [b.name, b.id, {data:{category: b.id}}]}, {prompt: "指定なし", selected: @item.category.id}), {}, {class: "listing-select-wrapper__box--select", id: "grandchild_category"}
         .item__detail--brand
           .top
             .top__left
@@ -109,9 +139,10 @@
       .button
         .btn
           .button__exhibition
-            = f.submit :出品する, class: 'btn', placeholder: '0'
+            = f.submit :編集する, class: 'btn', placeholder: '0'
           .button__return
             = link_to 'もどる', "root_path", class: "return"
         .warning
           %p.agreement 禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
+
 
