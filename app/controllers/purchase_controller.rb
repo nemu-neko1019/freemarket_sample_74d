@@ -1,4 +1,5 @@
 class PurchaseController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_item, only: [ :index, :pay, :done]
   before_action :set_card, only: :index
   require 'payjp'
