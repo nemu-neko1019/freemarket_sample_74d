@@ -44,7 +44,6 @@ $(document).on('turbolinks:load', function(){
 
     if (document.getElementsByClassName("item_image_preview") != null){
       $("#edit-btn_0").on("click", function(){
-        console.log(2222);
         $("#item_item_images_attributes_0_image").trigger("click");
         var item_image0 = document.getElementsByClassName("item_image_preview");
         item_image0.removeAttribute("id");
