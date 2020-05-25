@@ -1,4 +1,5 @@
-//= require jquery
+document.addEventListener("turbolinks:load", function() {
+
 $(function(){
   function appendOption(category){
     var html = `<option value=${category.id} data-category=${category.id}>${category.name}</option>`;
@@ -88,4 +89,5 @@ $(function(){
       $('#brand_wrapper').remove();
     }
   });
+});
 });

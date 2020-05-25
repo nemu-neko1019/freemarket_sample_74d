@@ -8,7 +8,7 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.build_brand
-    @item_image = 4.times{@item.item_images.build}
+    @item.item_images.build
     @category_parent_array = Category.where(ancestry: nil).pluck(:name)
     @category_parent_array.unshift("選択してください")
   end
@@ -18,10 +18,10 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path
     else
+      @item.build_brand
+      @item.item_images.build
       @category_parent_array = Category.where(ancestry: nil).pluck(:name)
       @category_parent_array.unshift("選択してください")
-      @item.build_brand
-      @item_image = 4.times{@item.item_images.build}
       render action: :new
     end
   end

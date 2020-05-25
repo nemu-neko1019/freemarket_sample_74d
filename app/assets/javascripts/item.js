@@ -100,11 +100,11 @@ $(document).on('turbolinks:load', function(){
         if ($(`#item_item_images_attributes_${id}__destroy`)){
           $(`#item_item_images_attributes_${id}__destroy`).prop('checked',false);
         } 
+        
         $("#edit-btn_0").on("click", function(){
           $("#item_item_images_attributes_0_image").trigger("click");
         });
         $("#edit-btn_1").on("click", function(){
-          console.log("dddd")
           $("#item_item_images_attributes_1_image").trigger("click");
         });
         $("#edit-btn_2").on("click", function(){
