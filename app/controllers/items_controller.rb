@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_item, only: [:show, :destroy]
+  before_action :set_item
   def index
     @items = Item.all.order(created_at: :desc)
   end
@@ -34,7 +34,6 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @item = Item.find(params[:id])
     @item_images = ItemImage.where(item_id: params[:id])
     @item.item_images.build
     grandchild_category = @item.category
@@ -45,7 +44,6 @@ class ItemsController < ApplicationController
   end
 
   def update
-    @item = Item.find(params[:id])
     @item_images = ItemImage.where(item_id: params[:id])
     if @item.update(item_update_params)
       redirect_to item_path(params[:id])
