@@ -9,9 +9,17 @@
               %p 出品画像
             .top__right
               %span.required 必須
-          = f.fields_for :item_images, class: "top__form" do |r|
-            .image_form
-              = r.file_field :image
+          .post__drop__box__container
+            .prev-content
+            .label-content
+              = f.label :"item_images_attributes_0_image", class: "label-box", id: "label-box--0" do
+                %p.label-box__text-visible クリックしてファイルをアップロード
+                .hidden-content
+                  = f.fields_for :item_images do |i|
+                    = i.file_field :image, class: "hidden-field"
+                  %input{class:"hidden-field", type: "file", name: "item[item_images_attributes][1][image]", id: "item_item_images_attributes_1_image" }
+                  %input{class:"hidden-field", type: "file", name: "item[item_images_attributes][2][image]", id: "item_item_images_attributes_2_image" }
+                  %input{class:"hidden-field", type: "file", name: "item[item_images_attributes][3][image]", id: "item_item_images_attributes_3_image" }
       .item__introduction
         .item__introduction--name
           .top

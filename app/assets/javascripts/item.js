@@ -44,6 +44,7 @@ $(document).on('turbolinks:load', function(){
 
     if (document.getElementsByClassName("item_image_preview") != null){
       $("#edit-btn_0").on("click", function(){
+        console.log(2222);
         $("#item_item_images_attributes_0_image").trigger("click");
         var item_image0 = document.getElementsByClassName("item_image_preview");
         item_image0.removeAttribute("id");
@@ -100,11 +101,13 @@ $(document).on('turbolinks:load', function(){
         if ($(`#item_item_images_attributes_${id}__destroy`)){
           $(`#item_item_images_attributes_${id}__destroy`).prop('checked',false);
         } 
+        
         $("#edit-btn_0").on("click", function(){
+          console.log(3333)
           $("#item_item_images_attributes_0_image").trigger("click");
         });
         $("#edit-btn_1").on("click", function(){
-          console.log("dddd")
+          console.log(7777)
           $("#item_item_images_attributes_1_image").trigger("click");
         });
         $("#edit-btn_2").on("click", function(){
