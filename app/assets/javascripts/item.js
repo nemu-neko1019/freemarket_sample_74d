@@ -102,11 +102,9 @@ $(document).on('turbolinks:load', function(){
         } 
         
         $("#edit-btn_0").on("click", function(){
-          console.log(3333)
           $("#item_item_images_attributes_0_image").trigger("click");
         });
         $("#edit-btn_1").on("click", function(){
-          console.log(7777)
           $("#item_item_images_attributes_1_image").trigger("click");
         });
         $("#edit-btn_2").on("click", function(){
