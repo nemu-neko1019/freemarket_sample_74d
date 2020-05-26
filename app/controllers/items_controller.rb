@@ -1,6 +1,8 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_item, only: [:show, :destroy, :edit, :update]
+  before_action :back_page_show, only: [:edit, :update, :destroy]
+
   def index
     @items = Item.all.order(created_at: :desc)
   end
@@ -87,7 +89,12 @@ class ItemsController < ApplicationController
   def set_item
     @item = Item.find(params[:id])
   end
-  
+
+  def back_page_show
+    if current_user.id != @item.seller_id
+      redirect_to action: "show", id: params[:id]
+    end
+  end
 
   def item_params
     params.require(:item).permit(
