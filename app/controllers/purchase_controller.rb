@@ -5,7 +5,7 @@ class PurchaseController < ApplicationController
   require 'payjp'
 
   def index
-    if @item.buyer_id.nil?
+    if @item.buyer_id.nil? && @item.seller_id != current_user.id
       @sending_destination = current_user.sending_destination
       @card = Card.where(user_id: current_user.id).first
       if card = blank?
@@ -43,6 +43,7 @@ class PurchaseController < ApplicationController
   end
 
   private
+
 
   def set_item
     @item = Item.find(params[:id])
