@@ -1,4 +1,4 @@
-- if user_signed_in? && current_user.id == @item.seller_id
+- if user_signed_in? && current_user.id == @item.seller_id || @item.buyer_id
   .display-none
 - else 
   = link_to confirmation_purchase_path(@item.id), method: :get do
