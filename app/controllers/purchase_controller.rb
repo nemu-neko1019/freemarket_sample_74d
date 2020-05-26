@@ -2,11 +2,10 @@ class PurchaseController < ApplicationController
   before_action :authenticate_user!
   before_action :set_item, only: [ :index, :pay, :done]
   before_action :set_card, only: :index
-  before_action :correct_user, only: [:index]
   require 'payjp'
 
   def index
-    if @item.buyer_id.nil?
+    if @item.buyer_id.nil? && @item.seller_id != current_user.id
       @sending_destination = current_user.sending_destination
       @card = Card.where(user_id: current_user.id).first
       if card = blank?
@@ -45,12 +44,6 @@ class PurchaseController < ApplicationController
 
   private
 
-  def correct_user
-    @sending_destination = current_user.sending_destination
-      unless @sending_destination
-        redirect_to root_path
-      end
-  end
 
   def set_item
     @item = Item.find(params[:id])
